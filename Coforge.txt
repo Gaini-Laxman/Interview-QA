@@ -1,0 +1,147 @@
+
+
+@Test
+public class Controller{
+
+@GetMappin("/")
+public void Employee getEmployeeById{
+Employee mockito = mockObj();
+EmployeeServive.getEmployeeById();
+}
+
+
+}
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.*;
+
+class ControllerTest {
+    @Test
+    void testGetEmployeeById() {
+        // Arrange
+        long employeeId = 123;
+        String expectedName = "John Doe";
+        double expectedSalary = 50000.0;
+
+        // Create a mock EmployeeService
+        EmployeeService employeeService = mock(EmployeeService.class);
+
+        // Create a sample Employee object to be returned by the mock service
+        Employee sampleEmployee = new Employee(employeeId, expectedName, expectedSalary);
+
+        // Mock the behavior of the employeeService.getEmployeeById() method
+        when(employeeService.getEmployeeById(employeeId)).thenReturn(sampleEmployee);
+
+        // Create an instance of the Controller and inject the mock EmployeeService
+        Controller controller = new Controller(employeeService);
+
+        // Act
+        Employee result = controller.getEmployeeById(employeeId);
+
+        // Assert
+        assertEquals(expectedName, result.getName());
+        assertEquals(expectedSalary, result.getSalary(), 0.001);
+        
+        // Verify that the employeeService.getEmployeeById() method was called exactly once with the correct argument
+        verify(employeeService, times(1)).getEmployeeById(employeeId);
+    }
+}
+
+
+
+
+
+
+
+=========================================================================================
+
+list.stream().filter(p->p.age >= 50).
+                     .filter(p->p.Salary )
+
+
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+class Person {
+    private String name;
+    private int age;
+    private double salary;
+
+    public Person(String name, int age, double salary) {
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", salary=" + salary +
+                '}';
+    }
+}
+
+public class SalaryIncreaseProgram {
+    public static void main(String[] args) {
+        // Create a list of people
+        List<Person> people = new ArrayList<>();
+        people.add(new Person("John", 45, 50000));
+        people.add(new Person("Alice", 50, 60000));
+        people.add(new Person("Bob", 55, 70000));
+        people.add(new Person("Mary", 40, 55000));
+        people.add(new Person("David", 60, 80000));
+
+        // Increase salary for people aged 50 and above using map
+        List<Person> updatedPeople = people.stream()
+                .map(person -> {
+                    if (person.getAge() >= 50) {
+                        person.setSalary(person.getSalary() + 10000);
+                    }
+                    return person;
+                })
+                .collect(Collectors.toList());
+
+        // Print the updated people list
+        updatedPeople.forEach(System.out::println);
+    }
+}
+
+
+=========================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
