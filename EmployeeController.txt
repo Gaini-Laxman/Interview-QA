@@ -1,0 +1,300 @@
+
+
+get employees from db by using Spring boot
+
+
+@Controller
+public class EmployeeController{
+
+
+@PostMapping
+public void addEmployee(@RequestBody Employee employee){
+
+ employeeService.save(employee);
+
+}
+
+@GetMapping("/employees")
+public List<Employee> getAll Employees(){
+
+return employeeService.getAllEmployees();
+
+}
+
+@GetMapping("/employee{id}")
+public Employee getEmployee(@PathVariable ("id") int id){
+
+return EmployeeService.getEmployeeByid();
+}
+}
+
+=============================================================================================
+get employees from db by using Spring boot
+
+@Controller
+public class EmployeeController{
+
+@PostMapping("employee")
+public void addEmployee(@RequestBody Employee employee){
+
+employeeService.save(employee)
+ }
+@GetMapping("/employee")
+List<Employee> getAllEmployee(){
+return employeeService.getAllEmployee();
+}
+
+@GetMapping("/employee{id}")
+public Employee getEmployee(@PathVariable("id") int id){
+
+return employeeService.getEmployeeById("id");
+}
+
+@DeleteMapping("employee/{id}")
+public void deleteEmployee(@PathVariable("id") int id){
+}
+@PutMapping("/employee")
+public void updateEmployee(@RequestBody Employee employee){
+
+}
+}
+
+=============================================================================================
+
+public class EmployeeController{
+
+@PostMapping("/employee")
+public void addEmployee(@RequestBody Employee employee){
+
+employeeService.save(employee)
+}
+@GetMapping("/employee{id}")
+public Employee getEmployee(@PathVariable("id") int id){
+
+return employeeService.getEmployeeById(id);
+}
+@GetMapping("/employee")
+public List<Employee> getAllEmployee(){
+
+return employeeService.getAllEmployee();
+}
+@DeleteMapping("/employee/{id}")
+public void deleteEmployee(@PathVariable("id") int id){
+
+}
+
+@PutMapping("/employee")
+public void updateEmployee(@RequestBody Employee employee){
+}
+}
+=============================================================================================
+
+
+Singleton Clas
+==========
+
+public class Singleton{
+private static Singleton instance;
+
+private Singleton () {}
+
+public static Singleton getInstance(){
+if(instance == null){
+instance = new Singleton();
+
+return instance;
+
+}
+public void singletonMethod(){
+System.out.println("Singleton Working.....")
+
+
+}
+
+}
+===================================
+
+Singleton Class(Syncronized)
+===========
+
+public class Singleton{
+private static Singleton instance;
+private Singleton(){}
+public static Singleton getInstance(){
+if(instance == null){
+syncronized(Singleton.class){
+if(instance == null){
+
+instance = new Singleton();
+}
+}
+}
+return instatnce;
+}
+public void SingletonMethod(){
+System.out.println("Singleton Working...");
+}
+}
+
+=============================================================================================
+Singleton Class (Serialization)
+=====================
+
+/////
+
+===================================
+reverse number print
+===============
+
+while(num!=0){
+System.out.println(num%10);
+num/=10;
+}
+===========================================
+print highest salary 
+==============
+Optional<Employee>max = list.stream().collect(Collectors.maxBy(Comparator.comparing(e->e.salary)));
+System.out.println(max.get().salary);
+
+   Optional<Employee>min = list.stream().collect(Collectors.minBy(Comparator.comparing(e->e.salary)));
+   System.out.println(min.get().salary);
+
+Double averageSalary = list.stream().collect(Collectors.averagingDouble(e->e.salary));
+System.out.println(averageSalary);
+
+//SecondHighest Salary
+Optional<Employee>secondHighest = list.stream().sorted(Comparator.comparing(Employee::getSalary).reversed()).skip(1).findFirst();
+System.out.println(secondHighest.get().salary);
+
+//Third Highest Salary
+Optional<Employee>thirdHighest = list.stream().sorted(Comparator.comparing(Employee::getsalary).reversed()).skip(2).findFirst();
+System.out.println(thirdHighest.get().salary);
+
+=========================================================================================
+using Lambda and Functional Interface write square number
+===========================================
+
+PrintNumber p =(n)->System.out.println(n*n);
+p.print(5);
+===================================================
+application.yml or appication.property
+server.port=9090;
+
+starter web and devtool
+
+how you can add context path
+=====================
+server.servlet.context-path=/laxman
+
+============================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,214 @@
+
+
+@Controller
+public MsgController{
+    
+@PostMapping("/")
+public msgController(){
+msg = "Goodmorning";
+
+return "msg ";
+
+}
+
+}
+
+===========================================
+
+
+
+for(int i=s.length()-1; i>=0; i--){
+
+System.out.println(s.charAt(i));
+}
+
+======================================
+reverse String :
+==========
+
+
+for(int i=s.length()-1; i>=0; i--){
+System.ou.println(s.charAt(i));
+}
+=======================================
+you can insert employee data by in db and retrive data ?
+========================================
+@PostMapping("/employee")
+public void addEmployee(@RequestBody Employee employee){
+
+employeeService.save(employee);
+}
+@GetMapping("/employee")
+public List<Employee> getAllEmployee(){
+
+return  emlpoyeeService.getAllEmployee();
+} 
+@GetMapping("/employee{id}")
+public Employee getEmployee(@PathVariable("id") int id){
+
+return employeeService.getEmployeeById(id);
+}
+@DeleteMapping
+public void deleteEmployee(@PathVariable("id") int id){
+}
+@PutMapping("/employee")
+public void updateEmployee(@RequestBody Employee employee){
+
+}
+=======================================================
+Write code Singleton Design Pattern
+==========================
+
+public class Singleton{
+private static Singleton instance;
+
+private static Singleton(){}
+
+public static Singleton getInstance(){
+if(instance==null){
+instance = new Singleton();
+
+return instance;
+}
+public void SingletonMethod(){
+System.out.println("Singleton Method Working.......");
+}
+}
+}
+==================================================
+Singleton with Synchronized keyword
+============================
+
+public class Singleton{
+private static Singleton instance;
+private static Singleton(){}
+public static Singleton getInstance(){
+if(instance == null){
+syncronized(Singleton.class){
+if(instance == null ){
+instance = new Singleton();
+}
+}
+return instance;
+}
+public void SingletonMethod(){
+System.out.println("Singleton Working");
+}
+}
+}
+
+=============================================================================================
+syncronized with serialization:
+======================
+with thi approach singleto class create two object so singleton design creating two obje is not a good approach
+
+so this is not recommend 
+
+repalce with enum is best approach to create single design pattern;
+
+
+
+=============================================================================================
+Method overloading :
+===============
+class Demo{
+void sum(int x, inty){
+S.O.p(x+y);
+}
+void sum(int x, int y, int z){
+S.O.P(x+y+z);
+}
+public static void main(String [] args){
+Demo d =  new Demo();
+d.sum(10+20);
+d.sum(10+20+30);
+}
+}
+=============================================================================================
+Method Overriding:
+==============
+class Animal{
+public void eat(){}
+class Dog extends Animal{
+public void eat(){}
+public static void main(String [] args){
+Dog d = new Dog();
+d.eat();
+}
+}
+}
+=============================================================================================
+
+
+========================================
+String Immutable Class
+=================
+
+public final class StringImmitable{
+private final int id;
+private final String name;
+private final HashMap<String, String>map;
+
+public int get Id(){
+return id;
+}
+ public String getName(){
+return name;
+}
+public HshMap<>getMap(){
+
+
+}
+
+}
+==========================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

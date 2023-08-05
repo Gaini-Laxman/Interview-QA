@@ -1,0 +1,265 @@
+
+Convert a List<Employee> into List<Map<String,Object>> convert pojo class ?above ?
+
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+public class Employee {
+    private int id;
+    private String name;
+    private String department;
+
+    // Constructors, getters, and setters...
+
+    // Sample method to return a list of Employee objects (replace with your data source)
+    private static List<Employee> getEmployeeList() {
+        // Implement this method to return a list of Employee objects
+        // For example:
+        return List.of(
+                new Employee(1, "John Doe", "Engineering"),
+                new Employee(2, "Jane Smith", "Sales"),
+                new Employee(3, "Mike Johnson", "Marketing")
+        );
+    }
+
+    public static void main(String[] args) {
+        List<Employee> employees = getEmployeeList(); // Replace this with your actual list of Employee objects
+
+        // Convert List<Employee> to List<Map<String, Object>>
+        List<Map<String, Object>> employeeMaps = employees.stream()
+                .map(employee -> {
+                    Map<String, Object> employeeMap = Map.of(
+                            "id", employee.getId(),
+                            "name", employee.getName(),
+                            "department", employee.getDepartment()
+                            // Add other fields as needed
+                    );
+                    return employeeMap;
+                })
+                .collect(Collectors.toList());
+
+        // Print the resulting List<Map<String, Object>>
+        for (Map<String, Object> employeeMap : employeeMaps) {
+            System.out.println(employeeMap);
+        }
+    }
+}
+==============================================================
+
+
+     Optional<String> salary =      list.stream().filter(p->p.salary >=500000;
+
+salary.collect()
+==============================================================
+
+Write a Java 8 Streams code snippet to filter even numbers from a list and then double each even number.
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class Main {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+        List<Integer> doubledEvenNumbers = numbers.stream()
+                .filter(n -> n % 2 == 0) // Filter even numbers
+                .map(n -> n * 2) // Double each even number
+                .collect(Collectors.toList());
+
+        System.out.println(doubledEvenNumbers);
+    }
+}
+
+
+
+==============================================================
+
+List<String> strings = Arrays.asList("Java", "is", "awesome");
+Given a list of strings, write a Java 8 Streams code to concatenate all strings into a single comma-separated string.
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class Main {
+    public static void main(String[] args) {
+        List<String> strings = Arrays.asList("Java", "is", "awesome");
+
+        String concatenatedString = strings.stream()
+                .collect(Collectors.joining(", "));
+
+        System.out.println(concatenatedString);
+    }
+}
+
+
+============================================================
+Write a Get endpoint to fetch the Employee by employeeid
+
+@GetMappin("Employee/{EmpId}")
+public Integer getEmpId(empId int){
+
+EmployeService.
+
+}
+===========
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class EmployeeController {
+
+    private final EmployeeService employeeService;
+
+    @Autowired
+    public EmployeeController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
+    }
+
+    @GetMapping("/Employee/{empId}")
+    public Employee getEmployeeById(@PathVariable int empId) {
+        return employeeService.getEmployeeById(empId);
+    }
+}
+
+
+
+==============================================================
+
+Convert java.util.date to java.sql.date
+
+java.util.Date: Fri Aug 06 09:45:21 UTC 2023
+java.sql.Date: 2023-08-06
+
+==============================================================
+write a Java 8 Streams code to find the number of strings that contain the letter "a".
+
+List<String> strings = Arrays.asList("apple", "banana", "grape", "watermelon", "orange");
+
+
+public class PredicateDemo2 {
+
+public static void main(String[] args) {
+
+String[ ] names = { "Anushka", "Anupama", "Deepika", "Kajol", "Sunny" };
+
+		Predicate<String> p = name -> name.charAt(0) == 'A';
+
+		for (String name : names) {
+			if ( p.test(name) ) {
+				System.out.println(name);
+				}
+		}
+	}
+}
+
+
+
+
+
+
+==============================================================
+
+1000 users send notification by using multithreading ?
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class Main {
+    private static final int THREAD_POOL_SIZE = 10; // You can adjust this based on your system's capacity
+
+    public static void main(String[] args) {
+        // Assuming you have a list of user IDs
+        List<String> userIds = new ArrayList<>();
+        for (int i = 1; i <= 1000; i++) {
+            userIds.add("user_" + i);
+        }
+
+        ExecutorService executor = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
+
+        for (String userId : userIds) {
+            Runnable notificationTask = new NotificationTask(userId);
+            executor.execute(notificationTask);
+        }
+
+        executor.shutdown();
+
+        try {
+            // Wait for all threads to finish before terminating
+            if (!executor.awaitTermination(5, TimeUnit.MINUTES)) {
+                // If it takes too long, force shutdown
+                executor.shutdownNow();
+            }
+        } catch (InterruptedException e) {
+            executor.shutdownNow();
+            Thread.currentThread().interrupt();
+        }
+    }
+}
+==============================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

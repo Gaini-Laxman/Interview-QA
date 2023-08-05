@@ -1,0 +1,82 @@
+
+
+
+public class Singleton{
+private static Singleton instance;
+
+private Singleton(){}
+public static Singleton getInstance(){
+if(instance == null){
+intance = new Singleton();
+}
+return instance;
+}
+
+}
+
+
+=====================================================================================================================
+
+
+
+public final class Student{
+private final Integer rollno;
+privtate final List<Integer> 
+public Interger getRollNo(Integer int){
+return rollno;
+
+
+}
+
+}
+==========================
+import java.util.List;
+
+public final class Student {
+    private final Integer rollNo;
+    private final List<Integer> marks;
+
+    public Student(Integer rollNo, List<Integer> marks) {
+        this.rollNo = rollNo;
+        this.marks = marks;
+    }
+
+    public Integer getRollNo() {
+        return rollNo;
+    }
+
+    public List<Integer> getMarks() {
+        return marks;
+    }
+}
+
+
+
+
+
+
+
+
+
+====================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

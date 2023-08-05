@@ -1,0 +1,104 @@
+Quations 1 : 
+=========
+Input : List<Integer> list = 7 6 6 6 6 8 4 3 2 5 4 7 6 8
+
+output-1 :Collection 1 = 7 6 8 4 3 2 5
+
+output-2 :Collection 2 = 6 6 6 4 7 6 8
+=====================================================================================================================
+Answer  :
+======
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class Main {
+    public static void main(String[] args) {
+        List<Integer> list = new ArrayList<>();
+        list.add(7);
+        list.add(6);
+        list.add(6);
+        list.add(6);
+        list.add(6);
+        list.add(8);
+        list.add(4);
+        list.add(3);
+        list.add(2);
+        list.add(5);
+        list.add(4);
+        list.add(7);
+        list.add(6);
+        list.add(8);
+
+        List<Integer> collection1 = new ArrayList<>();
+        List<Integer> collection2 = new ArrayList<>();
+        Set<Integer> uniqueElements = new HashSet<>();
+
+        for (Integer num : list) {
+            if (uniqueElements.contains(num)) {
+                collection2.add(num);
+            } else {
+                collection1.add(num);
+                uniqueElements.add(num);
+            }
+        }
+
+        System.out.println("Collection 1 = " + collection1);
+        System.out.println("Collection 2 = " + collection2);
+    }
+}
+
+
+=====================================================================================================================
+Quastions - 2:
+==========
+input sql quiry 
+empid   empName     Dept          ManagerId
+101       Laxman         Dev             104
+104       Anitha            test              106
+106        Naresh           software     101
+
+
+output 
+
+empid     empName    ManagerName
+101           Laxman       Aniha
+104           Anitha         Naresh
+106            Naresh        	Laxman
+
+Answer :
+======
+SELECT e1.empid, e1.empName, e2.empName AS ManagerName
+FROM employees e1
+JOIN employees e2 ON e1.ManagerId = e2.empid;
+
+
+=====================================================================================================================
+Quation - 3:
+========
+const observable = rxjs.Observable.create(observer => { console.log('Text inside an observable'); observer.next('Hello world!'); observer.complete(); }); console.log('Before subscribing an Observable'); observable.subscribe((message)=> console.log(message)); 
+
+Answer:
+======
+Before subscribing an Observable
+Text inside an observable
+Hello world!
+
+=====================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

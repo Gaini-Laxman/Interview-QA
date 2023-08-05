@@ -1,0 +1,38 @@
+@functionalInterface
+interface PrintNumber{
+public void print(int num1);
+}
+ public class PrintSquare{
+public static void main(String [] args){
+
+PrintNumber p = ()->n.sop(n*n);
+p.print(3);
+}
+}
+
+===================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

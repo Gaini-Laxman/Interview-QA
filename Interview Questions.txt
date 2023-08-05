@@ -1,0 +1,437 @@
+
+1.Wipro Questions 21-07-2023:
+=====================
+1.Convert HashMap to ArrayList ?
+2.How can Create a Custom immutable class ?
+3.Using lambda expression and functional interface to write a program of Square Number ?
+4.How to Save String in String constant pool ?
+5.In Singleton Design pattern how can control Multiple thread ?(Double Checked Locking)
+6.How can get byte Stream in object in Synchronized ?
+7.String Why immutable ?
+8.What are the Design Pattern implemented your project ?
+9.List out Predefined Functional Interface ? 
+10.How may ways Create Object in Java ?
+11.How can you Create String in Java ?
+12.What are Java 8 Features ?
+ 
+
+==============================================================================================================
+2.Value Lab 22-07-2023
+===============
+1.Difference Between Spring and Spring Boot ?
+2.How can create Spring Application and SpringBoot ?
+3.What is actuator ? 
+4.I dont want Default Server in SpringBoot ?
+5.What is Controller annotation ?
+6.@Controller vs RestController ?
+7.You can write post Method and get method 
+8.Employee details get call how you can write in springboot
+9.mvc flow ?
+10. mvc Archetucture ?
+11.Write a Program Reverse String ?
+12.What is String Constatnt Pool ?
+13.What is Singleton Class and write program ? 
+14.What are the Defferent Oparator we perform the stream api ?(Intermediate oparator and terminal oparator)
+15.what is Intermediate and terminal oparator ?
+
+==============================================================================================================
+3.InfoVision 24-07-2023:
+=================
+1.What is Data Abstraction in java ?
+2. Lot of insrtion and deletion which Class is best ?
+3.What is Difference Between Comparable and Comparator ?
+4.in hash map how can you have object have key in hash map ?
+5.what is checked and un checked exception and examples ?
+6.if we have a try block and catche block and finally block exception occure at try block above one which exception occured ?
+7.What is Serialization in java ?
+8.because the such a class can not be inherited how tha can be done ?(how can be create class never be in herited ?)
+9.What is Functional Interface ?
+10.simple sqare number using functional interface and lambda expresion ?
+11.What is an anonymous inner class ? 
+12.in spring boot how dippendancy injection happend ?
+13.what is @Qualifier annotation ?
+14.what is scope in Spring ?
+15.what is data binding and what are the different types of databinding ? 
+16.what is syntax of two way data binding ?
+17.what is different types of directives in angular ?
+18.what is defference between structural and attribute directive in angular ?
+19.what is difference between objservable and prommise ?
+20.what is inner join in sql ? 
+21.what is transient key word ?
+ ==============================================================================================================
+4.Bilvantis 24-07-2023
+================
+
+1.What is Kafka explain ?
+2.What are the annotation we have used config server annotation in kafka ?
+3.What is Jwt algoritham internally ? (hs256 rs256) header part  we mension(secrets have Private key and public key) (encode and decode the we have two sinarious )
+4.Internal work on hashmap ?
+5.@Controller @RestController ?
+6.How Did You Handle Exception In your project ?
+7.Can you tell me differences between  @mock and @mockbean
+8.String is muteble thing or immutable thing why ?
+9.Can you replace @Service annotation with @Component annotation ?
+10. what are the features in java 8 ?
+11.What about optional class ?
+12.write a employee object one is int id and other one is string name list of strings may be organization name  fetch all the employee object and you need fetch       the org  name not in a list but a single line ?
+13.what is method hidding ?
+14.how did you convert list to set ?
+15.what is fetch type egarly and fetch type lazy ?
+16.chaned transaction manager ?
+
+=====================================================================================================================
+5.Cognizant 24-07-2023
+==================
+
+1.what is the 4 pillars oops and keep an example of each one ?
+2.What is difference between jdk ang jre and jvm ?
+3.what is difference between stack and heap in jvm memory ?
+4.expain me garbage collection in java ? what object elible for garbage collection ?
+5.what is defference between final finally and finalize ?
+6.what is difference between throw and throws and throuble ?
+7.what is know about the collection heirarchy in java and tell me ?
+8.what is used a set instead of list can me give any example of previous code why use a set ovaral list ?
+9.can you used with unit testing in java and what type of frame work you used ?
+10.can you expalin me test driven development ?
+11.what is return type of unit test ?
+12.tell me what are the annotation you used and what are the assertion method ?
+13.wich spring boot starter dependancy you used  ?
+14.how would be developed repository layer in spring boot application ?
+15.expalin me @RestController annotation ?
+16.what is benifit hybernat insted of jdbc in java ?
+17.how did you connect database by using springboot application ?
+18.what is spring boot profiles in springboot and explain me ?
+19.what is inverion of control and what is the role of the ioc ?
+20.how did you inject the service into component ?
+21.what is home page component that is 4 files created what is that in cli?
+22.what is the promise in type script ?
+23.what about observable in angular ?
+24.have you heard about just as a testing frame work in angular ?
+25.can you explain about drop and trunkate and delete ?
+26.have you ever used procerdure language oracle and mysql ?
+27.what is shema in sql ?
+28.do you know hpm to ddl propertis in hybernate ?
+29.how would be configure hibernate to print console ll of the  sql statements ?
+30.Defferent language of hybernate like criteria api and hql ?
+31.do you know different object state in hybernate ?
+32.do you explain me what type of work done kubernatis ?
+33.what other amazone service you used ?
+34.what is used ec2 instance for ?
+35.what is jenkins and what purposes ?
+36.can you expain the purpose of sonar qube ?
+37.remove duplicate integer in java ?
+
+
+==============================================================================================================
+6. Signity 25-07-2023
+===============
+
+1.How To integrate angular and SpringBoot please Explain ?
+2.to get the data single page what is the internal mechanism ?
+3.What is jdk jre and jvm ?
+4.What is the class loader sub system ?
+5.What is Different Memory area in java ?
+6.How Many ways create object in java ?
+7.What is serialization in java ?
+8.What is transient Key word ?
+9.Can you over ride final method ?
+10.Can you inherite a final class ?
+11.Class can we declared as a abstarct and final  ?
+12.What are the Different Collection You Used in Last project ?
+13.Which senario you used LinkedList and ArrayList ?
+14.How many Ways iterate map ? 
+15.How can you get the key value pair ?
+16.write the comparator and comparable index ?
+17.Can you print the repeated Character in your name ?
+18.Can you write print polidrome ?
+19.What are the java 8 features you used in your project ?
+20.Employee object have employee id and employee name employee dept group by dept and get how many employees are available in each departrment ?
+
+
+=====================================================================================================================
+7.Crisil 27-07-2023
+==============
+1.Data base having 10 lines of record i need to fetch the record on id what your choice to use by considering performance issue ?
+2. you can tell me internal work of HashSet ?
+3.How to pass one component to other component data that is parrent to child child to parrent ?
+4.What is main.ts in angular ?
+5.What are the directive in angular ?
+6.What is Service in angular  how to create them ?
+7.What logic returning in init ?
+8.What is Component in Angular ?
+9.How to pass the data one component to other componet ?
+10.What will execute first init or constructure in angukar and when it will be executed ?(init method when it will be executed )
+11.what is the difference between lent and let and const key in angualar ?
+12.What is the difference between controller and restcontroller ?
+13.what is first level cache and second level cache in hybernate ?
+14.write quiry string data jpa (select , update like )
+
+
+=====================================================================================================================
+8.Coforge 29-07-2023
+===============
+1.What are the different types of communication between two micro services ?
+2.how would i acheve asyncronous communication ?
+3.What is Service Discovery what you have used annotation also ?
+4.what is circuit breaker what you have utilizing circuit breakaer in your project what are the annotation ?
+5.What is Distrubuted trasing and logging ambuguty ?
+6.what is deffernce span id and trace id in that case zipkin ?
+7.What is saga pattern in microservice ?
+8.how to dissable specific class load from class path in case springboot application ?
+9.What is deffrence between put and patch request ?
+10.what is actuator what is end points ?
+11.how to change port from actuator ?
+12.What is functional interface can you a example of is function ?
+13.What is defference between intemidiate oparator and Terminal oparator in stream api ?
+14.What is Marker interface and example ?
+15.Can you Explain me how executors works ?
+16.what is the deffernce between fail safe and fail safe in collection ?
+17.In angular what are the different ways of communication between two componts ?
+18.what about parrent and child communication and sibling communications ?
+
+
+=====================================================================================================================
+9.Birla Soft 29-07-2023
+================
+1.What is Encapsulation and abstraction ?
+2.What is interface and abstract class and both when will use ?
+3.What is lamda expression what purpose is used ?
+4.Finding second maximum number in int array ?
+5.write a program to Print First Character in every word  ?
+6.What is the array List and LinkedList ?
+7.What is Synchronisation in Java ?
+8.What is notify and notifyAll Method in multi threading ?
+9.take one map add some key value pair empid as key ans name as value store into memory and retriev back ?
+10.IOC Spring ?
+11.What are the scop of the beans ?
+12.What is Auto Configuration in SpringBoot ?
+13.What is Http methos and how many types?
+14.Difference Between Hybernate and jpa ?
+15.What are the Difference between agile methodology and water fall methodology ?
+16.What is Major Defference between Sql database and Nosql data base ?
+17. What is Defference between Ec2 instance deployment and kubernatis deployment ?
+
+
+
+====================================================================================================================
+10.Accolite 31-07-2023
+===============
+1.What is you Explain brief about lamda expression ?
+2.What is functional interface and what are those ?
+3.You can have one Abstract method and what about default and static in functional interface ?
+4.How many default and static methods in functional interface ?
+5.(int x=3, y=4) -> x+y; what is the output ?
+6.Can i overload and over ride the static method  why ?
+7.Can you Expain about internal working of HasMap ?
+8.What is the time complexity of hashMap ?
+9.What is node inside it ?
+10.Do you know Threasold Value of HashMap ?
+11.What is sinleton Design Pattern Can you write code ?
+12.create immutable class student int roll number and String Name i want to make class as immutable what all thing need take care ?
+13.i need getter method roll number can write it for me ?
+14.let say add third varriable it is a marks of student so i need return version of that ?
+15.Can you briefly explian life cycle of the thread ?
+16.can you explain multi threading keyword of synchronization ?
+17.Explain the wait and notify methods in multithreading ?
+18.What is the use of Suspend Method ?
+19. Different ways of executing the thread or starting the thread ?
+20.What version of oracle you used ?
+21.Do you know how to access partisaning over a table ?
+22.Why we use indexes over a table ?
+23.let i have student table that is the primary key as a roll number and second field name as index if you have run quiry via roll number via name which one      is the faster ?
+
+=====================================================================================================================
+
+
+
+
+
+
+Total = 201
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Cofofge 
+=====================================================================================================================
+
+nput : arr[] = {1, -1, 3, 2, -7, -5, 11, 6 }
+Output : 1  3  2  11  6  -1  -7  -5
+
+
+
+
+import java.util.Arrays;
+import java.util.Comparator;
+
+ 
+
+public class Test5 {
+    public static void main(String[] args) {
+        String[] area = {"boston", "paris","london", "oman"};
+        Comparator ms=(a,b)->((String) b).compareTo((String) a);
+        Arrays.sort(area,ms);
+        System.out.println(area[0]);
+    }
+
+ 
+
+}
+
+
+=============================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=====================================================================================================================
+remove duplicate integer in java ?
+=========================	
+int arr[] = {1,2,4,6,6,7,7,8};
+
+int[] arrl = Arrays.stream(arr).distinct().toArray();
+System.out.println(Arrays.toString(arrl));
+
+=====================================================================================================================
+Employee object have employee id and employee name employee dept group by dept and get how many employees are available in each departrment ?
+
+Map<String, Long> deptempscount = emps.stream().collect(Collectors.groupingBy(Emplyee::getDepartment), Collectors.counting());
+
+deptempscount .forEach((department, count)->System.out.println("Department: "+ department+ ",Employee count:"+count);
+
+
+
+
+
+=====================================================================================================================
+
+
+1.Convert HashMap to ArrayList ?
+
+Map<Integer String>map=new HashMap();
+map.put(1,"Laxman");
+map.put(2, "Naresh");
+List<String>list= new ArrayList<>(map.values());
+list.forEach(System.out::println);
+
+Set<String>set = new HashSet<>(list);
+
+
+
+================================================================================================================
+How can Create a Custom immutable class ?
+
+public final StringImmutable{
+private final int id;
+priavte final String name;
+
+public int getId(){
+return id;
+}
+public String getName(){
+return name;
+}
+}
+======================================================================
+.Using lambda expression and functional interface to write a program of Square Number ?
+
+PrintNumber p = (n)->n.SOP(n*n);
+
+========================================================================
+How to Save String in String constant pool ?
+
+String s1 ="hello";
+String s2 = "hello";
+
+(s1==s2)--->true
+
+then only save the String in String Constant pool
+==================================================================================
+In Singleton Design pattern how can control Multiple thread ?
+
+public class Singleton{
+priavte static Singleton instance;
+Singleton(){}
+public static Singleton getInstance(){
+if(instance == null){
+syncronized(Singleton.class);
+if(instance == null){
+instance = new Singleton();
+}
+}
+return insatnce;
+}
+public void singleton class(){
+SOP("This is Singleton");
+}
+}
+==============================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+

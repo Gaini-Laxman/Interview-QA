@@ -1,0 +1,165 @@
+
+
+Reverse String ?
+Reverse Number ?
+Print Duplicate Value ?
+Remove Duplicate Number ?
+Print Square Number Using LFI ?
+Convert HashMap to Array list ?
+Convert Set To List ?
+Max Salary ?
+Min Salary 
+Average Salary ?
+Second Highest Salary ?
+Third Highest Salary
+emp id and org in employee object get only org name;
+
+
+=====================================================================================================================
+===========
+Reverse String ?
+===========
+String s = "Laxman";
+     reverseIt(){
+for(int i=s.length()-1; i>=0; i--){
+System.out.println(s.charAt(i));
+}
+
+=====================================================================================================================
+Reverse Number ?
+=============
+printReverseNumber(int num){
+
+while(!num=0){
+System.out.println(num%10);
+num/=10;
+}
+}
+=====================================================================================================================
+Print Duplicate Character(repeated) ?
+================
+String s = "Laxman";
+char[] arr = s.toCharArray();
+for(int i=0; i<s.length(); i++){
+for(int j=i+1; j<s.length(); j++){
+if(arr[i] == arr[j]){
+System.out.println(arr[i]);
+}
+}
+}
+
+=====================================================================================================================
+Remove Repeated Number write distinct number ?
+==================================
+int[] arr = {1,1,2,3,4,4,5,6}
+
+int arrl = Arrays.stream(arr).distinct().toArray();
+System.out.println(Arrays.toString(arrl));
+
+
+=====================================================================================================================
+
+Set<Integer>set = new HashSet<>();
+for(int num : set){
+set.add();
+}
+int arrl = set.stream().mapToInt(Inateger::inValue).toArray();
+System.out.prinln(Arrays.toString(arrl));
+
+====================================================================================================================
+Print Square Number Using LFI ?
+=======================
+@functinalInterface
+interface PrintNumber{
+public void print(int num1);
+}
+class SquareNumber{
+public static void main(String[] args){
+
+PrintNumber p = (n)->System.out.println(n*n);
+p.print(5);
+}
+}
+=====================================================================================================================
+Convert HashMap to Array list ?
+===================
+Map<Integer, String>map = new HasMap<>();
+map.put(1, "Laxman");
+map.put(2, "Naresh");
+
+List<String>list= new ArrayList(map.values()); 
+list.System.out::println;
+
+=====================================================================================================================
+Convert Set To List ?
+===============
+
+Set<String>set = new HashSet<>(list)
+
+
+=====================================================================================================================
+
+Optional<Employee>max = list.stream().collect(Collectors.maxBy(Comparator.comparing(e->e.salary)));
+System.out.println(max.get().salary);
+
+=====================================================================================================================
+
+Optional<Employee> min = list.stream().collect(Collectors.minBy(Comparator.comparing(e->e.salary)));
+System.out.println(min.get().salary);
+
+=====================================================================================================================
+
+Double averageSalary = list.stream().collect(Collectors.AveragingDouble(e->e.salary));
+System.out.println(averageSalary);
+
+=====================================================================================================================
+Optional<>secondHighest = list.stream().sorted(Comparator.comparing(Employee::getSalary).reverse()).skp(1).findFirst();
+System.out.println(secondHighest.get().salary);
+
+=====================================================================================================================
+emp id and org in employee object get only org name;
+======================================
+
+String getOrganisationName = emps.stream().map(Employee::getOrganization).distinct().collect(Collectors.joining(", "))
+System.out.println(getOrganisationName );
+
+=====================================================================================================================
+RemoveAllRepeatedCharacters :
+========================
+String s = "Laxman";
+
+LinkedHashSet<Character> ls = new LinkedHashSet<Character>();
+StringBuffer sb = new StringBuffer("");
+for(int i=0; i<s.length(); i++){
+char [] ch =s.charAt(i);
+if(!hs.contain(ch)){
+ls.add(ch);
+sb.append(ch);
+}
+}
+System.out.println(sb);
+
+
+=====================================================================================================================
+
+for(int i=0; i<arr.length(); i++){
+int element = arr[];
+if(element%2==0){
+ arr[i] = 0
+else{
+arr[1] =1
+}
+}
+System.out.println(arr);
+
+
+
+=====================================================================================================================
+
+
+
+
+
+
+
+

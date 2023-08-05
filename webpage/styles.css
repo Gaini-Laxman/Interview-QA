@@ -1,0 +1,55 @@
+/* Your custom CSS styles go here */
+
+/* Adjust header and footer padding */
+header, footer {
+    padding: 1rem;
+}
+
+/* styles.css */
+.navbar-nav .nav-link {
+  color: white;
+}
+
+
+/* styles.css */
+.footer {
+  color: white;
+}
+
+
+
+/* Center header content */
+.header {
+    margin-top: 2rem;
+}
+
+/* Apply some margin to the hero image */
+.hero-image {
+    margin-top: 2rem;
+}
+
+/* Center the footer content */
+.footer {
+    background-color:#007bff;
+    margin-buttom: 2rem;
+}
+
+.carousel-controls {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+
+
+
+/* Additional styling for the login form */
+.login-container,
+.register-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}

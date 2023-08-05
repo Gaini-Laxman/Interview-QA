@@ -1,0 +1,317 @@
+1.Wipro Questions 21-07-2023:
+=====================
+1.Convert HashMap to ArrayList ?
+
+Map<Integer, String>map=new HashMap<>();
+map.add(1, "Laxman");
+map.add(2, "Aditya");
+List<String>list =new ArrayList<>(map.values());
+list.forEach(System.out::println);
+
+=====================================================================================================================
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class HashMapToArrayListExample {
+    public static void main(String[] args) {
+        // Create a HashMap
+        Map<String, Integer> hashMap = new HashMap<>();
+        hashMap.put("Alice", 25);
+        hashMap.put("Bob", 30);
+        hashMap.put("Charlie", 22);
+        hashMap.put("David", 28);
+
+        // Convert HashMap values to ArrayList
+        List<Integer> list = new ArrayList<>(hashMap.values());
+
+        // Display the ArrayList
+        System.out.println("ArrayList: " + list); 
+        list .forEach(System.out::println);
+    }
+}
+=====================================================================================================================
+How can Create a Custom immutable class ?
+
+pulic final class Employee{
+final String panCarsNumber;
+public Employee(String panCardNumber){
+this.panCardNumber = panCardNumber;
+}
+public String getPancrdNumber(){
+return panCardNumber;
+}
+}
+public class ImmutableDemo{
+public static void main (string[] args){
+Employee e = new Employee("abc123");
+String s1 = e.getEmployee();
+System.out.peintln("PanCrdNumber"+s1);
+}
+}
+
+
+=====================================================================================================================
+Using lambda expression and functional interface to write a program of Square Number ?
+
+@functionalInterface
+interface PrintNumber{
+public void print(int num1);
+}
+public class SquareNumber{
+public static void main(String[] args){
+PrintNumber p = (n)->System.out.println(n*n);
+p.print(5);
+}
+}
+
+=====================================================================================================================
+How to Save String in String constant pool ?
+
+public class StringConstatntDemo{
+public static void main(String[] args){
+
+String s1 = "Hello";
+String s2 = new String("Hello").intern();
+String s3 = String.valueOf("Hello");
+
+System.out.println(s1 == s2); //output => true
+System.out.println(s1 == s3); //output => true
+
+}
+}
+
+=====================================================================================================================
+5.In Singleton Design pattern how can control Multiple thread ?
+
+with lazy initialization with with double checked locking :
+========================================
+public class Singleton{
+private static volatile Singleton instance;
+private Singleton(){}
+
+public static Singleton getInstance(){
+if(instance == null){
+sinchronized(Singleton.class){
+if(instance == null){
+instance = new Singleton();
+}
+}
+}
+return instance;
+}
+}
+
+
+=====================================================================================================================
+How can get byte Stream in object in Synchronized ?
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+
+public class SynchronizedSerializationExample {
+
+    private Object objectToSerialize;
+
+    public SynchronizedSerializationExample(Object objectToSerialize) {
+        this.objectToSerialize = objectToSerialize;
+    }
+
+    public synchronized byte[] getSerializedBytes() throws IOException {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+        objectOutputStream.writeObject(objectToSerialize);
+        objectOutputStream.close();
+        return byteArrayOutputStream.toByteArray();
+    }
+
+    // Other methods and logic...
+}
+
+
+=====================================================================================================================
+String Why immutable ?
+
+In object-oriented programming, the immutable string or objects that cannot be modified once it is created. But we can only change the reference to the object. We restrict to change the object itself. The String is immutable in Java because of the security, synchronization and concurrency, caching, and class loading. The reason of making string final is to destroy the immutability and to not allow others to extend it.
+
+The String objects are cached in the String pool, and it makes the String immutable. The cached String literals are accessed by multiple clients. So, there is always a risk, where action performs by one client affects all other clients. For example, if one client performs an action and changes the string value from Pressure to PRESSURE, all remaining clients will also read that value. For the performance reason, caching of String objects was important, so to remove that risk, we have to make the String Immutable.
+
+=====================================================================================================================
+What are the Design Pattern implemented your project ?
+
+1.Creational Design Pattern
+
+Factory Pattern
+Abstract Factory Pattern
+Singleton Pattern
+Prototype Pattern
+Builder Pattern.
+
+2. Structural Design Pattern
+
+Adapter Pattern
+Bridge Pattern
+Composite Pattern
+Decorator Pattern
+Facade Pattern
+Flyweight Pattern
+Proxy Pattern
+
+3. Behavioral Design Pattern
+
+Chain Of Responsibility Pattern
+
+
+
+=====================================================================================================================
+List out Predefined Functional Interface ? 
+
+Built-in Functional Interfaces in Java 8 are:
+
+Predicate
+Consumer
+Supplier 
+Function
+
+=====================================================================================================================
+
+How may ways Create Object in Java ?
+
+1.New Keyword
+2.Factory method 
+3.Clone method
+4.Reflection api
+5.Deserialization
+
+=====================================================================================================================
+How can you Create String in Java ?
+
+There are two ways to create String object:
+
+By string literal
+By new keyword
+1) String Literal
+
+
+String s="welcome";  
+Each time you create a string literal, the JVM checks the "string constant pool" first. If the string already exists in the pool, a reference to the pooled instance is returned. If the string doesn't exist in the pool, a new string instance is created and placed in the pool. For example:
+
+String s1="Welcome";  
+String s2="Welcome";//It doesn't create a new instance  
+
+Java String
+In the above example, only one object will be created. Firstly, JVM will not find any string object with the value "Welcome" in string constant pool that is why it will create a new object. After that it will find the string with the value "Welcome" in the pool, it will not create a new object but will return the reference to the same instance.
+
+
+
+=====================================================================================================================
+
+What are Java 8 Features ?
+
+=================
+ Java 1.8 Features
+=================
+
+1) Interface changes
+
+		1.1 ) Default Methods
+		1.2 ) Static Methods
+
+2)  Functional Interfaces (@FunctionalInterface)
+
+		2.1 ) Predicate & BiPredicate
+		2.2 ) Consumer  & BiConsumer
+		2.3 ) Supplier
+		2.4 ) Function & BiFunction
+
+3) Lambda Expressions
+
+4) Method References & Constructor References
+
+5) ******  Stream API  ********
+
+6) Optional class (to avoid null pointer exceptions)
+
+7) Spliterator
+
+8) StringJoiner
+
+9) forEach ( ) method
+
+10) Date & Time API
+
+11) Nashron Engine
+
+12) I/O Stream Changes (Files.lines(Path p))
+
+13) Base64 Encoding & Decoding
+
+=====================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,12 @@
+
+
+
+
+SELECT * 
+From employee
+WHERE expire_date => now;
+=====================================================================================================================
+
+SELECT *
+FROM data_table
+WHERE expiration_date >= NOW();

@@ -1,0 +1,226 @@
+
+
+Print Repeated Character :
+====================
+
+String s = "Laxman";
+
+char[ ] arr = s.toCharArray();
+for(int i=0; i<s.length(); i++){
+for(int j=0; j<s.length(); j++){
+
+if(arr[i] == arr[j]){
+System.out.println(arr[i]+ " ");
+break;
+}
+}
+}
+
+=====================================================================================================================
+
+Remove Duplicate And Print Distinct Character:
+====================================
+String s = "Laxman";
+
+LinkedHashSet<Character>lhs = new LinkedHashSet<>();
+StringBuffer sb = new StringBuffer();
+for(int i=0; i<s.length(); i++){
+char[] ch = s.charAt(i)
+for(int j=0; j<s.length(); j++){
+if(!lhs.contain(ch)){
+sb.append(ch);
+}
+}
+System.out.print(sb);
+}
+
+=====================================================================================================================
+Reverse Word :
+===========
+
+private static void reverseWord(String s){
+String [ ] arr  = s.split();
+StringBuffer sb = new StringBuffer ();
+for(int = i<arr.length()-1; i>=0;  i--){
+sb.append(arr[i]);
+if(i>0){
+sb.append(" ");
+}
+}
+System.out.print(sb);
+}
+
+=====================================================================================================================
+Reverse String :
+===========
+
+String s = "Laxman";
+
+for(int i=s.length()-1; i>=0; i--){
+System.out.println(s.charAt(i));
+}
+
+
+
+=====================================================================================================================
+Reverse Number :
+=============
+
+int[ ] num = {12345};
+
+while(!num=0){
+System.out.println(num%10);
+num/=10;
+}
+
+
+
+=====================================================================================================================
+Find factorial of N:
+==============
+
+private static long factorialOfN(int n){
+long factorial = 1;
+long sum=0;
+for(int i=n; i>=1; i--){
+factorial = factorial * i;
+}
+return factorial;
+}
+}
+
+=====================================================================================================================
+
+Palidrome Number:
+===============
+
+151 ==151 ==>remainder
+
+while(num!=0){
+remainder =num%10;
+reversedNum = reversedNum*10+remainder;
+num/=10;
+
+}
+if(originalNum == reversedNum){
+System.out.println(orginalNum+"is palidrome");
+}else{
+System.out.println(orinalNum+"is not palidrome");
+}
+}
+
+=====================================================================================================================
+Palidrome in String :
+===============
+radar == radar  ==>left, right 
+
+int left = 0;
+int right =  s.length()-1;
+while(left <right){
+if(s.charAt(left) != s.charAt(right)){
+return false
+}
+left++;
+right--
+}
+return true;
+}
+
+=====================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

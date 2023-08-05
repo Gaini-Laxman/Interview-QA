@@ -1,0 +1,168 @@
+Program to give me pairs for sum = 90  for array 10 20 30 40 50 60 70
+
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] array = {10, 20, 30, 40, 50, 60, 70};
+        int targetSum = 90;
+
+        List<int[]> pairs = findPairsWithSum(array, targetSum);
+        for (int[] pair : pairs) {
+            System.out.println("Pair: " + pair[0] + ", " + pair[1]);
+        }
+    }
+
+    public static List<int[]> findPairsWithSum(int[] array, int targetSum) {
+        List<int[]> pairs = new ArrayList<>();
+        Map<Integer, Integer> complementMap = new HashMap<>();
+
+        for (int num : array) {
+            int complement = targetSum - num;
+            if (complementMap.containsKey(complement)) {
+                pairs.add(new int[]{complement, num});
+            }
+            complementMap.put(num, complement);
+        }
+
+        return pairs;
+    }
+}
+
+
+
+
+
+=====================================================================================================================
+
+
+
+palidrome of string
+input String s = "aabbc"; 
+output : abcba;
+
+================
+
+public class Main {
+    public static void main(String[] args) {
+        String s = "aabbc";
+        String palindrome = generatePalindrome(s);
+        System.out.println(palindrome);
+    }
+
+    public static String generatePalindrome(String s) {
+        StringBuilder palindrome = new StringBuilder(s);
+        return s + palindrome.reverse().substring(1);
+    }
+}
+
+
+
+
+
+
+
+====================================================================================================================
+int  [] arr =  { 2 , 99 , 17 , 64 , 51 , 99 , 83 , 17 };
+
+int arrl = Array.stream(arr).sorted(arr).distinct().toArray();
+
+System.out.println(Arrays.toString(arrl));
+=====================================================================================================================
+
+
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = { 2, 99, 17, 64, 51, 99, 83, 17 };
+
+        int[] sortedDistinctArr = Arrays.stream(arr)
+                .sorted()
+                .distinct()
+                .toArray();
+
+        System.out.println(Arrays.toString(sortedDistinctArr));
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
