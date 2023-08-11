@@ -241,13 +241,220 @@
 23.let i have student table that is the primary key as a roll number and second field name as index if you have run quiry via roll number via name which one      is the faster ?
 
 =====================================================================================================================
+11. Ness 4/08/2023
+==============
+1. Tell me about self and tell me what framework you like and why ?
+2.Why use Spring and Spring boot any reson ?
+3.Quastions :
+========
+input sql quiry 
+empid   empName     Dept          ManagerId
+101       Laxman         Dev             104
+104       Anitha            test              106
+106        Naresh           software     101
+
+
+output 
+=====
+empid     empName    ManagerName
+101           Laxman       Aniha
+104           Anitha         Naresh
+106            Naresh        	Laxman
+
+4.
+
+ Input : List<Integer> list = 7 6 6 6 6 8 4 3 2 5 4 7 6 8
+
+ output-1 :Collection 1 = 7 6 8 4 3 2 5
+
+ output-2 :Collection 2 = 6 6 6 4 7 6 8
+
+5. const observable = rxjs.Observable.create(observer => { console.log('Text inside an observable'); observer.next('Hello world!'); observer.complete(); }); console.log('Before subscribing an Observable'); observable.subscribe((message)=> console.log(message)); 
+
+6.What is defference between objervable and promises ?
+
+=====================================================================================================================
+12.Vertusa 4/08/2023
+===============
+1. In Oracle Database how will process bunch of records ?	
+2.How Using Spring batch ?
+3.How will provide that spring batch ?
+4.how data is stored and how you will map the records springbatch?
+5.bunch of list of employees how data process 
+6.in jpa data how it will updated ?
+7.in Spring boot how communicate each microServices ?
+8.What is Defference between rest Template and webClient ?
+9.How allow the service and not allow the service in microservice ?
+10.How you handling fault tolerance in your project on that in api gatway ?
+11.What circuitBraker you used regilance4j or Hystrics ? How it will work ?
+12.let suppose down stream is completely down we are getting keep on call how you will like every time keep on fail how you will handle ?
+13.what is retrained annotation in regilance4j ?
+14. What is load balancer  ? how it will handle ?
+15.Spring security and what is jwt ?
+16.can you write a quiry employee table whose expires now ?
+
+
+=====================================================================================================================
+13.OvelEdge 4/08/2023
+=================
+1.Could you please expain about monolithic and microsevices based application ?
+2.What is difference between Gson and jaxson api ?
+3.What is Hpe and where did you used ?
+4.Tell me how would ensure quality of code and in your app ?
+5.Can You Explain me about ioc ?
+6.How will ioc usefull in java development ?
+7.What is importance of Design Pattern and tell me what are all Design Pattern used in your project ?
+8.Can You Disucuss how Jenkins Used in CI CD Pipeline ?
+9.Can You Descuss Of your Current Project and how you design ?
+10.Can You Explain About jpa ?
+11.How to integrate mysql connection to SpringBoot App ?
+12.What is Git cherry pick ?
+13.you heard about log4j recently ?
+14.What is Log4j ?
+15.Can you tell me deffence between checked and unchecked exception ?
+16.Can You Tell me why we use finalise Method ?
+17.Can You Tell me What is Lamda Expression and give some example ?
+18.Convert a List<Employee> into List<Map<String,Object>> convert pojo class ?above ? but i want to list of map name and age ?
+19. Optional<String> salary =      list.stream().filter(p->p.salary >=500000;
+       salary.collect(Collectors.toList())
+20.Write a Java 8 Streams code snippet to filter even numbers from a list and then double each even number.
+21.List<String> strings = Arrays.asList("Java", "is", "awesome");
+     Given a list of strings, write a Java 8 Streams code to concatenate all strings into a single comma-separated string.
+22.Write a Get endpoint to fetch the Employee by employeeid ?
+23.Convert java.util.date to java.sql.date ?
+24.write a Java 8 Streams code to find the number of strings that contain the letter "a".
+     List<String> strings = Arrays.asList("apple", "banana", "grape", "watermelon", "orange");
+25.1000 users send notification by using multithreading ?
+26.How we will create a bean ?
+27.To define bean all these scope using code ?
+28.Defference between Spring mvc and Springboot ?
+29.Defference between String and Stringbufferer and StringBuilder ?
+30.Can you tell me about executor Service  ?
+31.Where you used syncronized key word in your project ?
+32. what is defference between stream.map and stream.forEach ?
+
+
+
+
+
+=====================================================================================================================
+14 . FirstForceTech 9-8-2023
+====================
+1.What is new features in java 8 ?
+2.What are the Advantages of java 8 ?
+3.Java 8 is stable or not ?
+4.What is functional interface in java ?
+5.Functinal interface is extends to another ?
+6.Some predefined functinal intefaces in java 8 ?
+7.what is type inteface ?
+8.What is Optional Class in java ?
+9.Can you deffentiate collections and streams in java ?
+10.What is versioning controller are you used and what are the function you did ?
+11.What are the web services you used ?
+
+
+=====================================================================================================================
+15. Accenture 9-8-2023
+================
+1.What is thymeleaf ?
+2.What are the ide you used ?
+3.How you call api in ui using angular ?
+4.Now you have button call OnClick button call api how you will do and write a logic ?
+5.What are the data binding in angular ?
+6.What is observable ?
+7.in Subscribe  how many methods are available in angular ?
+8. within subscribe method handle the error   how andle the error?
+9.How many ways data communicate within the component ?
+10.There is no relation between component to component how it will communicate in angular ?
+11.Expalin about component life cycle hook in angular ?
+12.What is Arrow function in angular ?
+13.What is promise in angular ?
+14.Can we cancel promise ?
+15.What are positions in css ?
+16.What is absolute and relative  ?
+17.How you implemented responsive website ?
+18.Which broser test the application ?
+19.What is defference between java script and type script ?
+20.What is pure pipe and impure pipe in angular ?
 
 
 
 
 
 
-Total = 201
+=====================================================================================================================
+16. Cotivity 9-8-2023
+===============
+1. When you used linkedList and arrayList in your real time project where did you used  ?
+2.Do you known replaction api ?
+3.Do you know what are the memories we have in java ?
+4.in genaral how memory leak will happen in java ?
+5.what is jsp and how implements forms on jsp ?
+6.Can you expalin why springboot impemented allredy we have spring ?
+7.What are annotations you used in spring boot ?
+8.What are annotations you used in spring ?
+9.in spring how you autowire the component ?
+10.9.in springboot how you autowire the component ?
+11.spring boot have one major annotation to start the application ?
+12.How to connect database in springboot ?
+13.I want connect two databases in springboot how you connect them ?
+14.I have employee table and i want to write a rest end point in springboot application so how you start your work ?
+15.How you get repository for these employee ?
+16.What is major defferences in oracle and mysql both ?
+17.what is defference between join and inner join ?
+18.what is life cycle of the angular ?
+19.what is major defference between angular 8 and angualar 11 ?
+20.How you craete any component in angular ?
+21.if create that what are the fole are generated if tou create the component ?
+22.employe  and address we have two component are there i want communicate and both component how to communicate bothe are ?
+23.What are the different ways we can communicate two component ?
+24.in springboot have few endpoints how to call the end points from angular component and write a code ?
+25.Each request we can share cookies and authorization how we will add that in header in angular ?
+26.write a array of employee in angular  what methods are used in array ?
+
+
+
+=====================================================================================================================
+17.TrackMinds 10-8-2023
+===================
+1.What are the auth guards available in the angular and how you will implements the write a code ?
+2.What is lazy loading in angular and how you will implenting them write a code ?
+3.What is the use case of pipes in angular ?
+4.in case you want buils your custome pipe what are the steps you might take ?
+5.if you want centralised logging how to implements them in angular ?
+6.what are the new features introduced in java 8 version ?
+7.How does the stream api works in java ?
+8.What are the stream api operators in java ?
+9.What is dead lock ? and how to avoid them ?
+10.What are the design pattern in java ? why ?
+11.How you will implement a single ton design pattern ? after private costructors done atlest one instance is intiate how your intiate them ?
+12.What is the defference between LinkedList and ArrayList and Set ?
+13.Collections also default itorator there using itorator have you checked any Conditional check ? 
+14.What is the @Primary annotation and where your using ?
+15.In you Costome property file from costome property value how retrieve them in spring or  springboot ?
+16.id is auto generated what is configuration we do ?
+17.how specific controller identyfy spring ? and where it will be configure ?
+18.What is defference between controller and restController ?
+19.your application connect mysql and oracle but initially mysql connect and have problem with that i need to connect oracle how will do ?
+20.employee table and department table both are are connected  employee depart ment have manager and >= 35000 how you will write the quary and i need      employee count and position as a manager ?
+21.How you implement transaction management in springboot ?
+22.there may be  failed update and insert may not response database issue or network issue in this case how you implements ? or rigistrar wit website and     book a train ticket your ticket has source and destination information will be stored  but payment was Failed there is no save journey details and re initiate     to journey in this case roolback journey details also how your going you on that?(Saga Execution coordinator and saga choriography pattern)
+23. you want to retrieve any value that is configuration value retrieve how your retrieve and which annotation you used to retrieve ?
+24.How microservices communicate one to another service ?
+25.how your known other module is there in micro service ?
+26.What are the defferent types of scop available in spring ?
+27.What is prototype scope about ?
+28.What is defference between runnable and thread class wich one is better and why ?
+
+
+
+
+
+=====================================================================================================================
+
+Total = 332
+
+
 
 
 

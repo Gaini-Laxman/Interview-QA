@@ -1,56 +1,33 @@
 
 Convert a List<Employee> into List<Map<String,Object>> convert pojo class ?above ?
+ but i want to list of map name and age ?
 
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class Employee {
-    private int id;
-    private String name;
-    private String department;
-
-    // Constructors, getters, and setters...
-
-    // Sample method to return a list of Employee objects (replace with your data source)
-    private static List<Employee> getEmployeeList() {
-        // Implement this method to return a list of Employee objects
-        // For example:
-        return List.of(
-                new Employee(1, "John Doe", "Engineering"),
-                new Employee(2, "Jane Smith", "Sales"),
-                new Employee(3, "Mike Johnson", "Marketing")
-        );
-    }
-
+public class Main {
     public static void main(String[] args) {
-        List<Employee> employees = getEmployeeList(); // Replace this with your actual list of Employee objects
+        List<Employee> employeeList = /* Populate employeeList with Employee objects */;
 
-        // Convert List<Employee> to List<Map<String, Object>>
-        List<Map<String, Object>> employeeMaps = employees.stream()
-                .map(employee -> {
-                    Map<String, Object> employeeMap = Map.of(
-                            "id", employee.getId(),
-                            "name", employee.getName(),
-                            "department", employee.getDepartment()
-                            // Add other fields as needed
-                    );
-                    return employeeMap;
-                })
-                .collect(Collectors.toList());
+        List<Map<String, Object>> employeeMapList = employeeList.stream()
+            .map(employee -> {
+                Map<String, Object> employeeMap = new HashMap<>();
+                employeeMap.put("name", employee.getName());
+                employeeMap.put("age", employee.getAge());
+                return employeeMap;
+            })
+            .collect(Collectors.toList());
 
-        // Print the resulting List<Map<String, Object>>
-        for (Map<String, Object> employeeMap : employeeMaps) {
-            System.out.println(employeeMap);
-        }
+        // Now employeeMapList contains a list of maps with "name" and "age" attributes
     }
 }
+
 ==============================================================
 
 
-     Optional<String> salary =      list.stream().filter(p->p.salary >=500000;
-
-salary.collect()
+ Optional<String> salary =      list.stream().filter(p->p.salary >=500000;
+salary.collect(Collectors.toList())
 ==============================================================
 
 Write a Java 8 Streams code snippet to filter even numbers from a list and then double each even number.
@@ -156,11 +133,6 @@ String[ ] names = { "Anushka", "Anupama", "Deepika", "Kajol", "Sunny" };
 		}
 	}
 }
-
-
-
-
-
 
 ==============================================================
 
