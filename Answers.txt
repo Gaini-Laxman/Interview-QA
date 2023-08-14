@@ -24,7 +24,7 @@ public class HashMapToArrayListExample {
         hashMap.put("David", 28);
 
         // Convert HashMap values to ArrayList
-        List<Integer> list = new ArrayList<>(hashMap.values());
+        List<Integer> list = new ArrayList<>(hashMap.keySet());
 
         // Display the ArrayList
         System.out.println("ArrayList: " + list); 

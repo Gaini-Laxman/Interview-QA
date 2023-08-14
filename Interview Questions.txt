@@ -13,7 +13,6 @@
 10.How may ways Create Object in Java ?
 11.How can you Create String in Java ?
 12.What are Java 8 Features ?
- 
 
 ==============================================================================================================
 2.Value Lab 22-07-2023
@@ -189,7 +188,6 @@
 17.In angular what are the different ways of communication between two componts ?
 18.what about parrent and child communication and sibling communications ?
 
-
 =====================================================================================================================
 9.Birla Soft 29-07-2023
 ================
@@ -210,8 +208,6 @@
 15.What are the Difference between agile methodology and water fall methodology ?
 16.What is Major Defference between Sql database and Nosql data base ?
 17. What is Defference between Ec2 instance deployment and kubernatis deployment ?
-
-
 
 ====================================================================================================================
 10.Accolite 31-07-2023
@@ -333,10 +329,6 @@ empid     empName    ManagerName
 31.Where you used syncronized key word in your project ?
 32. what is defference between stream.map and stream.forEach ?
 
-
-
-
-
 =====================================================================================================================
 14 . FirstForceTech 9-8-2023
 ====================
@@ -351,7 +343,6 @@ empid     empName    ManagerName
 9.Can you deffentiate collections and streams in java ?
 10.What is versioning controller are you used and what are the function you did ?
 11.What are the web services you used ?
-
 
 =====================================================================================================================
 15. Accenture 9-8-2023
@@ -377,11 +368,6 @@ empid     empName    ManagerName
 19.What is defference between java script and type script ?
 20.What is pure pipe and impure pipe in angular ?
 
-
-
-
-
-
 =====================================================================================================================
 16. Cotivity 9-8-2023
 ===============
@@ -403,7 +389,7 @@ empid     empName    ManagerName
 16.What is major defferences in oracle and mysql both ?
 17.what is defference between join and inner join ?
 18.what is life cycle of the angular ?
-19.what is major defference between angular 8 and angualar 11 ?
+19.what is major defference between angular 8 and angualar 11 ?	
 20.How you craete any component in angular ?
 21.if create that what are the fole are generated if tou create the component ?
 22.employe  and address we have two component are there i want communicate and both component how to communicate bothe are ?
@@ -411,8 +397,6 @@ empid     empName    ManagerName
 24.in springboot have few endpoints how to call the end points from angular component and write a code ?
 25.Each request we can share cookies and authorization how we will add that in header in angular ?
 26.write a array of employee in angular  what methods are used in array ?
-
-
 
 =====================================================================================================================
 17.TrackMinds 10-8-2023
@@ -447,12 +431,47 @@ empid     empName    ManagerName
 28.What is defference between runnable and thread class wich one is better and why ?
 
 
-
+=====================================================================================================================
+18.Cisco 11-8-2023
+==============
+1. What is the entry point in Angular Appliaction ?
+2.What is Bootstrap ?
+3.How Comunication Happen in component ?
+4.What are the Defferent binding class have in Angular ?
+5.in angular how to know router what specific router should be on the bases of user route like certain admine router how you can acheve?
+6.How you create component in angular ?
+7.What is intercepter in angular application ? 
+8.what is auth guard and how to implement auth guard ?
+9.in the Map Employee object adding and retrieve the Employee name ?
+10.Write a Program count the characters in given String  String = freedom ?
+11Write a Quiry for Employee Table have Employee name and employee id manager  employee name and id for manager name ?
 
 
 =====================================================================================================================
+19. Adp 11-8-2023
+=============
+1.How you Handle the transaction management llet say some post 1000 records out of 300 failed then what your doing in kafka ?
+2.Map<Character, list<Customer>> customers = new HashMap<>();  output should be map of string of list of customer basically group by name ?value is list    of customer  name as a key above one ?
+3.List of string cocatanate by using joining output string1, string2, string3 ?
+4.What is the use of Autoconfiguration in springboot ?
+5.Tell me how transactions works in spring boot ?
+6.Can you tell me what is saga degign pattern how its works ?
+7. Tell me how many ways break singleton class ?
+8.Create singleton class with all the possibilities ?
+9.create Singleton class using reflection api ?
+10.create a singleton class to avoid cloning then what will do ?
+11.What about serialisation ?
+12.what is the use of serial version id ?
+13.What is defference between object outputSteam and file OutputStream ?
+14.There is one table we display in the ui i have lots of colums and some body ask you to craete a search api which will support searching mechanism,      pagination , sorting , innerpritor like operator and operator, count  all the functionality will support write logic ?
+15. Tell me the controller class for above one ?
+16.Can you tell me in details how spring security works ?
 
-Total = 332
+=====================================================================================================================
+
+
+
+Total = 359
 
 
 
