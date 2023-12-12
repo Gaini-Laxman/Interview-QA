@@ -37,7 +37,7 @@ public class EmployeeController{
 @PostMapping("employee")
 public void addEmployee(@RequestBody Employee employee){
 
-employeeService.save(employee)
+employeeService.save(employee);
  }
 @GetMapping("/employee")
 List<Employee> getAllEmployee(){

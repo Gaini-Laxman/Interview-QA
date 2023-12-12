@@ -1,0 +1,132 @@
+
+
+//stream related quations:
+
+Program to map elements of a list to a new list using streams
+Program to find the minimum element in a list using streams
+Program to find the maximum element in a list using streams
+Program to sort a list in ascending order using streams
+Program to convert a list to a map using streams
+Program to group elements of a list based on a property using streams
+Program to compute the sum of all elements in a list using streams
+Program to find the average of all elements in a list using streams
+Program to check if all elements in a list satisfy a condition using streams
+
+
+array realed quetions:
+
+Program to find the sum of all elements in an array.
+Program to find the largest element in an array.
+Program to sort an array in ascending order.
+Program to search for an element in an array.
+Program to remove duplicates from an array.
+Program to reverse the elements of an array.
+Program to find the second largest element in an array.
+Program to merge two arrays into one.
+Program to find the frequency of each element in an array.
+Program to find the minimum and maximum element in an array.
+Program to insert an element at a specific index in an array.
+Program to delete an element from an array.
+Program to find the average of all elements in an array.
+Program to copy one array to another.
+Program to compare two arrays to check if they are equal or not.
+
+     string related quations :
+
+Program to check if a given string is a palindrome or not.
+Program to reverse a given string.
+Program to count the number of vowels in a given string.
+Program to count the number of words in a given string.
+Program to check if a given string is a valid email address.
+Program to remove all white spaces from a given string.
+Program to convert a string to uppercase or lowercase.
+Program to check if two strings are anagrams or not.
+Program to find the length of the longest substring without repeating characters.
+Program to find the most repeated character in a given string.
+Program to find the first non-repeated character in a given string.
+Program to reverse the words in a given string.
+Program to remove all occurrences of a given character from a given string.
+Program to check if a given string contains only digits.
+Program to check if a given string contains only alphabets.
+
+Collection related quations :
+
+Program to add elements to an ArrayList and display them.
+Program to remove an element from an ArrayList.
+Program to sort an ArrayList in ascending order.
+Program to find the maximum element in an ArrayList.
+Program to convert an ArrayList to an array.
+Program to find the frequency of each element in an ArrayList.
+Program to check if an element is present in an ArrayList.
+Program to add elements to a HashSet and display them.
+Program to remove an element from a HashSet.
+Program to find the intersection of two HashSet.
+Program to add elements to a LinkedList and display them.
+Program to remove an element from a LinkedList.
+Program to find the length of a LinkedList.
+Program to check if an element is present in a LinkedList.
+Program to add elements to a TreeMap and display them.
+
+lamda related quations :
+
+Program to demonstrate a simple lambda expression that adds two numbers.
+Program to demonstrate the use of lambda expression with the functional interface Consumer to print a list of strings.
+Program to demonstrate the use of lambda expression with the functional interface Predicate to filter even numbers from a list.
+Program to demonstrate the use of lambda expression with the functional interface Function to transform a list of strings to uppercase.
+Program to demonstrate the use of lambda expression with the functional interface Supplier to generate random numbers.
+Program to demonstrate the use of lambda expression with the functional interface BiFunction to compute the product of two numbers.
+Program to demonstrate the use of lambda expression with the functional interface BiConsumer to print the key-value pairs of a Map.
+Program to demonstrate the use of lambda expression with the functional interface Comparator to sort a list of strings in reverse order.
+Program to demonstrate the use of lambda expression with the functional interface Runnable to create a new thread.
+Program to demonstrate the use of lambda expression with the functional interface UnaryOperator to double each element of a list of integers.
+
+
+multitheading related quation :
+
+Program to create and start a thread.
+Program to create multiple threads and start them.
+Program to implement synchronization between threads using synchronized keyword.
+Program to implement synchronization using Lock and Condition classes.
+Program to create a thread pool using Executor Framework.
+Program to implement inter-thread communication using wait(), notify(), and notifyAll() methods.
+Program to demonstrate thread priority and thread group in Java.
+Program to implement a producer-consumer problem using wait() and notify() methods.
+Program to implement a countdown timer using threads in Java.
+Program to demonstrate the use of join() method in Java threads.
+Program to implement thread interruption in Java.
+Program to implement a multithreaded merge sort algorithm.
+Program to demonstrate the use of ThreadLocal class in Java.
+Program to implement a multithreaded quick sort algorithm.
+Program to implement a multithreaded binary search algorithm.
+
+
+Pattern related quation :
+
+Write a Java program to print a pattern of asterisks in the shape of a right triangle.
+Write a Java program to print a pattern of numbers in the shape of a pyramid.
+Write a Java program to print a pattern of numbers in the shape of a diamond.
+Write a Java program to print a pattern of numbers in the shape of a rectangle.
+Write a Java program to print a pattern of numbers in the shape of a square.
+Write a Java program to print a pattern of alphabets in the shape of a diamond.
+Write a Java program to print a pattern of alphabets in the shape of a pyramid.
+Write a Java program to print a pattern of alphabets in the shape of a right triangle.
+Write a Java program to print a pattern of alphabets in the shape of a rectangle.
+Write a Java program to print a pattern of alphabets in the shape of a square.
+
+OOps Related quations :
+
+Program to demonstrate inheritance.
+Program to demonstrate polymorphism.
+Program to demonstrate encapsulation.
+Program to demonstrate abstraction.
+Program to demonstrate method overloading.
+Program to demonstrate method overriding.
+Program to demonstrate the use of interfaces.
+Program to demonstrate the use of abstract classes.
+Program to demonstrate the use of static methods and variables.
+Program to demonstrate the use of final keyword.
+Program to demonstrate the use of constructors.
+Program to demonstrate the use of access modifiers.
+Program to demonstrate the use of instance variables.
+Program to demonstrate the use of super keyword.
+Program to demonstrate the use of this keyword.

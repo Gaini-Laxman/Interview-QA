@@ -63,10 +63,10 @@ Set<Integer>set = new HashSet<>();
 for(int num : set){
 set.add();
 }
-int arrl = set.stream().mapToInt(Inateger::inValue).toArray();
+int arrl = set.stream().mapToInt(Integer::inValue).toArray();
 System.out.prinln(Arrays.toString(arrl));
 
-====================================================================================================================
+================================================================================================================
 Print Square Number Using LFI ?
 =======================
 @functinalInterface
@@ -80,17 +80,17 @@ PrintNumber p = (n)->System.out.println(n*n);
 p.print(5);
 }
 }
-=====================================================================================================================
+==================================================================================================================
 Convert HashMap to Array list ?
-===================
+=========================
 Map<Integer, String>map = new HasMap<>();
 map.put(1, "Laxman");
 map.put(2, "Naresh");
 
-List<String>list= new ArrayList(map.values()); 
+List<String>list = new ArrayList(map.values()); 
 list.System.out::println;
 
-=====================================================================================================================
+========================================================================================================
 Convert Set To List ?
 ===============
 
@@ -113,17 +113,17 @@ Double averageSalary = list.stream().collect(Collectors.AveragingDouble(e->e.sal
 System.out.println(averageSalary);
 
 =====================================================================================================================
-Optional<>secondHighest = list.stream().sorted(Comparator.comparing(Employee::getSalary).reverse()).skp(1).findFirst();
+Optional<Employee>secondHighest = list.stream().sorted(Comparator.comparing(Employee::getSalary).reverse()).skp(1).findFirst();
 System.out.println(secondHighest.get().salary);
 
-=====================================================================================================================
+===============================================================================================================================
 emp id and org in employee object get only org name;
 ======================================
 
 String getOrganisationName = emps.stream().map(Employee::getOrganization).distinct().collect(Collectors.joining(", "))
 System.out.println(getOrganisationName );
 
-=====================================================================================================================
+=================================================================================================================
 RemoveAllRepeatedCharacters :
 ========================
 String s = "Laxman";

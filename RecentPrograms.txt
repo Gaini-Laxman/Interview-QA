@@ -1,132 +1,917 @@
 
 
-Print Repeated Character :
+1.Print Repeated Character :
 ====================
 
-String s = "Laxman";
-
-char[ ] arr = s.toCharArray();
-for(int i=0; i<s.length(); i++){
-for(int j=0; j<s.length(); j++){
-
-if(arr[i] == arr[j]){
-System.out.println(arr[i]+ " ");
-break;
-}
-}
-}
-
+class Main {
+    public static void main(String[] args) {
+     
+     String s = "Laxman";
+     char [] arr = s.toCharArray();
+     for(int i=0; i<arr.length; i++){
+         boolean isDuplicate = false;
+      for(int j=i+1; j<arr.length; j++){
+       if(arr[i] == arr[j]){
+          isDuplicate = true;
+           break;
+       }
+       }
+       if(isDuplicate){
+           System.out.println(arr[i]+"");
+       }
+      }
+      }  
+ }
 =====================================================================================================================
 
-Remove Duplicate And Print Distinct Character:
+2.Remove Duplicate And Print Distinct Character:
 ====================================
-String s = "Laxman";
 
-LinkedHashSet<Character>lhs = new LinkedHashSet<>();
-StringBuffer sb = new StringBuffer();
-for(int i=0; i<s.length(); i++){
-char[] ch = s.charAt(i)
-for(int j=0; j<s.length(); j++){
-if(!lhs.contain(ch)){
-sb.append(ch);
-}
-}
-System.out.print(sb);
-}
+import java.util.Set;
+import java.util.LinkedHashSet;
+
+class Main {
+    public static void main(String[] args) {
+       
+       String s = "Laxman";
+       Set<Character> set = new LinkedHashSet<>();
+       StringBuffer sb = new StringBuffer();
+       for(int i=0; i<s.length(); i++){
+           char ch = s.charAt(i);
+            if(!set.contains(ch)){
+             set.add(ch);
+             sb.append(ch);   
+            }
+            }
+             System.out.println(sb);
+        }
+       
+        }
 
 =====================================================================================================================
-Reverse Word :
+3.Reverse Word :
 ===========
 
-private static void reverseWord(String s){
-String [ ] arr  = s.split();
-StringBuffer sb = new StringBuffer ();
-for(int = i<arr.length()-1; i>=0;  i--){
-sb.append(arr[i]);
-if(i>0){
-sb.append(" ");
-}
-}
-System.out.print(sb);
-}
-
+class Main {
+    public static void main(String[] args) {
+      
+      String s = "Laxman Anitha Maruthi Raju";
+      String [] arr = s.split(" ");
+      StringBuffer sb = new StringBuffer();
+      for(int i=arr.length-1; i>=0; i--){
+          sb.append(arr[i]);
+          if(i>0){
+             sb.append(" "); 
+          }
+          }
+          System.out.println(sb);
+      }
+      }
 =====================================================================================================================
-Reverse String :
+4.Reverse String :
 ===========
 
-String s = "Laxman";
-
-for(int i=s.length()-1; i>=0; i--){
-System.out.println(s.charAt(i));
+class Main {
+    public static void main(String[] args) {
+       String s = "Laxman";
+       for(int i=s.length()-1; i>=0; i--){
+      System.out.print(s.charAt(i));
+    }
+ }
 }
 
 
 
 =====================================================================================================================
-Reverse Number :
+5.Reverse Number :
 =============
 
-int[ ] num = {12345};
-
-while(!num=0){
-System.out.println(num%10);
-num/=10;
-}
-
+class Main {
+    public static void main(String[] args) {
+        int num = 12345;
+        while(num != 0){
+             System.out.print(num % 10);
+             num /= 10;
+        }
+    }
+    }
 
 
 =====================================================================================================================
-Find factorial of N:
+6.Find factorial of N:
 ==============
 
-private static long factorialOfN(int n){
-long factorial = 1;
-long sum=0;
-for(int i=n; i>=1; i--){
-factorial = factorial * i;
-}
-return factorial;
-}
-}
+class Main {
+    public static void main(String[] args) {
+       
+       int num = 6;
+       long factorial = 1;
+      
+       for(int i=1; i<=num; i++){
+        factorial = factorial * i;   
+       }
+       System.out.println(factorial);
+       }
+    }
 
 =====================================================================================================================
 
-Palidrome Number:
+7.Palidrome Number:
 ===============
 
-151 ==151 ==>remainder
-
-while(num!=0){
-remainder =num%10;
-reversedNum = reversedNum*10+remainder;
-num/=10;
-
-}
-if(originalNum == reversedNum){
-System.out.println(orginalNum+"is palidrome");
-}else{
-System.out.println(orinalNum+"is not palidrome");
-}
-}
-
+class Main {
+    public static void main(String[] args) {
+        
+        int num = 151;
+        int originalNum = num;
+        int reversedNum = 0;
+        int remainder;
+        
+        while(num!=0){
+         remainder = num%10;
+         reversedNum = reversedNum*10+remainder;
+         num/=10;
+        }
+        if(originalNum == reversedNum){
+         System.out.print(originalNum+"is Palidrome ");   
+        }else{
+            System.out.print(originalNum+"is not palidrome "); 
+        }
+        }
+        }
 =====================================================================================================================
-Palidrome in String :
+8.Palidrome in String :
 ===============
-radar == radar  ==>left, right 
+class Main {
+    public static void main(String[] args) {
+       String s = "radar";
+       boolean isPalidrome = true;
+       int left = 0;
+       int right = s.length() - 1;
+       while(left < right){
+          if(s.charAt(left) != s.charAt(right)){
+              isPalidrome = false;
+              break;
+          }
+          left++;
+          right--;
+       }
+      if(isPalidrome){
+          System.out.println(s+"is palidrome");
+      }else{
+          System.out.println(s+ " is not palidrome");
+      }
+    }
+}
 
-int left = 0;
-int right =  s.length()-1;
-while(left <right){
-if(s.charAt(left) != s.charAt(right)){
-return false
+
+
+=============
+
+class Solution {
+    int isPalindrome(String S) {
+        // code here
+   // S = S.toLoweCase();
+    
+    int left = 0;
+    int right = S.length() - 1;
+    while(left < right){
+        if(S.charAt(left) != S.charAt(right)){
+            return 0;
+        }
+        left++;
+        right--;
+    }
+     return 1;
+        
+    }
+};
+
+=====================================================================================================================
+9. Each Character count:
+
+class Main {
+    public static void main(String[] args) {
+       String s ="Laxman";
+       int [] count = new int[26];
+       for(int i=0; i<s.length(); i++){
+           char c = s.charAt(i);
+           count[c - 'a']++;
+       }
+       for(int i=0; i<s.length(); i++){
+           char c = s.charAt(i);
+           if(count[c - 'a'] != 0){
+               System.out.print(c + "=" +count[c - 'a']+",");
+               count[c - 'a'] = 0;
+           }
+       }
+    }
 }
-left++;
-right--
+=============================
+
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+
+class Main{
+public static void main(String args[ ] ){
+
+String s = "Laxman";
+
+s.chars().mapToObj(c->(char)c).
+  filter(Character::isLetter).
+collect(Collectors.groupingBy(Function.identity(), Collectors.counting())).
+forEach((c, count)->System.out.print(c+"="+count+","));
+
 }
-return true;
 }
 
 =====================================================================================================================
+10. Remove Duplicate Number
+
+class Main {
+    public static void main(String[] args) {
+        int num = 1123345;
+        String s = Integer.toString(num);
+        StringBuilder sb = new StringBuilder();
+        for(int i=0; i<s.length(); i++){
+           char c = s.charAt(i);
+           if(sb.indexOf(Character.toString(c)) ==-1){
+               sb.append(c);
+           }
+        }
+        System.out.println(sb);
+    }
+}
+=====================================================================================================================
+11.given array Find Second Largest
+
+class Main {
+    public static void main(String[] args) {
+        int[] numbers = {10,40,30,25};
+        int firstLargest = Integer.MIN_VALUE;
+        int secondLargest = Integer.MIN_VALUE;
+        for(int num : numbers){
+            if(num > firstLargest){
+            secondLargest = firstLargest;
+           firstLargest = num;
+        }else if(num > secondLargest && num != firstLargest){
+                secondLargest = num;
+            }
+            
+        }
+        if(secondLargest == Integer.MIN_VALUE){
+            System.out.println("No second largest");
+        }else{
+            System.out.println("Second Largest"+secondLargest);
+        }
+    }
+}
+=====================================================================================================================
+12. given array find first largest
+========================
+class Main {
+    public static void main(String[] args) {
+        int[] numbers = {10, 5, 20, 8, 15};
+        int firstLargest = numbers[0];
+        for(int num : numbers){
+            if(num > firstLargest){
+                firstLargest = num;
+                
+            }
+        }
+        System.out.println("firstLargest:"+firstLargest);
+    }
+}
+
+=====================================================================================================================
+13. Remove duplicate Number:
+=======================
+
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] a = {1, 2, 3, 3, 4, 5, 5, 6, 7, 7};
+
+        List<Integer> distinctList = Arrays.stream(a)
+                                          .distinct()
+                                          .boxed()
+                                          .collect(Collectors.toList());
+
+        distinctList.forEach(System.out::println);
+    }
+}
+
+=====================================================================================================================
+14. Even Numbers
+==============
+
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 3, 4, 5, 5, 6, 7, 7};
+
+    List<Integer> evenList = Arrays.stream(arr)
+                                   .filter(num -> num % 2 == 0)
+                                   .boxed()
+                                   .collect(Collectors.toList());
+                        evenList.forEach(System.out::println);
+    }
+}
+
+=====================================================================================================================
+15. Even Number Square it:
+=====================
+
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 3, 4, 5, 5, 6, 7, 7};
+
+    List<Integer> squaredEvenList = Arrays.stream(arr)
+                                 .filter(num -> num % 2 == 0)
+                             .map(evenNum -> evenNum * evenNum) // Square the even numbers
+                            .boxed()
+                             .collect(Collectors.toList());
+
+        squaredEvenList.forEach(System.out::println);
+    }
+}
+
+=====================================================================================================================
+16. Even Number Square it and Natural order:
+===================================
+
+
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class Main {
+    public static void main(String[] args) {
+      int[] arr = {1, 2, 3, 3, 4, 5, 5, 6, 7, 7};
+
+    List<Integer> sortedSquaredEvenList 
+                    = Arrays.stream(arr)
+                    .filter(num -> num % 2 == 0)
+                    .map(evenNum -> evenNum * evenNum) // Square the even numbers
+                 .sorted() // Sort in natural order (ascending)
+                 .boxed()                               
+                 .collect(Collectors.toList());
+         sortedSquaredEvenList.forEach(System.out::println);
+    }
+}
+
+=====================================================================================================================
+17.Even Number Square it and Reverse order:
+
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 3, 4, 5, 5, 6, 7, 7};
+
+        List<Integer> descendingSortedSquaredEvenList = Arrays.stream(arr)
+                                                            .filter(num -> num % 2 == 0)
+                                                            .map(evenNum -> evenNum * evenNum) // Square the even numbers
+                                                            .boxed()
+                                                            .sorted(Comparator.reverseOrder()) // Sort in descending order
+                                                            .collect(Collectors.toList());
+
+        descendingSortedSquaredEvenList.forEach(System.out::println);
+    }
+}
+
+=====================================================================================================================
+18.
+
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class Main {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 3, 4, 4, 5);
+
+        Set<Integer> uniqueNumbers = numbers.stream()
+                                            .collect(Collectors.toSet());
+
+        System.out.println(uniqueNumbers); // Output: [1, 2, 3, 4, 5]
+    }
+}
+=====================================================================================================================
+19.
+
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class Main {
+    public static void main(String[] args) {
+List<String> fruits = Arrays.asList("apple", "banana", "cherry");
+
+  Map<String, Integer> fruitLengthMap = fruits.stream()
+ .collect(Collectors.toMap(fruit -> fruit,fruit -> fruit.length()));
+
+System.out.println(fruitLengthMap);
+    }
+}
+
+=====================================================================================================================
+20.
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class Main {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+        List<Integer> limitedList = numbers.stream()
+                                           .limit(3)
+                                           .collect(Collectors.toList());
+
+        System.out.println(limitedList); // Output: [1, 2, 3]
+    }
+}
+=====================================================================================================================
+21.
+
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class Main {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+        List<Integer> skippedList = numbers.stream()
+                                           .skip(2)
+                                           .collect(Collectors.toList());
+
+        System.out.println(skippedList); // Output: [3, 4, 5]
+    }
+}
+=====================================================================================================================
+22.
+
+import java.util.*;
+import java.util.stream.Stream;
+
+public class Main {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(3, 1, 4, 1, 5, 9, 2, 6);
+
+Optional<Integer> firstNumber = numbers.stream().distinct().sorted().skip(3).findFirst();
+
+        if (firstNumber.isPresent()) {
+            System.out.println("First number: " + firstNumber.get()); // Output: First number: 3
+        } else {
+            System.out.println("No numbers found.");
+        }
+    }
+}
+=====================================================================================================================
+23.
+
+import java.util.*;
+import java.util.stream.Stream;
+
+public class Main {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(3, 1, 4, 1, 5, 9, 2, 6);
+
+        Optional<Integer> anyNumber = numbers.stream().findAny();
+
+        if (anyNumber.isPresent()) {
+            System.out.println("Any number: " + anyNumber.get()); // Output: Any number: 3 (or any other element)
+        } else {
+            System.out.println("No numbers found.");
+        }
+    }
+}
+=====================================================================================================================
+24.
+
+import java.util.*;
+import java.util.stream.Stream;
+
+public class Main {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(2, 4, 6, 8, 10);
+
+        boolean allEven = numbers.stream().allMatch(num -> num % 2 == 0);
+
+        if (allEven) {
+            System.out.println("All numbers are even.");
+        } else {
+            System.out.println("Not all numbers are even.");
+        }
+    }
+}
+=====================================================================================================================
+25.
+
+import java.util.*;
+import java.util.stream.Stream;
+
+public class Main {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+        boolean hasEven = numbers.stream().anyMatch(num -> num % 2 == 0);
+
+        if (hasEven) {
+            System.out.println("At least one even number exists.");
+        } else {
+            System.out.println("No even numbers found.");
+        }
+    }
+}
+=====================================================================================================================
+26.
+
+import java.util.*;
+import java.util.stream.Stream;
+
+public class Main {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 3, 5, 7, 9);
+
+        boolean noEven = numbers.stream().noneMatch(num -> num % 2 == 0);
+
+        if (noEven) {
+            System.out.println("No even numbers found.");
+        } else {
+            System.out.println("At least one even number exists.");
+        }
+    }
+}
+=====================================================================================================================
+27.
+
+import java.util.*;
+import java.util.stream.Stream;
+
+public class Main {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+        Optional<Integer> sumOptional = numbers.stream().reduce(Integer::sum);
+
+        sumOptional.ifPresent(sum -> System.out.println("Sum: " + sum)); // Output: Sum: 15
+    }
+}
+=====================================================================================================================
+28.
+
+var a = [[a,b],[b,c], [a,c]]; => output: [a,b,c] ?
+
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-array-manipulation',
+  template: `
+    <div>
+      <p>Input: {{ inputArray | json }}</p>
+      <p>Output: {{ outputArray | json }}</p>
+    </div>
+  `,
+})
+export class ArrayManipulationComponent implements OnInit {
+  inputArray: string[][] = [['a', 'b'], ['b', 'c'], ['a', 'c']];
+  outputArray: string[] = [];
+
+  ngOnInit() {
+    this.outputArray = this.flattenAndRemoveDuplicates(this.inputArray);
+  }
+
+  flattenAndRemoveDuplicates(input: string[][]): string[] {
+    const flattenedArray = input.reduce((acc, curr) => [...acc, ...curr], []);
+    return Array.from(new Set(flattenedArray));
+  }
+}
+=====================================================================================================================
+29.
+
+var b = [1,2,2,3,3,3,4,5,5,5]; ===> 
+output: 
+[
+{1: 1},
+{2:2},
+{3:3},
+{4:1},
+{5:3}
+] ?
+
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-array-count',
+  template: `
+    <div>
+      <p>Input: {{ inputArray | json }}</p>
+      <p>Output: {{ outputArray | json }}</p>
+    </div>
+  `,
+})
+export class ArrayCountComponent implements OnInit {
+  inputArray: number[] = [1, 2, 2, 3, 3, 3, 4, 5, 5, 5];
+  outputArray: { [key: number]: number }[] = [];
+
+  ngOnInit() {
+    this.outputArray = this.getCounts(this.inputArray);
+  }
+
+  getCounts(input: number[]): { [key: number]: number }[] {
+    const countMap = new Map<number, number>();
+
+    input.forEach(num => {
+      if (countMap.has(num)) {
+        countMap.set(num, countMap.get(num)! + 1);
+      } else {
+        countMap.set(num, 1);
+      }
+    });
+
+    return Array.from(countMap).map(([key, value]) => ({ [key]: value }));
+  }
+}
+=====================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

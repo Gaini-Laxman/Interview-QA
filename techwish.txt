@@ -1,0 +1,122 @@
+
+
+
+int[] arr = {1,2,-1,11,5,8};
+//output = paires 0f 10;
+
+int targetSum = 10;
+
+Set<Integer> set = new HashSet<>();
+Set<Integer> pairs = new HashSet<>();
+
+for(int num : arr){
+int complement = targetSum - num;
+if(set.contains(complement)){
+pairs.add(Math.min(num, complement));
+pairs.add(math.max(num, compement));
+}
+set.add(num);
+}
+
+for(int pair : pairs){
+System.out.println("pairs"+pair+","+targetSum-pair);
+
+}
+
+=========================================================================================
+
+customer
+=========
+customet id |  pincode
+c1                    50054
+c2                    50064
+c3                    50074
+
+product
+======
+product id  details
+p1                 smart tv
+p2                 mobile
+
+order
+=====
+order id customer id product id 
+o1            c1                 p1
+o2            c2                 p2
+o3            c3                 p1
+o4            c3                 p1
+o5            c2                 p2
+========================
+
+SELECT customer_id
+FROM (
+SELECT customer_id, COUNT(oder_id) AS order_count
+FROM order 
+Group BY customer_id
+ORDER BY order_count DESC
+LIMIT 1
+AS max_order;
+
+)
+=========================================================================================
+
+Student 
+======
+rollNo   name        section       marks
+1            X                A               690
+2           Y                 A               520
+1            p               B              790
+2            Q              B              860
+======================
+
+//SELECT section 
+//FROM(
+SELECT section, MAX(marks) AS max_marks
+FROM student
+GROUP BY section
+)
+=========================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

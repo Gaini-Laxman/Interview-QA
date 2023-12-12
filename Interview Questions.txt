@@ -10,7 +10,7 @@
 7.String Why immutable ?
 8.What are the Design Pattern implemented your project ?
 9.List out Predefined Functional Interface ? 
-10.How may ways Create Object in Java ?
+10.How many ways Create Object in Java ?
 11.How can you Create String in Java ?
 12.What are Java 8 Features ?
 
@@ -64,7 +64,7 @@
 1.What is Kafka explain ?
 2.What are the annotation we have used config server annotation in kafka ?
 3.What is Jwt algoritham internally ? (hs256 rs256) header part  we mension(secrets have Private key and public key) (encode and decode the we have two sinarious )
-4.Internal work on hashmap ?
+4.Internal work on hashmap ? 
 5.@Controller @RestController ?
 6.How Did You Handle Exception In your project ?
 7.Can you tell me differences between  @mock and @mockbean
@@ -159,7 +159,7 @@
 7.What logic returning in init ?
 8.What is Component in Angular ?
 9.How to pass the data one component to other componet ?
-10.What will execute first init or constructure in angukar and when it will be executed ?(init method when it will be executed )
+10.What will execute first init or constructure in angukar and when it will be executed ?(init method when it will be executed 
 11.what is the difference between lent and let and const key in angualar ?
 12.What is the difference between controller and restcontroller ?
 13.what is first level cache and second level cache in hybernate ?
@@ -462,12 +462,267 @@ empid     empName    ManagerName
 10.create a singleton class to avoid cloning then what will do ?
 11.What about serialisation ?
 12.what is the use of serial version id ?
-13.What is defference between object outputSteam and file OutputStream ?
+13.What is defference between object outputStream and file OutputStream ?
 14.There is one table we display in the ui i have lots of colums and some body ask you to craete a search api which will support searching mechanism,      pagination , sorting , innerpritor like operator and operator, count  all the functionality will support write logic ?
 15. Tell me the controller class for above one ?
 16.Can you tell me in details how spring security works ?
 
 =====================================================================================================================
+Apexon 15-9-2023
+=============
+class Question1 {
+
+    public static void main(String args[]) {  
+
+        System.out.println(fun());
+
+    }
+
+    int fun() {
+
+        return 20;
+
+    }
+
+}
+
+ 
+
+//question 2
+
+ 
+
+class Base {
+
+    public void Print()
+
+    {
+
+        System.out.println("Base");
+
+    }
+
+}
+
+ 
+
+class Derived extends Base {
+
+    public void Print()
+
+    {
+
+        System.out.println("Derived");
+
+    }
+
+}
+
+ 
+
+class Question2 {
+
+    public static void DoPrint(Base o)
+
+    {
+
+        o.Print();
+
+    }
+
+    public static void main(String[] args)
+
+    {
+
+        Base x = new Base();
+
+        Base y = new Derived();
+
+        Derived z = new Derived();
+
+        DoPrint(x);
+
+        DoPrint(y);
+
+        DoPrint(z);
+
+    }
+
+}
+
+ 
+
+//Question 3
+
+ 
+
+class Question3 {
+
+  private static int x;
+
+  public static void main(String args[]) {
+
+     System.out.println(fun());
+
+  }
+
+  static int fun() {
+
+     return ++x;
+
+  }
+
+}\
+
+ 
+
+ 
+
+public class Question4
+
+{
+
+    static int x = 11;
+
+    private int y = 33;
+
+    public void method1(int x)
+
+    {
+
+        Question4 q = new Question4();
+
+        this.x = 22;
+
+        y = 44;
+
+ 
+
+        System.out.println("Question4.x: " + Question4.x); //11
+
+        System.out.println("t.x: " + q.x);  //11
+
+        System.out.println("t.y: " + q.y);//33
+
+        System.out.println("y: " + y); //44
+
+    }
+
+ 
+
+    public static void main(String args[])
+
+    {
+
+        Question4 q = new Question4();
+
+        q.method1(5);
+
+    }
+
+}
+=========================================
+q2:
+========
+
+class Solution {
+  public static Boolean isPalindrome(String s) {
+  s = s.replaceAll("[^a-zA-Z0-9]","").toLowerCase();
+    int left = 0;
+    int right  = s.length()-1;
+    while(left<right){
+      if(s.charAt(left) != s.charAt(right)){
+        return false;
+
+      }
+      left++;
+      right--;
+    }
+    return true;
+
+  }
+
+  public static void main(String[] args) {
+    boolean result = true;
+
+    result &= !isPalindrome("dollop");  // false
+    result &=  isPalindrome("level");   // true
+    result &=  isPalindrome("Ana");     // true
+    result &= !isPalindrome("1010");    // false
+    result &=  isPalindrome("1001");    // true
+    result &=  isPalindrome("101");     // true
+    result &= !isPalindrome("110");     // false
+    result &=  isPalindrome("10101");   // true
+    result &=  isPalindrome("A car, a man, a maraca!"); // true
+    result &=  isPalindrome("A man, a plan, a cat, a ham, a yak, a yam, a hat, a canal - Panama!"); // true
+
+    if (result)
+      System.out.println("All test cases passed!");
+    else
+      System.out.println("At least one test case did not pass");
+  }
+}
+============
+q3
+===
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class AnagramGrouping {
+    public static List<List<String>> groupAnagrams(String[] input) {
+        if (input == null || input.length == 0) {
+            return new ArrayList<>();
+        }
+
+        List<List<String>> result = new ArrayList<>();
+        boolean[] visited = new boolean[input.length];
+
+        for (int i = 0; i < input.length; i++) {
+            if (!visited[i]) {
+                String current = input[i];
+                List<String> anagramGroup = new ArrayList<>();
+                anagramGroup.add(current);
+
+                for (int j = i + 1; j < input.length; j++) {
+                    if (!visited[j] && isAnagram(current, input[j])) {
+                        anagramGroup.add(input[j]);
+                        visited[j] = true;
+                    }
+                }
+
+                result.add(anagramGroup);
+            }
+        }
+
+        return result;
+    }
+
+    private static boolean isAnagram(String str1, String str2) {
+        if (str1.length() != str2.length()) {
+            return false;
+        }
+
+        char[] chars1 = str1.toCharArray();
+        char[] chars2 = str2.toCharArray();
+        Arrays.sort(chars1);
+        Arrays.sort(chars2);
+
+        return Arrays.equals(chars1, chars2);
+    }
+
+    public static void main(String[] args) {
+        String[] input = {"eat", "tea", "tan", "ate", "nat", "bat"};
+        List<List<String>> anagramGroups = groupAnagrams(input);
+
+        // Print the anagram groups
+        for (List<String> group : anagramGroups) {
+            System.out.println(group);
+        }
+    }
+}
+=========================================================================================
 
 
 
@@ -523,7 +778,7 @@ Total = 359
 Cofofge 
 =====================================================================================================================
 
-nput : arr[] = {1, -1, 3, 2, -7, -5, 11, 6 }
+Input : arr[] = {1, -1, 3, 2, -7, -5, 11, 6 }
 Output : 1  3  2  11  6  -1  -7  -5
 
 
@@ -649,6 +904,104 @@ SOP("This is Singleton");
 }
 }
 ==============================================================================================================
+
+
+ADP
+=====================================================================================================================
+
+String S1 = "Ajit";
+String S2 = "Ajit";
+String S3 = new String("Ajit");
+
+System.out.println(S1==S2);
+System.out.println(S2==S3);
+System.out.println(S3==S1);
+
+
+
+=====================================================================================================================
+
+class A {
+void print() {
+System.out.println("I am in class A");
+}
+}
+
+class B extends A {
+void print() {
+System.out.println("I am in class B");
+}
+}
+
+public class MethodOverriding {
+
+public static void main(String[] args) {
+
+A a = new A();
+B b = new B();
+
+A a1 = new B();
+B b1 = new A();
+
+a.print(); //Compile error
+b.print();    I am in class A, I am in class B
+a1.print(); 
+b1.print();
+}
+}
+=====================================================================================================================
+Declare and define a list of integers with duplicate values. Write a program to remove the duplicate values and then sort it in descending order without using java inbuilt class/ library.
+
+=====================================================================================================================
+
+SmarTek21 
+=============
+
+1. Volatile variable ? what is the benefit and when we achieve ?
+ 
+2.
+
+
+Map<Integer, Student> list = xyz.stream().collect(Collectors.toList());
+
+
+
+=====================================================================================================================
+
+Second highest salary ?
+
+SELECT MAX(salary) 
+FROM (SELECT DISTINCT salary FROM employee) 
+WHERE ROWNUM < 2;
+
+or 
+
+SELECT DISTINCT salary
+FROM employee
+ORDER BY salary DESC
+LIMIT 1 OFFSET 1;
+
+
+
+
+=====================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
