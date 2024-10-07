@@ -1,0 +1,19 @@
+HTTP Status Code:
+
+200 ok succeess
+
+201 created
+
+400 bad Request
+
+401 unautherized
+
+403 forbiden
+
+404 Not found
+
+500 Internal server error
+
+502 bad gateway
+
+503 service unavailable

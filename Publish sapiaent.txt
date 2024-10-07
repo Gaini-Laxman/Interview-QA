@@ -1,0 +1,725 @@
+[11:33 AM] Ajay Kumar
+List<Employee> employeeList = new ArrayList<Employee>();
+
+			employeeList.add(new Employee(111, "Ajay", "Male", "IT"));
+
+			employeeList.add(new Employee(112, "Vijay", "Male", "IT"));
+[11:34 AM] Ajay Kumar
+employeeList.add(new Employee(113, "Mohit", "Male", "HR"));
+
+			employeeList.add(new Employee(114, "Monika", "Female", "HR"));
+
+			employeeList.add(new Employee(115, "Rohini", "Female", "IT"));
+
+			employeeList.add(new Employee(116, "Manish", "Male", "Finance"));
+
+
+
+
+
+
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+import java.lang.*; 
+public class Main {
+public static void main(String[] args) {
+    [11:33 AM] Ajay Kumar
+List<Employee> employeeList = new ArrayList<Employee>();
+
+			employeeList.add(new Employee(111, "Ajay", "Male", "IT"));
+
+			employeeList.add(new Employee(112, "Vijay", "Male", "IT"));
+
+employeeList.add(new Employee(113, "Mohit", "Male", "HR"));
+
+			employeeList.add(new Employee(114, "Monika", "Female", "HR"));
+
+			employeeList.add(new Employee(115, "Rohini", "Female", "IT"));
+
+			employeeList.add(new Employee(116, "Manish", "Male", "Finance"));
+            //print the the count male and female from it departmant
+
+             
+         long maleCount = employeeList.stream().filter(emp->emp.getDepartment().equals("IT") && emp.getGender().equals("Male")).count();
+        long femaleCount = employeeList.stream().filter(emp->emp.getDepartment().equals("IT") && emp.getGender().equals("Female")).count();
+        
+
+
+}}
+
+//Custome unchecked Exception
+
+public class CustomUncheckedException extends RuuntimeException {
+    public CustomUncheckedException(){
+        super();
+        public CustomUnchecked Exception(String message){
+            super(message);
+        }
+    }
+}
+
+//parent class methods checked
+child unchecked 
+
+
+//
+
+class Person implements Cloneable(){
+    private String name;
+    private 
+
+}
+protected Object clone() throws CloneNotSupportedException{
+
+    return super.clone();
+
+    public Person deepCopy(){
+        retun new Person(the.name, CopiedHobblies)
+
+
+
+    }
+}
+
+String[] arr =  {"Hyd", "Chennai", "Bang"};
+ 
+ Arrays.sort(arr, Comparator.reverseOrder());
+for(String str : arr){
+    sop(str);
+}
+
+i1.super().m1();
+==================================================================
+
+Function<String, Integer> f = str->str.length();
+  Sop(f.apply("Laxman"));
+
+
+
+  ==============================================
+
+  public Class Singleton{
+  private static volatile Singleton incetance;
+  public Class Singleton{}
+
+  public static Singleton getInstance(){
+    if(incetance == null){
+        Synchronization(Singleton){
+            if(incetance == null){
+                incetance = new Singleton();
+        }
+    }
+    retun incetance;
+  } 
+  }
+  }
+
+  =======================================================
+
+//feature callabe using executor 
+
+================================================================================
+
+ExcutorService executor = Executors.newFixedTheadPool(10);
+
+      callabe<Integer> myFeature = ()->{
+
+        retun 5 * 5;
+      }
+      Futureture<Integer>feature = executor.submit(myFeature);
+
+      try{
+
+        int result = feature.get();
+        sop(result);
+      }catch(InterruptedException e){
+        e.p
+      }
+
+============================================================================
+
+Write an SQL query to fetch the name of employees with the same salary?
+
+SELECT name
+FROM Employee;
+GPOUP BY salary
+HAVING COUNT(*) > 1;
+
+==============================
+
+index = myIndex source
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+import java.lang.*; 
+public class Main {
+public static void main(String[] args) {
+    [11:33 AM] Ajay Kumar
+List<Employee> employeeList = new ArrayList<Employee>();
+
+			employeeList.add(new Employee(111, "Ajay", "Male", "IT"));
+
+			employeeList.add(new Employee(112, "Vijay", "Male", "IT"));
+
+employeeList.add(new Employee(113, "Mohit", "Male", "HR"));
+
+			employeeList.add(new Employee(114, "Monika", "Female", "HR"));
+
+			employeeList.add(new Employee(115, "Rohini", "Female", "IT"));
+
+			employeeList.add(new Employee(116, "Manish", "Male", "Finance"));
+            //print the the count male and female from it departmant
+
+             
+         long maleCount = employeeList.stream().filter(emp->emp.getDepartment().equals("IT") && emp.getGender().equals("Male")).count();
+        long femaleCount = employeeList.stream().filter(emp->emp.getDepartment().equals("IT") && emp.getGender().equals("Female")).count();
+        
+
+
+}}
+
+//Custome unchecked Exception
+
+public class CustomUncheckedException extends RuuntimeException {
+    public CustomUncheckedException(){
+        super();
+        public CustomUnchecked Exception(String message){
+            super(message);
+        }
+    }
+}
+
+//parent class methods checked
+child unchecked 
+
+
+//
+
+class Person implements Cloneable(){
+    private String name;
+    private 
+
+}
+protected Object clone() throws CloneNotSupportedException{
+
+    return super.clone();
+
+    public Person deepCopy(){
+        retun new Person(the.name, CopiedHobblies)
+
+
+
+    }
+}
+
+String[] arr =  {"Hyd", "Chennai", "Bang"};
+ 
+ Arrays.sort(arr, Comparator.reverseOrder());
+for(String str : arr){
+    sop(str);
+}
+
+i1.super().m1();
+==================================================================
+
+Function<String, Integer> f = str->str.length();
+  Sop(f.apply("Laxman"));
+
+
+
+  ==============================================
+
+  public Class Singleton{
+  private static volatile Singleton incetance;
+  public Class Singleton{}
+
+  public static Singleton getInstance(){
+    if(incetance == null){
+        Synchronization(Singleton){
+            if(incetance == null){
+                incetance = new Singleton();
+        }
+    }
+    retun incetance;
+  } 
+  }
+  }
+
+  =======================================================
+
+//feature callabe using executor 
+
+================================================================================
+
+ExcutorService executor = Executors.newFixedTheadPool(10);
+
+      callabe<Integer> myFeature = ()->{
+
+        retun 5 * 5;
+      }
+      Futureture<Integer>feature = executor.submit(myFeature);
+
+      try{
+
+        int result = feature.get();
+        sop(result);
+      }catch(InterruptedException e){
+        e.p
+      }
+
+============================================================================
+
+Write an SQL query to fetch the name of employees with the same salary?
+
+SELECT name
+FROM Employee;
+GPOUP BY salary
+HAVING COUNT(*) > 1;
+
+==============================
+
+index = myIndex source
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+InterruptedException
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

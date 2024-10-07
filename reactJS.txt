@@ -1,0 +1,206 @@
+React 
+======
+ReactJS is javascript library is used to use reusable compont for view layer in mvc archetecture it is highly efficient and uses virtual DOM to render component .it works client side and is written in JSX
+ ==========================
+React Component:
+
+Component : it is reusable code and return HTML
+JSX:                     it stands for JavaScript and XML and allow to write HTML in react
+Props and States : props are like function parameter and states are similare to variable
+Context :              this allows data to be passed through components as props  in hierarchy.
+Virtual DOM :    is a lightweight copy of actual DOM.
+
+
+====================================================
+Expalin props and state in react with difference ?
+
+Props are used pass data fom one component to another component. state is local data storsge that is local to component
+only canot passed to another component.
+
+
+props                                                                                       state
+==================================================================================
+
+Data passed from one component to another component          Data passed to within the component
+Immutable                                                                                      Mutable
+Functional component                                                                   State component/ class component
+Props are readonly                                                                        State is both read and write
+=======================================================================
+What are the component and type in reactJS ?
+
+Component is core building block
+mainly we have two type of component
+Functional component : it is js functions
+Class Component : little more complex , we can pass data one class component to another class component
+
+===============================
+how do browser  read  JSX ?
+
+Browser are not capable to read capable JSX and only can read pure java script .
+Bowser read JSX with help of transpiler and transpiler is convert to jsx to javascript  
+transpiler are called Babel.
+========================================================================
+
+Create react application and print hellow world ?
+
+Open Terminal type below command 
+   npx create-react-app <app-name>
+
+cd <app-name>
+
+import react from "react";
+import "./app.css";
+ function App(){
+return  <div   className="App">Hello World ! </div>
+}
+export default App;
+
+npm start
+
+========================================================================
+What is high order component in react ?
+HOC it is advance method of reusing component functionality logic. 
+simple takes original component and return the enhanced component
+
+=============================================
+
+What is deffernce between functional component and class component ?
+
+                                 Functional component                                                             Class Component
+=========================================================================================
+No render() method                                                                                    It must have render() method
+Stateless Component                                                                                   Stateful component
+lifeCycle method canot be used                                                                  lifecycle method it can use
+Constructore are not used                                                                          Constructure are used store data
+
+======================================================================================
+
+Explain one way data binding ?
+
+ReactJS use one way data binding which can component to view or view to component.
+it is also known as one way data flow, which means the data has transfered one way.
+child component are not able update the data coming from parent component	
+
+=========================================================
+
+Explain component of react router ?
+Roter
+Switch 
+Route 
+Link
+
+====================================
+
+Expain the lifecycle method in react ?
+
+Initialization
+Mounting
+Updating
+UnMounting
+
+========================================
+Explain the methods used in mounting phase of component ?
+
+componentWillMount() Function
+componentDidMount() Function
+
+
+==============================================================
+Whare are the hooks in react ?
+Hooks are new addition in React 16.8, they developer use state and other react features without writing class.
+hooks dont violet any existing react component. instead hooks provide direct API to react concept such as props, state,
+context, refs and lifecycle.
+
+=======================================================================
+How to optimize react code ?
+
+using binding function in constructure
+Avoid extract tags by using react fragment
+lazy loading
+
+========================================================================
+What is defference between 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

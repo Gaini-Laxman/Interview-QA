@@ -1,0 +1,128 @@
+angular lifecycle hooks 8 methods
+=======================
+1.ngOnInit()2.ngOnChanges()
+3.ngOnCheck()
+4.ngOnDestroy()
+5.ngAfterContentInit()
+6.ngAfterContentChecked()
+7.ngAfterViewInit()
+8.ngAfterViewChecked()
+
+========================== 
+What is Observable and promises ?
+
+both are used for asyncronous functionality
+
+Observable handle sequence of asncronous events over a time periode while promises deal with one asyncronous Events at a time
+
+observable cant start until subscription, while promise execute immediate when created
+
+observable provide multiple values while promises provide single value
+
+Observable values can be transfered with subscription promises have .then() that transfered after work is done
+
+Observable can subscription and unsubsribe where  promises once subscribe cant unsubscribe
+
+Observable is lazy loading mean no shared execution but promises is eager loading means shared execution 
+
+
+========================================================================================
+
+Angular Building blocks
+=================
+View
+Template
+Databinding
+Metadata
+Dependancy injection
+Service
+Module
+Directives
+Pipes
+
+===========================================================================
+How many Types of databinding ?
+
+Interploation 
+Property 
+Event 
+Two way(p&e) @ngModel (select and input)
+
+================================
+Types of Directives
+
+built in Directives
+============
+Structural
+Component
+Attributive 
+========
+Custome
+
+ng g directive <directive name>
+
+=========================================================================================
+pipe
+====
+
+pipes are used to transform the value into user-expected-format
+
+pipe operator symbol |
+
+inbuilt pipes 
+
+uppercase
+lowercase
+curency
+date
+percentage
+
+custome pipe create
+
+ng g pipe <pipename>
+
+pure pipe
+
+pure pipe are only executed when the input value changes
+
+impure pipe
+impure pipe are excuted every detection change cycle, regardless of wether input values has change
+
+angular must me implemet pipeTransfer interface @angular/core
+
+=======================================================================
+What is eager loading and lazy loading in angular ?
+
+eager loading is defdault  module loading stratagy, eager loading is loading before aplication starts
+this is used for typically small size application.
+
+lazy loading is loaded on demand when application requires
+
+========================================================================
+Route guard
+=========
+route guard is used for routing for navigation or redirection is called route guard
+generate guard :
+ng generate guard auth
+
+route guard types
+
+canLoad
+canActivate
+canDeactivate
+canActivateChild
+
+=========================================================================================
+HTTP Intercetor:
+
+http interceptor are used to perform varioustask related http request and http response, 
+such as adding header handling error  and modifying the data request and response data , logging and authentication, cacheng mechanism etc
+
+
+=========================================================================================
+
+
+
+
+
+

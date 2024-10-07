@@ -1,0 +1,84 @@
+
+
+
+public class Singleton{
+
+private static volatile Singleton instatnce;
+
+private Singleton{}
+
+public static Singleton getInstance(){
+if(instance == null{
+Synchronized(Singleton.class){
+if(instance == null{
+instance = new Singleton();
+}
+}
+return instance;
+}
+
+
+=======================================================================
+
+
+retrieve the names of employees along with the names of their respective managers. 
+Use the "employees" and "managers" tables.
+=======================================
+select e.employee_name as employee, m.manager_name as manager
+from employee e
+INNER JOIN manager m ON e.manager_id = m.manager_id;
+
+=================================================================
+
+interface A{
+  void method(){
+sop("a")
+}
+}
+interface B extends A{
+  void method(){
+sop("b");
+}
+}
+interface C extends B{
+  void method(){
+sop("c");
+}
+}
+
+===============================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

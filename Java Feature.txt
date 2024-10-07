@@ -1,0 +1,223 @@
+
+Java 11 Features
+=============
+1.added New Method to String class                                      [ srd gf  fvhn ]
+isBlank()
+stripLeading()
+striptRailing()
+repeat()
+strip()
+=========================================================================================
+2. added New Method to file Class
+readString
+writeString
+==============================================================================
+3. local varible Syntax for lambda
+
+var key word introduce
+======================================================================================
+4.HTTP Client
+java.net.http -> package java 9 its standard feature in java11
+HTTP/1.1
+HTTP/2
+===================================================================================
+5.Nest Based Access Control
+====================================================
+6.Running JAVA Files
+we dont want compile java source file with javac any more
+=============================================================================
+7. No-Op Garbase Collector
+Epslon garbase collector 
+its applicable only out of memory error
+wont use production java application
+usecase
+Performance testing
+vm interface testing
+memory presure testing
+enable -> -XX:+UnlockExperimentalVMOption -XX:+UseEpslonGC flag.
+======================================================================================
+8. Flight Recorder(JFR)
+JFR is a frofing tool that we can use the gather diagnostic and profing data from running java appliaction
+
+enable for 120sec
+-XX:startFilghtRecording=duration=120s, setting=profile, profilename=javademoapp.jfr
+
+jfr file we can use analysing and visualing data
+jfr file not open direct you need another tool as well i.e JDK Mission Control(JMC)
+
+====================================================================================
+9.Dreprecated Module Removed
+
+Java EE and CORBA
+
+=====================================================================================
+
+Java 17 Features
+=============
+1.Pattern Matching for switch statement                                                                     [ sir spemd ]
+
+public static int getLength(Object obj) {
+    return switch (obj) {
+        case String s -> s.length(); // variable pattern
+        case List list && !list.isEmpty() -> list.size(); // type pattern
+        case null -> 0;
+        default -> -1;
+    };
+}
+
+======================================================================================
+2.Pattern matching for instatnceof 
+
+// Old way with pattern matching (Before Java 17)
+
+if (obj instanceof String) {
+  String str = (String) obj;
+  System.out.println(str.length());
+}
+// New way with pattern matching (Since Java 17)
+
+if (obj instanceof String str) {
+System.out.println(str.length());
+}
+
+====================================================================================
+Restore Always-Strict Floating-Point Semantics
+
+double a = 0.1;
+double b = 0.2;
+double c = a + b;
+System.out.println(c);
+
+=====================================================================================
+3.SealedClass and interfaces
+
+public sealed class Shape permits Circle, Square, Triangle {
+    // ...
+}
+
+
+======================================================================================
+4.Enanced pseudo random generator
+
+SplittableRandom random = new SplittableRandom();
+int randomNumber = random.nextInt();
+
+=====================================================================
+
+5.strongly encapsulated jdk internal
+
+use the sun.misc.Unsafe class, which is an internal API that is not intended for use by third-party applications. Prior to Java 17
+
+
+========================================================================
+6.new macos rendering pipeline
+
+
+
+7.deprecated applet api for removal
+
+
+========================================================================================
+java 19 feature
+===========
+
+Pattern Match for switch                                                       [svt frs]
+
+
+
+===================================================================================
+Vector API
+
+
+
+=================================================================================
+Vertual thread
+
+
+================================================================================
+Foreing function Memory API
+
+
+==============================================================================
+Record Pattern
+
+
+
+
+==================================================================================
+Structure Concurency
+
+
+
+
+
+==================================================================================
+
+
+=========================================================================================
+
+java 11
+=====
+new method added to string class
+running java files
+java ee and corba module
+
+no-op garbage collector
+new method added to file class
+
+flight recorder
+var keyword added to lamda
+http client 
+nested access control
+
+java 17
+=====
+
+pattern matching switch
+pattern matching instaceof
+restore always  strict floting point semantic
+
+sealed class and interface
+enanced floating point generator
+strongly encapsilate jdk internal
+new macos rendering pipeline
+depricated applet api
+
+java 19
+========
+pattern matching for string
+vector api
+vrtual thread
+
+forein function memory api
+record pattern
+structural concurrency
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
