@@ -1,0 +1,71 @@
+Hibernate 
+========
+
+1. Create Config obj
+2. create session factory
+3. create session
+4. begin tx
+5. execute methods
+6. commit tx
+7. close session
+8. close sf
+
+===================
+
+First-Level Cache (Session Cache): 
+This cache is associated with the Session object and is enabled by default. Data is cached within a session, but once the session is closed, the cache is cleared.
+
+Second-Level Cache (SessionFactory Cache):
+ This cache is shared across multiple sessions and is generally used to cache frequently accessed data.
+Common caching solutions include:
+
+EhCache
+Redis
+Infinispan
+========================================
+hibernate.cfg.xml 
+
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/mydb</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">password</property>
+        <property name="hibernate.show_sql">true</property>
+    </session-factory>
+</hibernate-configuration>
+======================================================================
+
+Mapping Files / Annotations
+Hibernate provides two ways to define mappings between Java classes and database tables:
+XML-based mapping: Using hbm.xml files.
+Annotation-based mapping: Using annotations in Java classes (more popular in modern Hibernate versions).
+java
+Copy code
+@Entity
+@Table(name = "Employee")
+public class Employee {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private String name;
+    private double salary;
+    
+    // Getters and setters
+}
+
+
+==========================================================
+ransaction
+A Transaction in Hibernate is used to manage database transactions.
+Hibernate provides automatic transaction management (using beginTransaction(), commit(), and rollback() methods).
+Transactions in Hibernate ensure ACID properties (Atomicity, Consistency, Isolation, Durability).
+
+====================================================================
+
+
+
+
