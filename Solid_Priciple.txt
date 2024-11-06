@@ -1,0 +1,16 @@
+SOLID
+======
+S => SRP(Single Responsibility Principle)
+Class should have only one responsible
+=======================================
+O =>OCP(Open/Closed Principle)
+The Entity should be Open for Extension closed Modification
+==================================
+L => LSP(Liskov Substitution Principle)
+Object of the super class should be replaced with Object of the sub class without effrcting functionality of the program
+===================================
+I =>ISP(Interface Segregation Principle)
+Instead of using monolith interface you can break small interface and use it
+===================================
+D => DIP => (Dipendacy inversion Principle)
+High level module should not depends on low level module and both should be depends on abstraction
