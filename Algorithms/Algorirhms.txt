@@ -3,17 +3,683 @@ Algrithms
 Sorting
 ========
 Bubble Sort
-Selection Sort
-Insertion Sort
-Merge Sort
-Quick Sort
 =========
-Searching
+Bubble Sort:
+
+Explanation: 
+Bubble Sort is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order.
+
+Java Implementation: 
+It involves nested loops and swapping elements.
+
+public class BubbleSort {
+
+    // Bubble Sort algorithm
+    public void bubbleSort(int[] arr) {
+        int n = arr.length;
+        // Outer loop for each pass
+        for (int i = 0; i < n - 1; i++) {
+            // Inner loop to compare adjacent elements
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    // Swap arr[j] and arr[j+1]
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+    }
+
+    // Utility method to print the array
+    public void printArray(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        BubbleSort sorter = new BubbleSort();
+        
+        int[] arr = {64, 34, 25, 12, 22, 11, 90};
+        
+        System.out.println("Original array:");
+        sorter.printArray(arr);
+        
+        // Sort the array
+        sorter.bubbleSort(arr);
+        
+        System.out.println("Sorted array:");
+        sorter.printArray(arr);
+    }
+}
+===========================================
+Selection Sort
+==========
+
+Explanation: 
+Selection Sort divides the input list into two parts: a sorted part and an unsorted part. It repeatedly selects the smallest element from the unsorted part and swaps it with the first unsorted element.
+
+Java Implementation: 
+Requires looping through elements and finding the minimum value.
+
+public class SelectionSort {
+
+    // Selection Sort algorithm
+    public void selectionSort(int[] arr) {
+        int n = arr.length;
+        // Outer loop to go through each element in the array
+        for (int i = 0; i < n - 1; i++) {
+            int minIndex = i;  // Assume the current index is the minimum
+            // Inner loop to find the smallest element in the unsorted part
+            for (int j = i + 1; j < n; j++) {
+                if (arr[j] < arr[minIndex]) {
+                    minIndex = j;  // Update the minIndex if a smaller element is found
+                }
+            }
+            // Swap the found minimum element with the first element of the unsorted part
+            int temp = arr[minIndex];
+            arr[minIndex] = arr[i];
+            arr[i] = temp;
+        }
+    }
+
+    // Utility method to print the array
+    public void printArray(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+
+    // Main method to test the selection sort algorithm
+    public static void main(String[] args) {
+        SelectionSort sorter = new SelectionSort();
+
+        int[] arr = {64, 34, 25, 12, 22, 11, 90};
+
+        System.out.println("Original array:");
+        sorter.printArray(arr);
+
+        // Sort the array using selection sort
+        sorter.selectionSort(arr);
+
+        System.out.println("Sorted array:");
+        sorter.printArray(arr);
+    }
+}
+========================================================
+Insertion Sort
+
+Insertion Sort:
+
+Explanation: 
+Insertion Sort builds a sorted array one element at a time. It takes one element from the input data, finds the location it belongs to in the sorted array, and inserts it there.
+
+Java Implementation:
+
+ Involves comparing elements and shifting them.
+
+public class InsertionSort {
+
+    // Insertion Sort algorithm
+    public void insertionSort(int[] arr) {
+        int n = arr.length;
+        // Loop over each element starting from the second element
+        for (int i = 1; i < n; ++i) {
+            int key = arr[i];  // The current element to be inserted into the sorted portion
+            int j = i - 1;  // The index of the last element in the sorted portion
+            
+            // Shift elements of the sorted portion to the right to make space for the key
+            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j = j - 1;
+            }
+            
+            // Insert the key into the correct position
+            arr[j + 1] = key;
+        }
+    }
+
+    // Utility method to print the array
+    public void printArray(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+
+    // Main method to test the insertion sort algorithm
+    public static void main(String[] args) {
+        InsertionSort sorter = new InsertionSort();
+
+        // Example array to be sorted
+        int[] arr = {64, 34, 25, 12, 22, 11, 90};
+
+        System.out.println("Original array:");
+        sorter.printArray(arr);
+
+        // Sort the array using insertion sort
+        sorter.insertionSort(arr);
+
+        System.out.println("Sorted array:");
+        sorter.printArray(arr);
+    }
+}
+
+
+=================================================================
+Merge Sort
+=========
+Explanation: 
+Merge Sort is a divide-and-conquer algorithm that divides the input array into two halves, sorts them, and then merges the two sorted halves to produce a single sorted array.
+
+Java Implementation:
+ Uses a recursive approach and merging technique.
+
+public class MergeSort {
+
+    // Merge Sort algorithm
+    public void mergeSort(int[] arr, int l, int r) {
+        if (l < r) {
+            // Find the middle point of the array
+            int m = (l + r) / 2;
+            
+            // Recursively sort the first and second halves
+            mergeSort(arr, l, m);  // Left half
+            mergeSort(arr, m + 1, r);  // Right half
+            
+            // Merge the sorted halves
+            merge(arr, l, m, r);
+        }
+    }
+
+    // Merge two subarrays of arr[]
+    public void merge(int[] arr, int l, int m, int r) {
+        // Find the sizes of the two subarrays to be merged
+        int n1 = m - l + 1;
+        int n2 = r - m;
+
+        // Create temporary arrays to hold the left and right subarrays
+        int[] L = new int[n1];
+        int[] R = new int[n2];
+
+        // Copy data to temporary arrays L[] and R[]
+        System.arraycopy(arr, l, L, 0, n1);
+        System.arraycopy(arr, m + 1, R, 0, n2);
+
+        // Merge the temporary arrays back into arr[]
+        int i = 0;  // Initial index for left subarray
+        int j = 0;  // Initial index for right subarray
+        int k = l;  // Initial index for merged array
+
+        while (i < n1 && j < n2) {
+            if (L[i] <= R[j]) {
+                arr[k] = L[i];
+                i++;
+            } else {
+                arr[k] = R[j];
+                j++;
+            }
+            k++;
+        }
+
+        // Copy the remaining elements of L[], if any
+        while (i < n1) {
+            arr[k] = L[i];
+            i++;
+            k++;
+        }
+
+        // Copy the remaining elements of R[], if any
+        while (j < n2) {
+            arr[k] = R[j];
+            j++;
+            k++;
+        }
+    }
+
+    // Utility method to print the array
+    public void printArray(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+
+    // Main method to test the merge sort algorithm
+    public static void main(String[] args) {
+        MergeSort sorter = new MergeSort();
+
+        // Example array to be sorted
+        int[] arr = {64, 34, 25, 12, 22, 11, 90};
+
+        System.out.println("Original array:");
+        sorter.printArray(arr);
+
+        // Sort the array using merge sort
+        sorter.mergeSort(arr, 0, arr.length - 1);
+
+        System.out.println("Sorted array:");
+        sorter.printArray(arr);
+    }
+}
+===================================================================
+
+Quick Sort
 ========
+Explanation: Quick Sort is another divide-and-conquer algorithm that picks an element as a pivot and partitions the given array around the pivot, placing the pivot element in its correct position.
+Java Implementation: It’s efficient and works recursively.
+
+public class QuickSort {
+
+    // QuickSort algorithm
+    public void quickSort(int[] arr, int low, int high) {
+        if (low < high) {
+            // Find the partition index
+            int pi = partition(arr, low, high);
+            
+            // Recursively sort the left and right subarrays
+            quickSort(arr, low, pi - 1);   // Left subarray
+            quickSort(arr, pi + 1, high);  // Right subarray
+        }
+    }
+
+    // Partition logic for QuickSort
+    public int partition(int[] arr, int low, int high) {
+        // Choose the last element as the pivot
+        int pivot = arr[high];
+        int i = low - 1;  // Index of the smaller element
+        
+        // Iterate through the array, rearrange elements around the pivot
+        for (int j = low; j < high; j++) {
+            if (arr[j] <= pivot) {
+                i++;  // Increment the smaller element index
+                // Swap arr[i] and arr[j]
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+
+        // Place the pivot element at its correct position
+        int temp = arr[i + 1];
+        arr[i + 1] = arr[high];
+        arr[high] = temp;
+
+        return i + 1;  // Return the index of the pivot element
+    }
+
+    // Utility method to print the array
+    public void printArray(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+
+    // Main method to test the QuickSort algorithm
+    public static void main(String[] args) {
+        QuickSort sorter = new QuickSort();
+
+        // Example array to be sorted
+        int[] arr = {64, 34, 25, 12, 22, 11, 90};
+
+        System.out.println("Original array:");
+        sorter.printArray(arr);
+
+        // Sort the array using QuickSort
+        sorter.quickSort(arr, 0, arr.length - 1);
+
+        System.out.println("Sorted array:");
+        sorter.printArray(arr);
+    }
+}
+=========================================================================================
+===========
+Searching
+===========
 Linear Search
+===========
+Explanation: Linear Search sequentially checks each element in the list until the desired element is found or the list ends.
+Java Implementation: Involves a loop to iterate through elements.
+
+public class LinearSearch {
+
+    // Linear Search algorithm
+    public int linearSearch(int[] arr, int x) {
+        // Traverse through the array
+        for (int i = 0; i < arr.length; i++) {
+            // Check if the current element is equal to x
+            if (arr[i] == x) {
+                return i;  // Return the index if the element is found
+            }
+        }
+        // Return -1 if the element is not found
+        return -1;
+    }
+
+    // Utility method to print the array
+    public void printArray(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+
+    // Main method to test the linear search algorithm
+    public static void main(String[] args) {
+        LinearSearch searcher = new LinearSearch();
+
+        // Example array
+        int[] arr = {64, 34, 25, 12, 22, 11, 90};
+
+        System.out.println("Array:");
+        searcher.printArray(arr);
+
+        // Element to search for
+        int x = 22;
+
+        // Perform linear search
+        int result = searcher.linearSearch(arr, x);
+
+        // Output the result
+        if (result == -1) {
+            System.out.println("Element " + x + " not found in the array.");
+        } else {
+            System.out.println("Element " + x + " found at index " + result + ".");
+        }
+    }
+}
+=================================================================================
 Binary Search
 
+Explanation: 
+Binary Search works on sorted arrays by repeatedly dividing the search interval in half until the element is found or the interval is empty.
+
+Java Implementation:
+ It’s more efficient than linear search but requires a sorted array.
+
+public class BinarySearch {
+
+    // Binary Search algorithm
+    public int binarySearch(int[] arr, int x) {
+        int low = 0, high = arr.length - 1;
+        
+        // Loop until the search space is exhausted
+        while (low <= high) {
+            // Find the middle index
+            int mid = low + (high - low) / 2;
+            
+            // Check if the element is at the middle
+            if (arr[mid] == x) {
+                return mid;  // Return the index if the element is found
+            }
+            
+            // If the element is larger than mid, ignore the left half
+            if (arr[mid] < x) {
+                low = mid + 1;
+            } else {
+                // If the element is smaller than mid, ignore the right half
+                high = mid - 1;
+            }
+        }
+        
+        // Return -1 if the element is not found
+        return -1;
+    }
+
+    // Utility method to print the array
+    public void printArray(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+
+    // Main method to test the binary search algorithm
+    public static void main(String[] args) {
+        BinarySearch searcher = new BinarySearch();
+
+        // Example array (sorted in ascending order)
+        int[] arr = {11, 12, 22, 25, 34, 64, 90};
+
+        System.out.println("Array:");
+        searcher.printArray(arr);
+
+        // Element to search for
+        int x = 25;
+
+        // Perform binary search
+        int result = searcher.binarySearch(arr, x);
+
+        // Output the result
+        if (result == -1) {
+            System.out.println("Element " + x + " not found in the array.");
+        } else {
+            System.out.println("Element " + x + " found at index " + result + ".");
+        }
+    }
+}
+=========================================================================================
+
 Graph 
-=====
+====================
 BFS(Breadth First Search)
+====================
+Explanation: BFS explores all the vertices at the current depth before moving to vertices at the next depth level.
+Java Implementation: Utilizes a queue data structure to keep track of vertices.
+
+import java.util.*;
+
+public class BFS {
+    // Method to perform BFS traversal
+    public void bfs(int[][] graph, int start) {
+        int n = graph.length;  // Number of vertices in the graph
+        boolean[] visited = new boolean[n];  // Array to track visited vertices
+        
+        // Queue to store the vertices to explore
+        Queue<Integer> queue = new LinkedList<>();
+        
+        // Start by marking the source node as visited and adding it to the queue
+        visited[start] = true;
+        queue.add(start);
+        
+        // Perform BFS traversal
+        while (!queue.isEmpty()) {
+            // Get the current vertex from the queue
+            int current = queue.poll();
+            System.out.print(current + " ");  // Print the current vertex
+            
+            // Explore all adjacent vertices of the current vertex
+            for (int i = 0; i < n; i++) {
+                // If the vertex is adjacent and not visited, mark it visited and add to the queue
+                if (graph[current][i] == 1 && !visited[i]) {
+                    visited[i] = true;
+                    queue.add(i);
+                }
+            }
+        }
+    }
+
+    // Utility method to print the graph
+    public void printGraph(int[][] graph) {
+        for (int i = 0; i < graph.length; i++) {
+            System.out.print("Vertex " + i + ": ");
+            for (int j = 0; j < graph[i].length; j++) {
+                if (graph[i][j] == 1) {
+                    System.out.print(j + " ");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    // Main method to test BFS
+    public static void main(String[] args) {
+        BFS bfs = new BFS();
+        
+        // Example graph represented as an adjacency matrix
+        // 0 = No edge, 1 = Edge exists
+        // Example graph:
+        //     0 --- 1
+        //     |     |
+        //     3 --- 2
+        int[][] graph = {
+            {0, 1, 0, 1},  // Edges from vertex 0
+            {1, 0, 1, 0},  // Edges from vertex 1
+            {0, 1, 0, 1},  // Edges from vertex 2
+            {1, 0, 1, 0}   // Edges from vertex 3
+        };
+        
+        System.out.println("Graph adjacency matrix:");
+        bfs.printGraph(graph);
+        
+        System.out.println("\nBreadth-First Search (BFS) starting from vertex 0:");
+        bfs.bfs(graph, 0);  // Perform BFS starting from vertex 0
+    }
+}
+=======================================================================
 DFS(Depth First Search)
+
+Explanation: DFS explores as far as possible along each branch before backtracking.
+Java Implementation: Can be implemented recursively or using a stack.
+
+import java.util.*;
+
+public class DFS {
+
+    // Recursive DFS traversal method
+    public void dfsRecursive(int[][] graph, int start) {
+        int n = graph.length;  // Number of vertices in the graph
+        boolean[] visited = new boolean[n];  // Array to track visited vertices
+        System.out.println("DFS (Recursive) traversal starting from vertex " + start + ":");
+        dfsRecursiveUtil(graph, start, visited);
+    }
+
+    // Helper method for DFS using recursion
+    private void dfsRecursiveUtil(int[][] graph, int vertex, boolean[] visited) {
+        // Mark the current vertex as visited and print it
+        visited[vertex] = true;
+        System.out.print(vertex + " ");
+        
+        // Explore all adjacent vertices
+        for (int i = 0; i < graph[vertex].length; i++) {
+            if (graph[vertex][i] == 1 && !visited[i]) {
+                dfsRecursiveUtil(graph, i, visited);
+            }
+        }
+    }
+
+    // DFS using a stack (Iterative version)
+    public void dfsIterative(int[][] graph, int start) {
+        int n = graph.length;  // Number of vertices in the graph
+        boolean[] visited = new boolean[n];  // Array to track visited vertices
+        Stack<Integer> stack = new Stack<>();  // Stack to manage DFS exploration
+        
+        System.out.println("DFS (Iterative) traversal starting from vertex " + start + ":");
+        
+        // Push the starting vertex to the stack
+        stack.push(start);
+        
+        // Perform DFS using the stack
+        while (!stack.isEmpty()) {
+            // Pop a vertex from the stack
+            int vertex = stack.pop();
+            
+            // If the vertex is not visited, mark it as visited and print it
+            if (!visited[vertex]) {
+                visited[vertex] = true;
+                System.out.print(vertex + " ");
+            }
+            
+            // Push all unvisited adjacent vertices to the stack
+            for (int i = 0; i < graph[vertex].length; i++) {
+                if (graph[vertex][i] == 1 && !visited[i]) {
+                    stack.push(i);
+                }
+            }
+        }
+    }
+
+    // Utility method to print the graph
+    public void printGraph(int[][] graph) {
+        for (int i = 0; i < graph.length; i++) {
+            System.out.print("Vertex " + i + ": ");
+            for (int j = 0; j < graph[i].length; j++) {
+                if (graph[i][j] == 1) {
+                    System.out.print(j + " ");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    // Main method to test DFS
+    public static void main(String[] args) {
+        DFS dfs = new DFS();
+        
+        // Example graph represented as an adjacency matrix
+        // 0 = No edge, 1 = Edge exists
+        // Example graph:
+        //     0 --- 1
+        //     |     |
+        //     3 --- 2
+        int[][] graph = {
+            {0, 1, 0, 1},  // Edges from vertex 0
+            {1, 0, 1, 0},  // Edges from vertex 1
+            {0, 1, 0, 1},  // Edges from vertex 2
+            {1, 0, 1, 0}   // Edges from vertex 3
+        };
+        
+        System.out.println("Graph adjacency matrix:");
+        dfs.printGraph(graph);
+        
+        // Perform DFS (Recursive)
+        dfs.dfsRecursive(graph, 0);  // Perform DFS starting from vertex 0
+        System.out.println();
+        
+        // Perform DFS (Iterative)
+        dfs.dfsIterative(graph, 0);  // Perform DFS starting from vertex 0
+    }
+}
+=========================================================================================
+4) Dynamic Programming:
+===================
+Fibonacci Sequence:
+===================
+Explanation: 
+Dynamic programming can efficiently solve problems by breaking them down into smaller sub-problems. The Fibonacci sequence is a classic example where each number is the sum of the two preceding ones.
+
+Java Implementation: Can use memoization to store computed values.
+
+public class Fibonacci {
+
+    // Method to calculate Fibonacci number using recursion
+    public int fibonacci(int n) {
+        // Base case: return n for 0 and 1
+        if (n <= 1) {
+            return n;
+        }
+        // Recursive case: sum of the two previous Fibonacci numbers
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+
+    // Main method to test the Fibonacci function
+    public static void main(String[] args) {
+        Fibonacci fib = new Fibonacci();
+        
+        // Test with n = 10 (you can change this value to test with other numbers)
+        int n = 10;
+        System.out.println("Fibonacci number at position " + n + " is: " + fib.fibonacci(n));
+    }
+}
+
+
+
+
+=========================================================================================
+
+
+
