@@ -59,7 +59,7 @@ public class Employee {
 
 
 ==========================================================
-ransaction
+transaction
 A Transaction in Hibernate is used to manage database transactions.
 Hibernate provides automatic transaction management (using beginTransaction(), commit(), and rollback() methods).
 Transactions in Hibernate ensure ACID properties (Atomicity, Consistency, Isolation, Durability).

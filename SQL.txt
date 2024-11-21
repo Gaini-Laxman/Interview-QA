@@ -68,9 +68,8 @@ select min(salary) as minimum, max(salary) as maximum from employee;
 
 
 =========================================================================================
-
-
-
+oracle:
+https://catalog-education.oracle.com/apex/f?p=1010:26:124565282804910#cv_return
 
 
 

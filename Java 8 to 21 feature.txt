@@ -1,0 +1,78 @@
+Java 8 Features
+=============
+IFL DOS SC MGC
+
+I = interface changes that is interface added static and default methods
+F = Functional Inteface
+L = lamda expression
+D = date time Api
+O = optional class
+S = Stream api
+S = String joiner
+C = constructore reference
+M = method reference
+G = garbage collector imploved  
+C = collection changes
+B = base64 encoder and decoder
+F = foreach method
+Sp = splIterator
+Na = nasran engine impoved 
+
+
+
+=======================================================================
+java 11 Features:
+=============
+srd gf fvhn
+=========
+S = new method added to String class
+R = run java file without compile
+D = removed deprecated module that is j2ee and corba module
+G = no-ops Gatrbage collectors
+F = aded new method to file class 
+F = flieght recorder
+V = var keyword added
+H = http client http/1.1 http/2
+N = nested bases axcess control
+=============================================
+Java 17 Featues
+============
+sir spemd
+=======
+S = patten matching for switch statement
+I = pattern matching for InstanceOf
+R = restore floating point semantic
+S = Sealed classes and interfaces
+P = Speudo random generator
+E = Strongly encapsulated jdk intenals
+M = new macos Rendering pipeline
+D = removed deprecated module that is applet api
+=======================================
+Java 19 Features
+============
+svt frs
+========
+S = pattern matching for switch statement
+V = vector api
+T = vertual thread 
+F = foreing function memory api
+R = Record pattern
+S = structure concurrency
+==========================
+Java 21 Features
+============
+srd ts fSsnj
+S = pattern maching switch statement
+R = record pattern
+D = deprecated security manager
+T = verual thead
+S = scoped values
+F = foreign function memory api
+S = String template
+S = sequesnces collection
+N = native memory tracking
+J = java performance improvements
+================================================================================
+
+
+

@@ -1,0 +1,42 @@
+
+
+
+try {
+if (flag) {
+while (true) {
+}
+} else {
+System.exit(1);
+}
+} finally {
+System.out.println("In Finally");
+} 
+
+
+
+============================================
+
+Write a function to reverse the string
+ip : "Welcome to IVL" 
+op: "IVL to Welcome"
+
+String
+for(){}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

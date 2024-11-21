@@ -1,6 +1,6 @@
 // Define the functional interface
 interface printNumber {
-    void print(int num1);
+    void print(int num);
 }
 
 public class SquareLambdaWithFunction {
