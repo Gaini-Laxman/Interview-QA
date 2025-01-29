@@ -1,4 +1,4 @@
-Database Name : sringdb and Table Name : employee
+Database Name : springdb and Table Name : employee
 ============================================
 sql > mysql -u root -p
 sql > enter password : Laxman1436@
@@ -66,6 +66,14 @@ Minimum and Mximum Salary from employee table
 
 select min(salary) as minimum, max(salary) as maximum from employee;
 
+delete rows from table 
+================
+ALTER TABLE employee DROP fname, DROP lname;
+
+Copy data from one table to new table
+============================
+CREATE TABLE employees LIKE employee;
+INSERT INTO employees SELECT * FROM employee;
 
 =========================================================================================
 oracle:

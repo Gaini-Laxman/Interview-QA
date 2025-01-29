@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Sorting Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f7f7f7;
+    }
+
+    h1 {
+      margin-top: 20px;
+    }
+
+    .game-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .glass {
+      width: 60px;
+      height: 150px;
+      margin: 10px;
+      border: 2px solid #444;
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+      background-color: white;
+    }
+
+    .glass .color {
+      width: 100%;
+      position: absolute;
+      left: 0;
+    }
+
+    .button-container {
+      margin-top: 20px;
+    }
+
+    .glass:hover {
+      cursor: pointer;
+      border-color: #ff5722;
+    }
+
+    .level {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Color Sorting Game</h1>
+  <div class="level">Level: <span id="level">1</span></div>
+  <div class="game-container" id="gameContainer"></div>
+  <div class="button-container">
+    <button onclick="restartGame()">Restart</button>
+  </div>
+
+  <audio id="waterSound" src="water-sound.mp3"></audio>
+
+  <script>
+    const MAX_COLORS = 4;
+    let level = 1;
+    let glasses = [];
+    let selectedGlass = null;
+
+    function createGlass(colors) {
+      const glass = document.createElement('div');
+      glass.classList.add('glass');
+
+      colors.forEach((color, index) => {
+        const colorDiv = document.createElement('div');
+        colorDiv.classList.add('color');
+        colorDiv.style.height = `${100 / MAX_COLORS}%`;
+        colorDiv.style.bottom = `${index * (100 / MAX_COLORS)}%`;
+        colorDiv.style.backgroundColor = color;
+        glass.appendChild(colorDiv);
+      });
+
+      glass.addEventListener('click', () => handleGlassClick(glass));
+      return glass;
+    }
+
+    function generateLevel(level) {
+      const totalGlasses = level + 2;
+      const colors = [];
+
+      for (let i = 0; i < level; i++) {
+        for (let j = 0; j < MAX_COLORS; j++) {
+          colors.push(`hsl(${(i * 360) / level}, 70%, 50%)`);
+        }
+      }
+
+      shuffleArray(colors);
+
+      const glassColors = [];
+      for (let i = 0; i < totalGlasses; i++) {
+        glassColors.push(colors.splice(0, MAX_COLORS));
+      }
+
+      glasses = glassColors.map(createGlass);
+    }
+
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+    function renderGame() {
+      const gameContainer = document.getElementById('gameContainer');
+      gameContainer.innerHTML = '';
+      glasses.forEach(glass => gameContainer.appendChild(glass));
+    }
+
+    function handleGlassClick(glass) {
+      if (!selectedGlass) {
+        selectedGlass = glass;
+        glass.style.borderColor = 'blue';
+      } else if (selectedGlass === glass) {
+        selectedGlass.style.borderColor = '#444';
+        selectedGlass = null;
+      } else {
+        transferColor(selectedGlass, glass);
+        selectedGlass.style.borderColor = '#444';
+        selectedGlass = null;
+        checkWinCondition();
+      }
+    }
+
+    function transferColor(fromGlass, toGlass) {
+      const fromColors = Array.from(fromGlass.children);
+      const toColors = Array.from(toGlass.children);
+
+      if (fromColors.length === 0) return;
+
+      const topFromColor = fromColors[fromColors.length - 1].style.backgroundColor;
+      const topToColor = toColors.length > 0 ? toColors[toColors.length - 1].style.backgroundColor : null;
+
+      if (toColors.length < MAX_COLORS && (topToColor === null || topToColor === topFromColor)) {
+        const colorDiv = fromColors.pop();
+        colorDiv.style.bottom = `${toColors.length * (100 / MAX_COLORS)}%`;
+        toGlass.appendChild(colorDiv);
+
+        playWaterSound();
+      }
+    }
+
+    function playWaterSound() {
+      const waterSound = document.getElementById('waterSound');
+      waterSound.currentTime = 0;
+      waterSound.play();
+    }
+
+    function checkWinCondition() {
+      const isWin = glasses.every(glass => {
+        const colors = Array.from(glass.children).map(div => div.style.backgroundColor);
+        return colors.length === 0 || colors.every(color => color === colors[0]);
+      });
+
+      if (isWin) {
+        setTimeout(() => {
+          alert('Level Complete!');
+          level++;
+          document.getElementById('level').textContent = level;
+          startGame();
+        }, 500);
+      }
+    }
+
+    function startGame() {
+      generateLevel(level);
+      renderGame();
+    }
+
+    function restartGame() {
+      level = 1;
+      document.getElementById('level').textContent = level;
+      startGame();
+    }
+
+    startGame();
+  </script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Sidebar with Navbar</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    /* General Reset */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      box-sizing: border-box;
+    }
+
+    /* Top Navbar Styling */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #202020;
+      color: white;
+      padding: 10px 20px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .navbar .logo {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    /* Search Bar Styling */
+    .navbar .search-container {
+      flex: 1;
+      margin: 0 20px;
+    }
+
+    .navbar .search-container input {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 20px;
+      border: 1px solid #404040;
+      background-color: #303030;
+      color: white;
+      outline: none;
+      font-size: 16px;
+    }
+
+    .navbar .search-container input::placeholder {
+      color: #aaa;
+    }
+
+    /* Navbar Icons */
+    .navbar .icons {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar .icons i {
+      font-size: 20px;
+      margin: 0 10px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .navbar .icons i:hover {
+      color: red;
+    }
+
+    /* Toggle Button for Sidebar */
+    .toggle-btn {
+      background-color: transparent;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .toggle-btn i {
+      margin-right: 5px;
+    }
+
+    /* Main Container */
+    .container {
+      display: flex;
+      flex-direction: row;
+      margin-top: 50px; /* Adjust for navbar height */
+    }
+
+    /* Sidebar Styling */
+    .sidebar {
+      width: 250px;
+      background-color: #202020;
+      color: #fff;
+      height: 100vh;
+      position: fixed;
+      left: 0;
+      top: 0;
+      transform: translateX(-250px); /* Initially hidden */
+      transition: transform 0.3s ease;
+      padding-top: 60px; /* Space for navbar */
+    }
+
+    .sidebar.active {
+      transform: translateX(0); /* Slide in */
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 15px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      border-bottom: 1px solid #404040;
+    }
+
+    .sidebar a:hover {
+      background-color: #ff0000;
+    }
+
+    .sidebar .close-btn {
+      text-align: right;
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+
+    .sidebar .close-btn i {
+      font-size: 20px;
+    }
+
+    /* Content Styling */
+    .content {
+      margin-left: 0;
+      flex: 1;
+      padding: 20px;
+      transition: margin-left 0.3s ease;
+    }
+
+    .content.active {
+      margin-left: 250px; /* Adjust content when sidebar is visible */
+    }
+
+    /* Responsive Behavior */
+    @media screen and (max-width: 768px) {
+      .content.active {
+        margin-left: 0; /* Ensure full-width content on small screens */
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Navbar -->
+  <div class="navbar">
+    <button class="toggle-btn" onclick="toggleSidebar()"><i class="fa fa-bars"></i></button>
+    <div class="logo">JavaFullstackGuru</div>
+    <div class="search-container">
+      <input type="text" placeholder="Search...">
+    </div>
+    <div class="icons">
+      <i class="fa fa-plus" title="Upload"></i>
+      <i class="fa fa-bell" title="Notifications"></i>
+      <i class="fa fa-user-circle" title="Profile"></i>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+      <div class="close-btn" onclick="toggleSidebar()"><i class="fa fa-close"></i></div>
+      <a href="#home">Home</a>
+      <a href="#updates">Updates</a>
+      <a href="#videos">Videos</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content" id="content">
+      <h1>Welcome to JavaFullstackGuru</h1>
+      <p>This is the main content area. The sidebar menu can be toggled on both mobile and PC screens.</p>
+    </div>
+  </div>
+
+  <script>
+    // Sidebar Toggle Function
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const content = document.getElementById('content');
+      sidebar.classList.toggle('active');
+      content.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

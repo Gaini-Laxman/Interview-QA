@@ -33,7 +33,7 @@ F = aded new method to file class
 F = flieght recorder
 V = var keyword added
 H = http client http/1.1 http/2
-N = nested bases axcess control
+N = nested bases access control
 =============================================
 Java 17 Featues
 ============
@@ -65,7 +65,7 @@ srd ts fSsnj
 S = pattern maching switch statement
 R = record pattern
 D = deprecated security manager
-T = verual thead
+T = vertual thead
 S = scoped values
 F = foreign function memory api
 S = String template

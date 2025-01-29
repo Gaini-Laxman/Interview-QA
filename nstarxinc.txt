@@ -1,0 +1,35 @@
+
+
+String str1 = "gaini";
+String str2 = "laxman";
+
+
+Str1 = str1 + str2;
+str2 = str1.substring(0, str1.length() - str2.length());
+str1 = str1.substring(str2.length());
+=================================
+
+1,3,4,5,6,7,1,2,4,5,78,100,345,76
+remove duplicat using stream api
+
+
+
+List<Integer> list = Arrays.asList(1,3,4,5,6,7,1,2,4,5,78,100,345,76);
+List<Integer> list = list.stream().distinct().sorted(Compator.reverseOrder()).skip(1).findFirst().orElse(null)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

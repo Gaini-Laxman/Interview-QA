@@ -1,0 +1,62 @@
+Write a function to reverse words in the sentence. Reverse the words only. Dots, spaces and commas should remain as it is. Words will contain aA to zZ characters only and will not contain anything else. Delimiters are only dots, spaces and commas. For example: Input (String): My, name. is Abc Output (String): yM, eman. si cbA
+
+
+=====================================
+
+String input = "My, name. is abc ";
+String output = reverserOderInSentance (input);
+
+public static void reverserOderInSentance (String sentance){
+StringBuilder result = new StringBuilder();
+int length = sentance.length();
+int start = 0;
+
+while(start < length){
+char currentChar = sentance.CharAt(start);
+
+if(currentChar  ==' ' || currentChar  == '  ' currentChar  =='.'){
+result.append(currentChar );
+start++;
+
+}else{
+int end = start;
+
+while(end < length && character.isLetter(sentancr.chartAt(end))){
+
+end++;
+
+}
+String word = sentance.substring(start, end);
+result.append(new StringBuilder(word).reverse());
+start = end
+}
+
+}
+
+return result.toString();
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
