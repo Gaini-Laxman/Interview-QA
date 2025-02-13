@@ -1,0 +1,11 @@
+
+======================
+ngOnInit  
+ngDoCheck
+ngOnChanges
+ngOnDestroy
+ngAfterContentInit
+ngAfterContentChecked
+ngAfterViewInit
+ngAfterViewChecked
+======================

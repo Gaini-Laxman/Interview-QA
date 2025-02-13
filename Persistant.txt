@@ -1,0 +1,46 @@
+ 
+
+Longest Substring with K Distinct Characters
+===================================
+
+
+Map<Chararacter, Interger>charCount = new HashMap<>();
+int left = 0; macLength = 0;
+
+for(int right = 0; right < s.length(); right++){
+char currentChar = s.CharAt(right);
+charCount.put(currentChar , charCount.getOrDefault(currentChar, 0) + 1);
+
+while(charCount.size() > k){
+char LeftChar = s.charAt(left);
+
+charCount.put(leftChar, charCount.get(leftChar) - 1);
+if(charCount.get(leftChar) ==0){
+charCount.remove(leftChar);
+}
+left++;
+
+}
+maxLength = Math.max(maxLength, right - left + 1);
+
+}
+return maxLength ;
+}
+
+=================================================
+
+Select DISTINCT  salary  from emp 
+ORDER BY  salary DESC
+LIMIT 1 OFFSET 1;
+
+
+
+
+
+
+
+
+
+
+
+
