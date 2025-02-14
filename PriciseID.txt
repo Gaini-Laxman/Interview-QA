@@ -1,0 +1,23 @@
+End-to-End High-Level Architecture of Experian CrossCore
+
+Purpose: State the business problem and how the project solves it (e.g., fraud detection and prevention).
+Scope: Outline what the project will cover (e.g., identity verification, fraud management).
+
+
+User Input:
+A user initiates a transaction or request (e.g., login, payment).
+
+Integration Layer:
+The platform orchestrates multiple internal and external fraud and identity verification solutions (e.g., FraudNet, Precise ID).
+
+Data Aggregation:
+Pulls data from third-party services, credit checks, and behavioral analytics.
+
+Decision Engine:
+Applies fraud detection rules, scoring, and machine learning algorithms to assess risk in real time.
+
+Decision Outcome:
+Generates a result (approve, decline, or flag for manual review).
+
+Monitoring & Reporting:
+Centralized dashboard for auditing, trend analysis, and compliance management.
