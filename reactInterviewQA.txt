@@ -1,4 +1,4 @@
-What is react and why it is so popular ?
+1.  What is react and why it is so popular ?
 =============================
 
 react is a javascript library for building ui, developed by facebook
@@ -10,7 +10,8 @@ One way Data Binding
 React Hooks (introduce 16.8)
 
 =============================================
-What are functional and class component ?
+2.  What are functional and class component ?
+
 Functional component :
 A javascript function that accept props and return jsx
 
@@ -21,13 +22,13 @@ above functional component are prefered due to react hooks,
 which allows the state management in functional component
 
 ===========================================
-What is "props" in Reactjs, and how do you pass them ?
+3.  What is "props" in Reactjs, and how do you pass them ?
 
 props (properties) are used pass data from parent to child component
 props are immutable and should not be change in child component
 
 =================================================
-How is state different from props in react ?
+4.  How is state different from props in react ?
 
 props are readonly data passes from parent to child
 
@@ -35,7 +36,7 @@ State is managed within a component and can be upadated using setState
 
 
 ==============================================================
-What are the common lifecycle methods in class component ?
+5.  What are the common lifecycle methods in class component ?
 
 Mounting
      constructor()
@@ -49,7 +50,7 @@ UnMounting
 
 
 ============================================================================
-What is hooks and and types of hooks ?
+6.  What is hooks and and types of hooks ?
 
 hooks are introduce 16.8
 hooks in react are function that are manage React state and lifecycle feature from function component
@@ -111,8 +112,8 @@ useTransition
 useDiferredValue
 
 
-============================================================
-Types of state React  ?
+=====================================================================================
+7.  Types of state React  ?
 
 Local State
 ==========
@@ -143,24 +144,88 @@ Remote/Server State
 Data fetched from an external API (e.g., REST or GraphQL).
 Managed with react-query, Redux, or custom hooks.
 
-==========================================================
-What are Higher-Order Components (HOCs)?
+=============================================================================
+8.  What are Higher-Order Components (HOCs)?
 ====================================
 A Higher-Order Component is a function that takes a component and returns a new component.
 
 ================================================================================
-What is the React Context API?
+9.  What is the React Context API?
 The Context API provides a way to share state across the component tree without prop drilling.
 
 ========================================================================
 
-What is the useEffect hook, and how is it used?
+10.  What is the useEffect hook, and how is it used?
 useEffect is a side-effect management hook that runs after a component renders.
 
+=========================================================
+
+11.  What is Redux, and how does it work?
+============================
+Redux is a state management library that follows the Flux architecture:
+
+Store: Holds the application state.
+Actions: Describe changes.
+Reducers: Pure functions that update the state based on actions.
+
+=======================================================
+12.  What is the difference between Controlled and Uncontrolled components?
+
+Controlled Components: The form data is handled by the React component's state.
 
 
+Uncontrolled Components: The form data is managed by the DOM, and a ref is used to access the value.
 
 
+===============================================================================
+ 13.  How do you improve performance in large React applications?
+
+Memoization:
+
+Use React.memo to avoid unnecessary re-renders.
+Use useMemo to memoize computed values.
+Use useCallback to memoize functions.
+Code splitting: Load only the necessary components using dynamic imports (React.lazy).
+
+Debouncing and throttling: Limit frequent updates caused by user input.
+
+Avoid prop drilling: Use the Context API or state management libraries to avoid passing props deeply.
+
+List virtualization: Use libraries like react-window or react-virtualized for rendering long lists.
+
+Keys for lists: Ensure that all lists use unique keys for each item.
+
+===============================================================================
+how react error handling ?
+
+React uses JavaScript, so understanding basic error handling is the foundation:
+
+try/catch blocks: Useful for synchronous operations.
+.catch for promises: Handles asynchronous errors.
+
+Error Boundaries (Introduced in React 16)
+What is an Error Boundary?
+An error boundary is a React component that catches JavaScript errors anywhere in the component tree below it, logs those errors, and displays a fallback UI.
+
+Key Rules:
+Only catch errors in the render, lifecycle methods, and constructors.
+Won’t catch errors in event handlers or asynchronous code.
+
+Handling Errors in Event Handlers
+Errors inside event handlers are not caught by error boundaries. You must handle these manually using try/catch.
+
+Asynchronous Error Handling
+React doesn’t have built-in handling for async errors (e.g., data fetching). You should catch errors in async functions or Promises:
+
+
+Global Error Handling (Window onerror)
+For catching unhandled errors globally, use:
+
+window.onerror 
+
+
+Logging Errors (External Services)
+For production applications, it's recommended to log errors to an external service like Sentry or LogRocket:
 
 
 
