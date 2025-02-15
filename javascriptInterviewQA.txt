@@ -1,0 +1,36 @@
+Explain the difference between var, let, and const  ? 
+
+
+var: Function-scoped or globally scoped if declared outside a function. It can be re-declared and updated. Hoisted to the top of its scope with an initial value of undefined.
+
+let: Block-scoped (scoped to the nearest {}). Cannot be re-declared in the same scope but can be updated. Hoisted, but not initialized until it is encountered.
+
+const: Block-scoped and must be initialized at the time of declaration. Cannot be updated or re-declared. Objects and arrays declared with const can have their properties or elements modified.
+
+
+================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
