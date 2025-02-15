@@ -1,0 +1,180 @@
+What is react and why it is so popular ?
+=============================
+
+react is a javascript library for building ui, developed by facebook
+key features
+=========
+Component based artchetecture
+Viertual DOM for faster rendering
+One way Data Binding
+React Hooks (introduce 16.8)
+
+=============================================
+What are functional and class component ?
+Functional component :
+A javascript function that accept props and return jsx
+
+Class Component :
+ A class Extending React.component with render() method
+
+above functional component are prefered due to react hooks, 
+which allows the state management in functional component
+
+===========================================
+What is "props" in Reactjs, and how do you pass them ?
+
+props (properties) are used pass data from parent to child component
+props are immutable and should not be change in child component
+
+=================================================
+How is state different from props in react ?
+
+props are readonly data passes from parent to child
+
+State is managed within a component and can be upadated using setState
+
+
+==============================================================
+What are the common lifecycle methods in class component ?
+
+Mounting
+     constructor()
+     componentDidMount()
+
+Upadating
+      componentDidUpdate()
+UnMounting
+      componentWillUnmount()
+
+
+
+============================================================================
+What is hooks and and types of hooks ?
+
+hooks are introduce 16.8
+hooks in react are function that are manage React state and lifecycle feature from function component
+class component manage state and lifecycle, by using hooks function component also manage state and side effect.
+
+React hooks
+=========
+useState => allows you to add state to functional component
+=======
+Ex:  const [count, setCount] = useState(0);
+
+const is the state variable , setCount is function to update it.
+
+useEffect
+=======
+used for the side effects like fetching data, subscriptions, or manual changing DOM
+
+Ex:    useEffect(() => {
+          document.tittle = 'Count: ${count}';
+           }, [count]);
+
+useContext
+========
+provide access to context value without need to use
+
+<context.consumer>
+
+ex : const theme = useContext(themeContext);
+
+
+useRef
+=======
+create mutable reference that persist across the rendered often used to DOM element or store value without 
+triggering re-render
+
+const inputRef = useRef(null);
+
+useReducer
+========
+alternative to useState for managing complex state logic
+
+useMemo
+=========
+Memorise Computed value to avoid unnecessary calculations
+
+useCallback
+=========
+Memorise function to avoid unnecessary re-creation on each render
+
+
+useLayoutEffect
+============
+
+useImperativeHandle
+================
+
+useTransition
+
+useDiferredValue
+
+
+============================================================
+Types of state React  ?
+
+Local State
+==========
+Limited to single component
+Manged using useState
+Form input or toggle state in component
+
+Global State
+==========
+Shared across multiple component
+Managed using Context API, Redux, 
+ex : Sharing user authentication state across multiple components.
+
+Derived State
+==========
+State that is calculated from other state or props.
+Typically avoided to prevent redundant state, but sometimes necessary
+
+Ex: Calculating a total price from a list of items.
+
+Session or URL State
+================
+Represents state based on URL parameters (e.g., query strings).
+Managed using libraries like react-router.
+
+Remote/Server State
+==============
+Data fetched from an external API (e.g., REST or GraphQL).
+Managed with react-query, Redux, or custom hooks.
+
+==========================================================
+What are Higher-Order Components (HOCs)?
+====================================
+A Higher-Order Component is a function that takes a component and returns a new component.
+
+================================================================================
+What is the React Context API?
+The Context API provides a way to share state across the component tree without prop drilling.
+
+========================================================================
+
+What is the useEffect hook, and how is it used?
+useEffect is a side-effect management hook that runs after a component renders.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

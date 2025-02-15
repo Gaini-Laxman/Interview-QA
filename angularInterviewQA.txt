@@ -1,0 +1,212 @@
+1. What are the events in angular
+==========================
+
+Dom Event
+Directive event
+Compontent event
+Angular Lifecycle hook event
+Forms event
+Http event
+Route event
+
+==========================
+2. angular lifecycle 
+==============
+ngOnInit
+ngDocheck
+ngOnChanges
+ngDestroy
+ngAfterViewInit
+nagAfterViewChecked
+ngAfterContentInit
+ngAfterContentChecked 
+
+==================================
+
+3. What are the directives in angular ?
+===========================
+Structural Directive(ex : ngIf ngFor)
+
+Component Directive (ex @Component)
+
+Attribute Directive(ngClass, ngStyle)
+
+
+============================================
+
+4. What are the data binding in angular ?
+============================
+four types of data binding classified
+
+Interpolation :
+Property
+Event
+Twoway(@ngModel)
+
+===================================
+5. what is observable and promises in angular ?
+
+promises
+======
+once subscribe canot be unsubscribe
+it return single value
+eager execution
+immutable
+.then() and .catch()
+
+observable
+==========
+It can subscribe by using subscribe method and unsubscribe by usning unsubscribe method
+It returns stream of values
+It has lazy execution
+It is mutable
+It can cancel
+It contain powerfull operators like map(), Filter()
+==============================================================================
+6. How to create Custome Directive
+
+using below command can create 
+ng g directive highlight
+
+above command create two file 
+highlight.directive.ts
+highlight.directive.ts.spec(forunit tsesting)
+
+highlight.directive.ts it contains @Directive decorator with selector as a appHighlight 
+if you want create HostListener you can create
+=================================================================
+7. you can explain angular components ?
+
+Template  (html)
+Component (Typescript class)
+Service (business logic  that is service to inject to component to reuseble the module)
+Module(collection of component and service and pipes)
+Metadata(maping information about component and template)
+Databinding(establish connction between template and component)
+Directive(manupulate Dom elaments)
+Dipendency Injection(inject dependent module into target module)
+Pipes(transfer the value before desplay)
+
+============================================
+8. How Exception handle in angular ?
+
+To handle exceptions in http calls use rxjs operator like catchError
+You can provide global error handler by extending angular ErrorHandler
+Global error handler register in app.module.ts
+You can also handle error directly within component
+You can setup route for error pages(ex: Page Not Found)
+Implement error interceptor for centralised http error management
+
+=========================================================
+9. What is Interceptor in angular and why ? types ?
+
+interceptor is a class that implements to httpInterCeptor
+Interceptor modify http request and response
+HttpInterceptor sits between application and backend api
+
+
+Interceptor topically used for
+
+Adding Authorization header
+Logging req and res
+Handling error globally
+Retry and failed request
+Caching response
+
+ng g service my-interceptor
+
+register interceptor app.module.ts
+
+=============================================
+What are authguard and why use it ?
+
+
+guards are interface that allow you control the navigation from routes
+that means autherized user can view protected routes and un autherised can not routes
+
+why ? 
+
+authenticate/autherization => ensure logged user / autherised user can access specific routes
+
+Data confirmation => user to save when unsaved changes when navigating away from form
+
+role based access => user can access with specific roles to access particular page
+
+lazy loading
+
+cli command to create
+ng g guard auth
+auth.guard.ts
+
+guards types:
+
+canActivate  => route activation
+canActivatedChild => activate Child routes
+canDeactivate => prevent navigation from routes
+canLoad  => control lazy laoding
+canResolve  => resolve the data before route is activated
+
+==============================================================
+
+What is difference between Reactive forms and Template driven forms ?
+
+Template driven forms:
+------------------------------
+form logic writen in template that is html
+use angular directive like ngModule
+suitable for simple forms
+
+Reactive Forms:
+----------------------
+form logic writen in component class that is typescrpt
+uses FormControl, FormGroup, FormBuilder
+suitable for complex forms
+
+====================================================
+How optimise performance in angular  ?
+==========================
+use Lazy Loading to load module on Demand instead of startup
+Implement OnPush Change detection 
+Use  TrackBy with ngFor to improve rendering performance
+use AOT compilation
+Service worker
+
+=============================================================
+what is Tree Shaking, and how does angular use it ?
+
+Tree shaking is process of removing unused code during build phase
+
+ng build --prod
+
+above command enable the AOT
+
+============================================================
+What is AOT (Ahead - of Time) compilation?
+
+AOT compilation is angular compiler will load before broser loads application
+
+enable command
+
+ng build --aot
+
+==================================================
+What is TrackBy ?
+
+to avoid unnecessary DOM upadates
+
+===================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
