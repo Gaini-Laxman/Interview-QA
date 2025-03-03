@@ -1,0 +1,45 @@
+import java.util.*;
+import java.util.stream.Collectors;
+
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {1, 3, 5, 7, 1, 2, 3, 7, 4, 4, 3};
+
+     //out put like 1 3 7 4
+        
+        Map<Integer, Long> fmap = Arrays.stream(arr)
+                                        .boxed() 
+                                        .collect(Collectors.groupingBy(n -> n, Collectors.counting()));
+
+        
+        List<Integer> result = Arrays.stream(arr)
+                                     .boxed() 
+                                     .distinct()
+                                     .filter(n -> fmap.get(n) > 1) 
+                                     .collect(Collectors.toList());
+        result.forEach(num -> System.out.print(num + " "));
+    }
+}
+
+===========================================================================
+
+let a="nithin";
+let b="nithin";
+console.log("ans is "+a==b);
+
+ans is false
+
+let a="nithin";
+let b="nithin";
+console.log("ans is "+ (a==b));
+
+ans is true
+
+
+
+           
+    
+
+   
+    
+  

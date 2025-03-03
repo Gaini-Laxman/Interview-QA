@@ -1,0 +1,11 @@
+npx create-react-app my-app
+cd my-app
+npm start
+ npm run build
+
+npm install react-router-dom
+npm install @mui/material @emotion/react @emotion/styled
+
+npm install --save-dev cross-env
+"start": "cross-env PORT=4000 react-scripts start"
+npm start

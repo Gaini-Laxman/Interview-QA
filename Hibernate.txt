@@ -44,7 +44,7 @@ Hibernate provides two ways to define mappings between Java classes and database
 XML-based mapping: Using hbm.xml files.
 Annotation-based mapping: Using annotations in Java classes (more popular in modern Hibernate versions).
 java
-Copy code
+
 @Entity
 @Table(name = "Employee")
 public class Employee {

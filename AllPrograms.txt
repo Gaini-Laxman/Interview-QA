@@ -71,7 +71,7 @@ Print Square Number Using LFI ?
 =======================
 @functinalInterface
 interface PrintNumber{
-public void print(int num1);
+public void print(int num);
 }
 class SquareNumber{
 public static void main(String[] args){

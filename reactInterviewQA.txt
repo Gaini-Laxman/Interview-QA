@@ -117,7 +117,7 @@ useDiferredValue
 
 Local State
 ==========
-Limited to single component
+Limited to single component      
 Manged using useState
 Form input or toggle state in component
 
@@ -227,16 +227,45 @@ window.onerror
 Logging Errors (External Services)
 For production applications, it's recommended to log errors to an external service like Sentry or LogRocket:
 
+=================================================================
+12. What is tree shaking in React?
+
+Tree shaking removes unused code during the build process.
 
 
 
 
+============================================================
+3. How does Concurrent Rendering work in React 18?
+
+React 18 introduced Concurrent Mode, allowing multiple tasks to run simultaneously without blocking the UI.
+React automatically prioritizes rendering tasks (e.g., user input is high priority, background API calls are low priority).
+
+==============================================================
+6. What are Microfrontends, and how can React be used in them?
+
+Microfrontends split a large frontend into smaller, independent applications that work together.
+
+Techniques:
+
+Module Federation (Webpack 5)
+frames
+Single SPA (Framework for microfrontends)
 
 
+=======================================================
+What is React's useTransition hook, and how does it improve UX?
+Answer:
 
+useTransition helps prevent UI blocking during state updates.
+It allows React to defer non-urgent updates and keep animations smooth.
 
+===============================================================
+What are the best practices for error handling in React?
 
-
+1. Use Error Boundaries (For UI Errors)
+2. Handle Async Errors with Try-Catch
+3. Use Fallback UI in Suspense
 
 
 
