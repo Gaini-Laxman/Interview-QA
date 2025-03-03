@@ -1,0 +1,407 @@
+What are the different ways to create a thread in Java?
+Extending the Thread class
+
+
+class MyThread extends Thread {
+    public void run() {
+        System.out.println("Thread is running...");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        MyThread t = new MyThread();
+        t.start();
+    }
+}
+============
+Implementing the Runnable interface
+
+class MyRunnable implements Runnable {
+    public void run() {
+        System.out.println("Thread is running...");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Thread t = new Thread(new MyRunnable());
+        t.start();
+
+    }
+}
+==============
+Best Practice: Using Runnable is preferred as Java does not support multiple inheritance, so extending Thread limits flexibility.
+==================================================
+ What is the difference between synchronized and ReentrantLock?
+
+Feature	synchronized	ReentrantLock
+Type	Keyword (built-in)	Explicit Lock class
+Fair Locking	No	Yes (supports fairness policy)
+Try-Lock Feature	No	Yes (tryLock())
+Interruptibility	No	Yes (lockInterruptibly())
+Condition Variables	No	Yes (newCondition())
+
+
+============================================
+
+What is a deadlock, and how do you prevent it?
+
+A deadlock occurs when two or more threads are waiting for each other to release resources, leading to a permanent block.
+
+How to prevent deadlocks?
+
+Avoid Nested Locks: Lock resources in a consistent order.
+Use Try-Lock Mechanism: Use tryLock() from ReentrantLock instead of synchronized.
+Deadlock Detection: Monitor and detect circular wait conditions.
+
+================================================
+What is a ThreadPoolExecutor?
+Answer:
+A ThreadPoolExecutor manages a pool of worker threads and efficiently executes multiple tasks.
+================================================
+What is the difference between wait(), notify(), and notifyAll()?
+
+
+wait(): Releases the lock and makes the thread wait until another thread calls notify().
+notify(): Wakes up one waiting thread.
+notifyAll(): Wakes up all waiting threads.
+
+================================================
+
+What is the CompletableFuture class in Java?
+
+CompletableFuture allows executing parallel tasks asynchronously and combining them.
+
+import java.util.concurrent.*;
+
+public class CompletableFutureExample {
+    public static void main(String[] args) {
+        CompletableFuture.supplyAsync(() -> "Hello")
+                .thenApply(s -> s + " World")
+                .thenAccept(System.out::println);
+    }
+}
+=================================================
+How does volatile work in Java?
+
+Changes to a variable are immediately visible to all threads.
+It prevents instruction reordering by the compiler.
+=================================================
+What are atomic variables in Java, and how do they work?
+
+Java provides AtomicInteger, AtomicLong, and AtomicReference to perform atomic operations without using synchronized.
+
+import java.util.concurrent.atomic.AtomicInteger;
+
+class AtomicExample {
+    private AtomicInteger count = new AtomicInteger(0);
+
+    public void increment() {
+        count.incrementAndGet();  // Thread-safe operation
+    }
+
+    public int getCount() {
+        return count.get();
+    }
+}
+
+This avoids race conditions without explicit locks.
+
+========================================================================
+ What is a ThreadPool, and why is it better than creating new threads?
+
+Creating a new thread for every task is expensive. Thread pools reuse a fixed number of threads.
+
+import java.util.concurrent.*;
+
+class ThreadPoolExample {
+    public static void main(String[] args) {
+        ExecutorService executor = Executors.newFixedThreadPool(3);
+        for (int i = 0; i < 5; i++) {
+            executor.execute(() -> System.out.println(Thread.currentThread().getName() + " executing"));
+        }
+        executor.shutdown();
+    }
+}
+================================================================================
+How does Java prevent excessive context switching in multithreading?
+
+Excessive context switching happens when too many threads compete for CPU time, reducing performance. Java prevents this by:
+
+Using thread pools (ExecutorService) – Limits the number of active threads.
+Using ForkJoinPool for work-stealing – Efficiently balances task execution.
+Avoiding frequent thread creation – Thread creation is expensive; reuse threads.
+Using Thread.yield() – Suggests the scheduler to switch context when necessary.
+Using Thread.sleep() and wait() – Helps reduce CPU usage.
+
+=================================================
+How does ForkJoinPool work?
+Answer:
+ForkJoinPool splits tasks into smaller subtasks, executes them in parallel, and combines results.
+It is used in divide-and-conquer algorithms like parallel sorting or parallel computations.
+
+==========================================================================
+What is the difference between synchronized and volatile in Java?
+
+
+Feature	                                                              synchronized	                                                 volatile
+=======================================================================================
+Scope	                                               Locks an entire block or method	    Only affects a single variable
+Ensures Atomicity?	                            Yes (Prevents race conditions)	    No (Does not prevent race conditions)
+Prevents Reordering?	                            Yes	                                                             Yes
+Allows Multiple Readers?	  No (Only one thread can enter)	| Yes (Multiple threads can read, but write is not atomic)
+Performance	                            Slower due to locking	                        Faster as no locking is involved
+
+✅ Use volatile when only visibility is needed, but not atomicity.
+✅ Use synchronized for complex read/write operations requiring atomicity.
+===================================================================================
+How does ThreadLocal work? What are its use cases?
+
+ThreadLocal stores separate variables for each thread, ensuring thread safety without synchronization.
+
+Use cases:
+✅ User sessions in web applications (e.g., store user authentication info)
+✅ Database transactions (e.g., per-thread connection management)
+✅ Logging correlation IDs
+
+=====================================================================================
+What is the difference between ExecutorService and ForkJoinPool?
+
+Feature	                                    ExecutorService	                                 ForkJoinPool
+==========================================================================
+Use Case                                    General-purpose thread pool	                    Parallel recursive tasks
+Work Stealing?	              No	                                          Yes (Idle threads steal work from busy threads)
+Best for	               Independent tasks (e.g., web requests, database calls)  ||	Divide-and-conquer problems (e.g., sorting, recursive computations)
+
+API	                        submit(), execute()	                                                               invoke(), fork(), join()
+
+
+ Use ForkJoinPool when tasks can be divided into smaller subtasks.
+===================================================================================
+How does Java prevent deadlocks?
+
+Deadlocks occur when multiple threads hold locks that prevent each other from progressing. Java prevents deadlocks by:
+
+Lock Ordering – Always acquire locks in a consistent order.
+Timeouts (tryLock()) – Avoids waiting indefinitely.
+Detecting Circular Waits – Use thread dumps to identify deadlocks.
+
+=========================================================================================
+What is a CompletableFuture and how is it better than Future?
+
+CompletableFuture is a non-blocking alternative to Future, allowing asynchronous programming with callbacks.
+
+Feature	               Future	                  CompletableFuture
+================================================
+Blocking?	         Yes (get() blocks)	No (supports callbacks)
+Chaining?           No	                                    Yes (thenApply(), thenAccept())
+Combining Futures?	No	                Yes (thenCombine(), allOf())
+
+No blocking, runs asynchronously.
+
+======================================================================================
+ How do you prevent deadlocks in Java?
+Answer:
+💡 Techniques to avoid deadlocks:
+
+Avoid nested locks (Minimize acquiring multiple locks at the same time).
+Always acquire locks in a fixed order (E.g., lock A, then lock B).
+Use tryLock() instead of synchronized blocks.
+Use a timeout while acquiring locks.
+Detect deadlocks using ThreadMXBean.
+
+=======================================================================================
+How do you detect and prevent deadlocks in Java?
+
+Deadlock occurs when two or more threads wait for resources held by each other, causing a cycle.
+
+4 Conditions for Deadlock
+Mutual Exclusion – Only one thread can access a resource at a time.
+Hold and Wait – A thread holds a resource and waits for another.
+No Preemption – Resources can't be forcibly taken away.
+Circular Wait – A circular chain of waiting threads
+
+Deadlock Prevention Strategies
+Always acquire locks in the same order
+Use tryLock() from ReentrantLock
+Avoid holding multiple locks for long
+Use a timeout for lock acquisition
+
+
+
+==================================================================================
+How do you implement a thread-safe Singleton class in Java?
+Answer:
+Singleton ensures only one instance of a class exists.
+
+✅ Using Double-Checked Locking (Best Practice)
+
+class Singleton {
+    private static volatile Singleton instance;
+
+    private Singleton() {}
+
+    public static Singleton getInstance() {
+        if (instance == null) {
+            synchronized (Singleton.class) {
+                if (instance == null) {
+                    instance = new Singleton();
+                }
+            }
+        }
+        return instance;
+    }
+}
+=============================================================================
+Executors Framework (Thread Pool Management)
+The Executors framework provides an efficient way to manage threads by reusing them instead of creating new ones every time a task is submitted.
+
+Key Interfaces & Classes:
+Executor → Base interface for executing tasks.
+ExecutorService → Manages a thread pool with lifecycle methods (shutdown(), awaitTermination()).
+ScheduledExecutorService → Supports periodic task execution (like cron jobs).
+ForkJoinPool → Efficient for parallel processing (divide-and-conquer algorithms).
+ThreadPoolExecutor → A flexible, configurable thread pool.
+
+=====================================================================================
+Concurrent Collections (Thread-Safe Data Structures)
+Java provides thread-safe collection classes in java.util.concurrent to avoid race conditions.
+
+Class Name	                     Description
+ConcurrentHashMap	                  Thread-safe HashMap (faster than Collections.synchronizedMap()).
+CopyOnWriteArrayList	Thread-safe ArrayList, optimized for read-heavy workloads.
+CopyOnWriteArraySet	Thread-safe Set using Copy-On-Write strategy.
+ConcurrentLinkedQueue	Lock-free, non-blocking queue.
+LinkedBlockingQueue	Thread-safe Queue supporting blocking operations.
+
+=====================================================================================
+Synchronization Utilities (Locks, Semaphore, CountDownLatch, etc.)
+Instead of using synchronized blocks, Java provides better alternatives with more flexibility.
+
+Class Name	                   Description
+ReentrantLock	                    Alternative to synchronized with tryLock() support.
+ReentrantReadWriteLock	 Allows multiple readers, one writer at a time.
+Semaphore	                    Limits concurrent access (e.g., max 3 threads in a critical section).
+CountDownLatch	                    Makes threads wait until a task is completed (like waiting for services to start).
+CyclicBarrier	                   Synchronizes multiple threads, releasing them once all reach a common point.
+Phaser	                                    A more flexible version of CyclicBarrier, allowing dynamic registration of tasks.
+
+=======================================================================================
+Atomic Operations (java.util.concurrent.atomic)
+Java provides atomic variables to avoid race conditions without locks.
+
+
+Class Name	Description
+AtomicInteger	Thread-safe integer operations.
+AtomicLong	Thread-safe long operations.
+AtomicBoolean	Thread-safe boolean.
+AtomicReference<V>	Thread-safe reference variable.
+
+=======================================================================================
+CompletableFuture for Asynchronous Programming
+CompletableFuture allows non-blocking, parallel task execution.
+
+Key Features:
+supplyAsync() → Runs task asynchronously.
+thenApply() → Transforms the result.
+thenAccept() → Consumes the result.
+thenCombine() → Combines two CompletableFuture results.
+allOf() & anyOf() → Wait for multiple async tasks.
+
+========================================================================================
+Instead of synchronized, modern concurrency utilities provide more scalability.
+
+🔹 ReentrantLock (More Flexible than synchronized)
+Allows:
+
+Fair Locking (true ensures first-come-first-serve fairness).
+Interruptible Locks (lockInterruptibly() allows thread interruption).
+Try Locking (tryLock() to avoid indefinite blocking).
+=========================================================================================
+Phaser (Dynamic Thread Synchronization)
+Unlike CyclicBarrier, Phaser allows dynamically adding/removing tasks.
+
+========================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
