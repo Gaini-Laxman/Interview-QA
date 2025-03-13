@@ -11,7 +11,8 @@ class Singleton {
         return INSTANCE;
     }
 }
-=================================================2️. Lazy Initialization (Not Thread-Safe)
+=================================================
+2️. Lazy Initialization (Not Thread-Safe)
 ============================
 👉 Best for: Scenarios where instance creation is expensive, but NOT recommended for multi-threaded applications.
 

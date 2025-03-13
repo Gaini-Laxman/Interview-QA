@@ -36,6 +36,7 @@ Prototype =>Allows cloning objects instead of creating new instances(Expensive o
 
 
 📌 Example: Cloning a Shape Object
+============================
 abstract class Shape implements Cloneable {
     abstract void draw();
 
@@ -64,11 +65,14 @@ public class PrototypeExample {
 
 =========================================================================================
 Factory => Provides an interface for creating objects without exposing the object creation logic.
+
 🛠 Use Case
+=========
 Notification systems (Email, SMS, Push Notification)
 Bank account types (Savings, Checking)
 
 📌 Example: Notification Factory
+=========================
 
 interface Notification {
     void notifyUser();

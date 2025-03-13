@@ -1,0 +1,66 @@
+Java 8 Java 17 Migration
+=====================
+
+1. Check current Java Version 
+2. Update Depandancy
+3. Nashorn engine replacement that is graalVm
+4. Logging update instead of java.util.logging use slf4j and LogBack
+5. Update Buildtool
+6. compile and run java17
+7. fix incompitable code 
+
+Refactor instanceof checks:
+
+// Java 8
+if (obj instanceof String) {
+    String s = (String) obj;
+    System.out.println(s.length());
+}
+
+// Java 17 (Pattern Matching)
+if (obj instanceof String s) {
+    System.out.println(s.length());
+}
+
+=========================
+ Use switch expressions for cleaner logic:
+// Java 8
+switch (day) {
+    case "MONDAY":
+    case "FRIDAY":
+        System.out.println("Weekday");
+        break;
+    default:
+        System.out.println("Weekend");
+}
+
+// Java 17
+switch (day) {
+    case "MONDAY", "FRIDAY" -> System.out.println("Weekday");
+    default -> System.out.println("Weekend");
+}
+=============================
+8. use java.time instead of java.util.Date
+
+Test and Deploy
+============
+9. Run unit test junit 5 outdated junit 4
+10.Check frame work compatibility(springboot 2.5+ support java 17)
+
+=========================================================================================
+
+Java 8 vs. Java 17: Why Upgrade?
+
+Feature	                    Java 8	                                              Java 17
+Default GC	 Parallel GC	                            G1 GC
+String API  	 Limited	                                               strip(), isBlank(), repeat()
+Records	                   ❌ No	                                               ✅ Yes
+Switch Expressions     ❌ No	                                               ✅ Yes
+Sealed Classes	❌ No	                                               ✅ Yes
+Performance	Slower	                                               Faster startup & GC
+Security	                  Older TLS, weaker defaults	          TLS 1.3, Stronger Encryption
+Support	                  End of free support	                             LTS till 2029
+
+
+
+
