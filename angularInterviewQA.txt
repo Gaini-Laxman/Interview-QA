@@ -100,7 +100,7 @@ Implement error interceptor for centralised http error management
 =========================================================
 9. What is Interceptor in angular and why ? types ?
 
-interceptor is a class that implements to httpInterCeptor
+interceptor is a class that implements to httpInterceptor
 Interceptor modify http request and response
 HttpInterceptor sits between application and backend api
 
@@ -158,7 +158,7 @@ suitable for simple forms
 
 Reactive Forms:
 ----------------------
-form logic writen in component class that is typescrpt
+form logic writen in component class that is typescript
 uses FormControl, FormGroup, FormBuilder
 suitable for complex forms
 

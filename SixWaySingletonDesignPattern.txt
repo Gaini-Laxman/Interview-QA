@@ -1,0 +1,100 @@
+1. Eager Initialization (Thread-Safe)
+=========================
+👉 Best for: Simple singletons where instance creation is not expensive.
+
+class Singleton {
+    private static final Singleton INSTANCE = new Singleton(); // Created at class loading
+
+    private Singleton() {} // Private constructor
+
+    public static Singleton getInstance() {
+        return INSTANCE;
+    }
+}
+=================================================2️. Lazy Initialization (Not Thread-Safe)
+============================
+👉 Best for: Scenarios where instance creation is expensive, but NOT recommended for multi-threaded applications.
+
+class Singleton {
+    private static Singleton instance;
+
+    private Singleton() {}
+
+    public static Singleton getInstance() {  // Not thread-safe
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+}
+=================================================
+3. Synchronized Method (Thread-Safe, but Slow)
+====================================
+
+👉 Best for: Simple thread-safe implementation, but performance overhead due to synchronization.
+
+class Singleton {
+    private static Singleton instance;
+
+    private Singleton() {}
+
+    public static synchronized Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+}
+=================================================
+4. Double-Checked Locking (Efficient & Thread-Safe)
+=======================================
+👉 Best for: High-performance applications where lazy initialization and thread safety are needed.
+
+class Singleton {
+    private static volatile Singleton instance;  // volatile ensures proper visibility across threads
+
+    private Singleton() {}
+
+    public static Singleton getInstance() {
+        if (instance == null) { // First check
+            synchronized (Singleton.class) {
+                if (instance == null) { // Second check
+                    instance = new Singleton();
+                }
+            }
+        }
+        return instance;
+    }
+}
+=================================================
+5. Bill Pugh Singleton (Best Practice)
+==========================
+👉 Best for: Recommended approach, avoids synchronization overhead and supports lazy initialization.
+
+class Singleton {
+    private Singleton() {}
+
+    private static class SingletonHelper {
+        private static final Singleton INSTANCE = new Singleton();
+    }
+
+    public static Singleton getInstance() {
+        return SingletonHelper.INSTANCE;
+    }
+}
+=================================================
+6. Enum Singleton (Best for Serialization Safety)
+=================================
+👉 Best for: Cases where singleton needs to be serializable and safe against reflection attacks.
+
+enum Singleton {
+    INSTANCE;
+
+    public void show() {
+        System.out.println("Singleton using Enum");
+    }
+}
+
+
+
+

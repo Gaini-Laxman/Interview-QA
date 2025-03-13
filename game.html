@@ -6,13 +6,14 @@
   <title>Color Sorting Game</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
       text-align: center;
       background-color: #f7f7f7;
     }
 
     h1 {
       margin-top: 20px;
+      color: #444;
     }
 
     .game-container {
@@ -24,38 +25,79 @@
 
     .glass {
       width: 60px;
-      height: 150px;
-      margin: 10px;
-      border: 2px solid #444;
+      height: 160px;
+      margin: 15px;
+      border: 3px solid #666;
       border-radius: 10px;
       position: relative;
       overflow: hidden;
       background-color: white;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+      transition: border 0.3s ease-in-out, transform 0.2s;
+    }
+
+    .glass:hover {
+      cursor: pointer;
+      border-color: #ff5722;
+      transform: scale(1.05);
+    }
+
+    .selected {
+      border-color: blue !important;
+      transform: scale(1.08);
     }
 
     .glass .color {
       width: 100%;
       position: absolute;
       left: 0;
+      transition: bottom 0.3s ease-in-out;
     }
 
     .button-container {
       margin-top: 20px;
     }
 
-    .glass:hover {
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #ff5722;
+      color: white;
+      border: none;
       cursor: pointer;
-      border-color: #ff5722;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #e64a19;
     }
 
     .level {
       margin-top: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .win-message {
+      font-size: 20px;
+      font-weight: bold;
+      color: green;
+      margin-top: 15px;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
 <body>
   <h1>Color Sorting Game</h1>
   <div class="level">Level: <span id="level">1</span></div>
+  <div id="winMessage" class="win-message" style="display: none;">🎉 Level Complete! 🎉</div>
   <div class="game-container" id="gameContainer"></div>
   <div class="button-container">
     <button onclick="restartGame()">Restart</button>
@@ -122,13 +164,13 @@
     function handleGlassClick(glass) {
       if (!selectedGlass) {
         selectedGlass = glass;
-        glass.style.borderColor = 'blue';
+        glass.classList.add('selected');
       } else if (selectedGlass === glass) {
-        selectedGlass.style.borderColor = '#444';
+        selectedGlass.classList.remove('selected');
         selectedGlass = null;
       } else {
         transferColor(selectedGlass, glass);
-        selectedGlass.style.borderColor = '#444';
+        selectedGlass.classList.remove('selected');
         selectedGlass = null;
         checkWinCondition();
       }
@@ -147,7 +189,6 @@
         const colorDiv = fromColors.pop();
         colorDiv.style.bottom = `${toColors.length * (100 / MAX_COLORS)}%`;
         toGlass.appendChild(colorDiv);
-
         playWaterSound();
       }
     }
@@ -165,12 +206,13 @@
       });
 
       if (isWin) {
+        document.getElementById('winMessage').style.display = 'block';
         setTimeout(() => {
-          alert('Level Complete!');
+          document.getElementById('winMessage').style.display = 'none';
           level++;
           document.getElementById('level').textContent = level;
           startGame();
-        }, 500);
+        }, 1500);
       }
     }
 
@@ -182,6 +224,7 @@
     function restartGame() {
       level = 1;
       document.getElementById('level').textContent = level;
+      document.getElementById('winMessage').style.display = 'none';
       startGame();
     }
 

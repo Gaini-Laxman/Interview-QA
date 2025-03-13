@@ -1,0 +1,110 @@
+
+
+List<String> listOfStrings = Arrays.asList("Java", "Python", "C#", "Java", "Kotlin", "Python");
+
+//output => no duplicates and upcase by using java8
+
+List<String> result = listOfStrings.stream().map(String::toUpperCase).distinct().filter(s->length() > 3).collect(Collectors.toList());
+Sop(result);
+
+filterString > 3
+
+=============================================================
+     class SingleTon{
+    private static Singleton instance;
+    private Singleton(){}
+   
+public static Singleton getInstance(){
+if(instance == null){
+instance = new SingleTon();
+}
+}
+return instance;
+}
+
+======================================================================
+
+react frontend
+===========
+
+import { useState } from 'react';
+
+const Login = () => {
+  const [username, setUserName] = useState('');
+  const [password, setPassword] = useState('');
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  const handleLogin = e => {
+    e.preventDefault();
+    setLoggedIn(true);
+    console.log('User Logged In:', { username, password });
+  };
+
+  return (
+    <div>
+      <form onSubmit={handleLogin}>
+        <h2>Login Page</h2>
+
+        <div>
+          <label>UserName :</label>
+          <input
+            type='text'
+            value={username}
+            onChange={e => setUserName(e.target.value)}
+            required
+          />
+        </div>
+        <br />
+
+        <div>
+          <label>Password :</label>
+          <input
+            type='password'
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <br />	
+
+        <button type='submit'>Login</button>
+      </form>
+
+      {loggedIn && <p>Welcome, {username}!</p>}
+    </div>
+  );
+};
+
+export default Login;
+
+
+
+
+============
+
+import React from 'react';
+import Login from "./Login";
+
+export function App(props) {
+  return (
+    <div className='App'>
+      <Login/>
+    </div>
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

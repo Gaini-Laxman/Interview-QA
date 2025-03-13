@@ -1,0 +1,211 @@
+Creational Design Pattern (Creational patterns deal with object creation mechanisms)
+====================================================================================== 
+Singleton => Ensures that only one instance of a class exists throughout the application(Database connections,Logger class
+Thread pool management)
+
+📌  Example: Singleton Logger
+=====================
+class Logger {
+    private static Logger instance;
+
+    private Logger() {} // Private constructor
+
+    public static Logger getInstance() {
+        if (instance == null) {
+            instance = new Logger();
+        }
+        return instance;
+    }
+
+    public void log(String message) {
+        System.out.println("Log: " + message);
+    }
+}
+
+public class SingletonExample {
+    public static void main(String[] args) {
+        Logger logger = Logger.getInstance();
+        logger.log("Application started");
+    }
+}
+
+
+
+=========================================================================================
+Prototype =>Allows cloning objects instead of creating new instances(Expensive object creation (e.g., game characters, shapes) Cloning database objects)
+
+
+📌 Example: Cloning a Shape Object
+abstract class Shape implements Cloneable {
+    abstract void draw();
+
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+}
+
+class Circle extends Shape {
+    void draw() {
+        System.out.println("Drawing Circle...");
+    }
+}
+
+public class PrototypeExample {
+    public static void main(String[] args) throws CloneNotSupportedException {
+        Circle circle1 = new Circle();
+        Circle circle2 = (Circle) circle1.clone();
+        circle2.draw();
+    }
+}
+
+
+
+
+
+=========================================================================================
+Factory => Provides an interface for creating objects without exposing the object creation logic.
+🛠 Use Case
+Notification systems (Email, SMS, Push Notification)
+Bank account types (Savings, Checking)
+
+📌 Example: Notification Factory
+
+interface Notification {
+    void notifyUser();
+}
+
+class EmailNotification implements Notification {
+    public void notifyUser() {
+        System.out.println("Sending Email...");
+    }
+}
+
+class NotificationFactory {
+    public static Notification createNotification(String type) {
+        if ("EMAIL".equalsIgnoreCase(type)) return new EmailNotification();
+        return null;
+    }
+}
+
+public class FactoryExample {
+    public static void main(String[] args) {
+        Notification notification = NotificationFactory.createNotification("EMAIL");
+        notification.notifyUser();
+    }
+}
+
+
+
+
+=========================================================================================
+
+Abstract Factory => Provides an interface for creating factories of related objects.
+
+🛠 Use Case
+Cross-platform UI components
+
+📌 Example: Bank Factory
+====================
+interface Bank {
+    String getBankName();
+}
+
+class HDFC implements Bank {
+    public String getBankName() { return "HDFC Bank"; }
+}
+
+abstract class BankFactory {
+    abstract Bank createBank(String bankType);
+}
+
+class ConcreteBankFactory extends BankFactory {
+    public Bank createBank(String bankType) {
+        if ("HDFC".equalsIgnoreCase(bankType)) return new HDFC();
+        return null;
+    }
+}
+
+public class AbstractFactoryExample {
+    public static void main(String[] args) {
+        BankFactory factory = new ConcreteBankFactory();
+        Bank bank = factory.createBank("HDFC");
+        System.out.println(bank.getBankName());
+    }
+}
+
+
+=========================================================================================
+
+Builder => Used to construct complex objects step by step.
+
+🛠 Use Case
+Creating complex objects with many parameters
+Immutable objects like StringBuilder
+
+📌 Example: Employee Builder
+
+class Employee {
+    private String name;
+    private String department;
+
+    private Employee(Builder builder) {
+        this.name = builder.name;
+        this.department = builder.department;
+    }
+
+    public static class Builder {
+        private String name;
+        private String department;
+
+        public Builder setName(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder setDepartment(String department) {
+            this.department = department;
+            return this;
+        }
+
+        public Employee build() {
+            return new Employee(this);
+        }
+    }
+
+    public String toString() {
+        return "Employee [name=" + name + ", department=" + department + "]";
+    }
+}
+
+public class BuilderExample {
+    public static void main(String[] args) {
+        Employee emp = new Employee.Builder()
+                .setName("John")
+                .setDepartment("IT")
+                .build();
+        System.out.println(emp);
+    }
+}
+
+
+
+
+=========================================================================================
+Structural Design Pattern (Structural patterns focus on class and object composition)
+==============================================================
+Adapter => Convert an existing interface into another (Legacy code migration)
+Bridge  => Decouple abstraction from implementation
+Composite => Hierarchical tree structures (File System)
+Decorator => Add dynamic functionalities (e.g., adding milk to coffee)
+Facade => Simplify a complex system (e.g., a hotel booking system)
+Flyweight => Reduce memory usage for similar objects
+Proxy => Control access to an object (e.g., security proxies)
+=========================================================================================
+Behavioral Design Pattern(Behavioral patterns focus on communication between objects)
+=========================================================================================
+Chain of Responsibility => Handling requests with multiple processors (Event Handling)
+Command method => GUI button actions
+Mediator  => Centralized communication between objects
+Memento => Undo/Redo functionality
+State method  => Object changes behavior based on state (ATM machine)
+Strategy  => Payment methods (Credit Card, PayPal)

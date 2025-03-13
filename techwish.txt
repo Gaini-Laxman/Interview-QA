@@ -1,28 +1,29 @@
 
 
 
-int[] arr = {1,2,-1,11,5,8};
+//int[] arr = {1,2,-1,11,5,8};
 //output = paires 0f 10;
 
-int targetSum = 10;
+import java.util.*;
 
-Set<Integer> set = new HashSet<>();
-Set<Integer> pairs = new HashSet<>();
-
-for(int num : arr){
-int complement = targetSum - num;
-if(set.contains(complement)){
-pairs.add(Math.min(num, complement));
-pairs.add(math.max(num, compement));
+class PrintPaire {
+    public static void main(String[] args) {
+      int[] arr = {1,2,-1,11,5,8};
+      int target = 10;
+      findPairs(arr, target);
+    }
+    public static void findPairs(int[] arr, int target){
+        Set<Integer> set =  new HashSet<>();
+       
+        for(int num : arr){
+             int complement = target - num;
+            if(set.contains(complement)){
+                System.out.print("Pairs :("+num+","+complement+")\n");
+            }
+            set.add(num);
+        }
+    }
 }
-set.add(num);
-}
-
-for(int pair : pairs){
-System.out.println("pairs"+pair+","+targetSum-pair);
-
-}
-
 =========================================================================================
 
 customer
@@ -50,14 +51,13 @@ o5            c2                 p2
 
 SELECT customer_id
 FROM (
-SELECT customer_id, COUNT(oder_id) AS order_count
-FROM order 
-Group BY customer_id
-ORDER BY order_count DESC
-LIMIT 1
-AS max_order;
+    SELECT customer_id, COUNT(order_id) AS order_count
+    FROM `order`  -- `order` is a reserved keyword, so use backticks or rename it
+    GROUP BY customer_id
+    ORDER BY order_count DESC
+    LIMIT 1
+) AS max_order;
 
-)
 =========================================================================================
 
 Student 
@@ -69,12 +69,13 @@ rollNo   name        section       marks
 2            Q              B              860
 ======================
 
-//SELECT section 
-//FROM(
-SELECT section, MAX(marks) AS max_marks
-FROM student
-GROUP BY section
-)
+SELECT section
+FROM (
+    SELECT section, MAX(marks) AS max_marks
+    FROM student
+    GROUP BY section
+) AS max_section;
+
 =========================================================================================
 
 

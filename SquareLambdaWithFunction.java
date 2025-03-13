@@ -12,3 +12,20 @@ public class SquareLambdaWithFunction {
         p.print(5); // Output: 25
     }
 }
+
+
+=============================================
+interface PrintNumber {
+    void print(int num);
+}
+
+public class SquareMethodReference {
+    public static void square(int n) {
+        System.out.println(n * n);
+    }
+
+    public static void main(String[] args) {
+        PrintNumber p = SquareMethodReference::square; // Method reference
+        p.print(5); // Output: 25
+    }
+}

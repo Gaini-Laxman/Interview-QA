@@ -75,6 +75,18 @@ Copy data from one table to new table
 CREATE TABLE employees LIKE employee;
 INSERT INTO employees SELECT * FROM employee;
 
+==================================================================
+Use Bulk Operations for Inserts
+
+BEGIN
+  FORALL i IN 1..1000
+    INSERT INTO employee VALUES employees_data(i);
+END;
+
+
+
+
+
 =========================================================================================
 oracle:
 https://catalog-education.oracle.com/apex/f?p=1010:26:124565282804910#cv_return

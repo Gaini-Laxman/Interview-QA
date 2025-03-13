@@ -1,0 +1,78 @@
+import React from "react";
+
+export default function LoginForm ({ username, setUserName, password, setPassword, handleLogin }){
+  return (
+    <form onSubmit={handleLogin}>
+      <h2>Login Page</h2>
+
+      <div>
+        <label>UserName :</label>
+        <input
+          type="text"
+          value={username}
+          onChange={(e) => setUserName(e.target.value)}
+          required
+        />
+      </div>
+      <br />
+
+      <div>
+        <label>Password :</label>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+      </div>
+      <br />
+
+      <button type="submit">Login</button>
+    </form>
+  );
+};
+
+===========================
+
+import React, { useState } from "react";
+import LoginForm from "./LoginForm";
+import WelcomeMessage from "./WelcomeMessage";
+
+export default function Login(){
+  const [username, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    setLoggedIn(true);
+    console.log("User Logged In:", { username, password });
+  };
+
+  return (
+    <div>
+      <LoginForm
+        username={username}
+        setUserName={setUserName}
+        password={password}
+        setPassword={setPassword}
+        handleLogin={handleLogin}
+      />
+      {loggedIn && <WelcomeMessage username={username} />}
+    </div>
+  );
+};
+
+
+============================
+import React from "react";
+
+export default function WelcomeMessage ({ username }){
+
+return (
+<div>
+<p>Welcome To, {username} Medam</p>;
+</div>
+
+)};
+

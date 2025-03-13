@@ -13,7 +13,7 @@ What is Observable and promises ?
 
 both are used for asyncronous functionality
 
-Observable handle sequence of asncronous events over a time periode while promises deal with one asyncronous Events at a time
+Observable handle sequence of asyncronous events over a time periode while promises deal with one asyncronous Events at a time
 
 observable cant start until subscription, while promise execute immediate when created
 
