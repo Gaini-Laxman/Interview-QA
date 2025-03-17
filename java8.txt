@@ -1,0 +1,242 @@
+1. Reverse Each Word in a Sentence
+Question: Given a sentence, reverse each word while keeping their original order using Java 8 features.
+
+Solution:
+
+java
+Copy
+Edit
+import java.util.*;
+import java.util.stream.Collectors;
+
+class Main {
+    public static void main(String[] args) {
+        String sentence = "Hello World Java Stream";
+        
+        String reversed = Arrays.stream(sentence.split(" "))
+                                .map(word -> new StringBuilder(word).reverse().toString())
+                                .collect(Collectors.joining(" "));
+
+        System.out.println(reversed);
+    }
+}
+Output:
+
+nginx
+Copy
+Edit
+olleH dlroW avaJ maertS
+2. Find the Longest Word in a Sentence
+Question: Given a sentence, find the longest word using Java 8 features.
+
+Solution:
+
+java
+Copy
+Edit
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        String sentence = "Java 8 brings functional programming to Java";
+        
+        String longestWord = Arrays.stream(sentence.split(" "))
+                                   .max(Comparator.comparingInt(String::length))
+                                   .orElse("No words");
+
+        System.out.println("Longest Word: " + longestWord);
+    }
+}
+Output:
+
+mathematica
+Copy
+Edit
+Longest Word: programming
+3. Find the Second Smallest Number in a List
+Question: Given a list of numbers, find the second smallest using Java 8 features.
+
+Solution:
+
+java
+Copy
+Edit
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(10, 20, 5, 8, 15, 25, 5);
+        
+        int secondSmallest = numbers.stream()
+                                    .distinct()
+                                    .sorted()
+                                    .skip(1)
+                                    .findFirst()
+                                    .orElseThrow(() -> new RuntimeException("No second smallest element"));
+
+        System.out.println("Second Smallest: " + secondSmallest);
+    }
+}
+4. Convert a List of Strings to a Map with Length as Key
+Question: Given a list of words, convert them into a map where the key is the word length, and the value is a list of words with that length.
+
+Solution:
+
+java
+Copy
+Edit
+import java.util.*;
+import java.util.stream.Collectors;
+
+class Main {
+    public static void main(String[] args) {
+        List<String> words = Arrays.asList("apple", "banana", "kiwi", "mango", "pear", "peach", "grape");
+
+        Map<Integer, List<String>> wordMap = words.stream()
+                                                  .collect(Collectors.groupingBy(String::length));
+
+        System.out.println(wordMap);
+    }
+}
+5. Find Palindromic Words in a List
+Question: Given a list of words, find all palindromic words using Java 8 features.
+
+Solution:
+
+java
+Copy
+Edit
+import java.util.*;
+import java.util.stream.Collectors;
+
+class Main {
+    public static void main(String[] args) {
+        List<String> words = Arrays.asList("madam", "apple", "racecar", "banana", "level", "java");
+
+        List<String> palindromes = words.stream()
+                                        .filter(word -> word.equals(new StringBuilder(word).reverse().toString()))
+                                        .collect(Collectors.toList());
+
+        System.out.println("Palindromes: " + palindromes);
+    }
+}
+6. Find the Maximum Occurring Character in a String
+Question: Given a string, find the most frequently occurring character using Java 8 features.
+
+Solution:
+
+java
+Copy
+Edit
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+class Main {
+    public static void main(String[] args) {
+        String str = "success";
+
+        char mostFrequentChar = str.chars()
+                                   .mapToObj(c -> (char) c)
+                                   .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                                   .entrySet()
+                                   .stream()
+                                   .max(Map.Entry.comparingByValue())
+                                   .map(Map.Entry::getKey)
+                                   .orElse(' ');
+
+        System.out.println("Most Frequent Character: " + mostFrequentChar);
+    }
+}
+7. Convert a List of Integers to a Comma-Separated String
+Question: Given a list of integers, convert them to a single comma-separated string using Java 8 features.
+
+Solution:
+
+java
+Copy
+Edit
+import java.util.*;
+import java.util.stream.Collectors;
+
+class Main {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+        String result = numbers.stream()
+                               .map(String::valueOf)
+                               .collect(Collectors.joining(", "));
+
+        System.out.println(result);
+    }
+}
+Output:
+
+Copy
+Edit
+1, 2, 3, 4, 5
+8. Find Common Elements Between Two Lists
+Question: Given two lists of integers, find the common elements using Java 8 features.
+
+Solution:
+
+java
+Copy
+Edit
+import java.util.*;
+import java.util.stream.Collectors;
+
+class Main {
+    public static void main(String[] args) {
+        List<Integer> list1 = Arrays.asList(1, 2, 3, 4, 5, 6);
+        List<Integer> list2 = Arrays.asList(4, 5, 6, 7, 8, 9);
+
+        List<Integer> commonElements = list1.stream()
+                                            .filter(list2::contains)
+                                            .collect(Collectors.toList());
+
+        System.out.println("Common Elements: " + commonElements);
+    }
+}
+9. Find the Product of All Elements in a List
+Question: Given a list of integers, find the product of all elements using Java 8 features.
+
+Solution:
+
+java
+Copy
+Edit
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+        int product = numbers.stream()
+                             .reduce(1, (a, b) -> a * b);
+
+        System.out.println("Product: " + product);
+    }
+}
+10. Partition a List of Numbers into Even and Odd
+Question: Given a list of integers, partition them into two lists: one with even numbers and one with odd numbers using Java 8 features.
+
+Solution:
+
+java
+Copy
+Edit
+import java.util.*;
+import java.util.stream.Collectors;
+
+class Main {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+        Map<Boolean, List<Integer>> partitioned = numbers.stream()
+                                                         .collect(Collectors.partitioningBy(n -> n % 2 == 0));
+
+        System.out.println("Even Numbers: " + partitioned.get(true));
+        System.out.println("Odd Numbers: " + partitioned.get(false));
+    }
+}

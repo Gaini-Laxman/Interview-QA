@@ -17,3 +17,426 @@ Graph
 =====
 BFS(Breadth First Search)
 DFS(Depth First Search)
+===================================================================================
+
+1. Bubble Sort
+Concept:
+Bubble Sort repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. The largest element "bubbles" to the end in each pass.
+
+Steps:
+
+Start from index 0.
+Compare the current element with the next one.
+Swap if the current element is greater.
+Continue till the end, repeat for n-1 times.
+Time Complexity:
+
+Best: O(n) [when already sorted]
+Average/Worst: O(n²)
+Space: O(1) (in-place)
+Usage:
+Good for educational purposes but not recommended for production.
+
+2. Selection Sort
+Concept:
+Selects the minimum element from the unsorted part and puts it at the beginning.
+
+Steps:
+
+Start from index 0, assume it’s the minimum.
+Find the actual minimum in the unsorted sub-array.
+Swap it with the first unsorted element.
+Move the boundary one step right.
+Time Complexity:
+
+Best/Average/Worst: O(n²)
+Space: O(1)
+Usage:
+Simple but inefficient on large datasets.
+
+3. Insertion Sort
+Concept:
+Builds the sorted array one item at a time by inserting elements into their correct position.
+
+Steps:
+
+Start from the second element.
+Compare with elements before it.
+Shift all larger elements to the right.
+Insert the current element at the right place.
+Time Complexity:
+
+Best: O(n) [already sorted]
+Average/Worst: O(n²)
+Space: O(1)
+Usage:
+Good for small or nearly sorted datasets (e.g., when sorting data as it comes in).
+
+4. Merge Sort
+Concept:
+A divide-and-conquer algorithm that divides the array into halves, sorts, and then merges them.
+
+Steps:
+
+Divide the array recursively until single-element arrays are left.
+Merge sorted arrays step-by-step.
+During merge, compare elements and build a sorted array.
+Time Complexity:
+
+Best/Average/Worst: O(n log n)
+Space: O(n) [for auxiliary array]
+Usage:
+Used in external sorting (e.g., sorting large datasets on disk).
+
+5. Quick Sort
+Concept:
+Another divide-and-conquer algorithm. Selects a pivot, partitions the array, and recursively sorts subarrays.
+
+Steps:
+
+Pick a pivot (e.g., last element).
+Partition: place all smaller elements to the left and larger to the right.
+Recursively apply the same strategy to left and right subarrays.
+Time Complexity:
+
+Best/Average: O(n log n)
+Worst: O(n²) [when poorly choosing pivot]
+Space: O(log n) [for recursion]
+Usage:
+Efficient in-memory sorting, used in many standard library implementations (e.g., Arrays.sort() in Java for primitives).
+
+🔍 Searching Algorithms
+1. Linear Search
+Concept:
+Searches each element one by one until it finds the target or reaches the end.
+
+Steps:
+
+Start from index 0.
+Compare each element with the target.
+Return index if found, else continue.
+Time Complexity:
+
+Best: O(1)
+Average/Worst: O(n)
+Space: O(1)
+Usage:
+Used when dealing with unsorted data.
+
+2. Binary Search
+Concept:
+Efficiently searches in a sorted array by dividing the search space by half each time.
+
+Steps:
+
+Calculate mid = (low + high) / 2.
+If mid is the target, return.
+If target < mid, search left half; else search right half.
+Time Complexity:
+
+Best: O(1)
+Average/Worst: O(log n)
+Space: O(1) iterative or O(log n) recursive.
+Usage:
+Used for searching in sorted datasets, e.g., databases, file systems.
+
+🌐 Graph Traversal
+1. BFS (Breadth-First Search)
+Concept:
+Traverses a graph level by level, visiting all neighbors before going deeper.
+
+Steps:
+
+Use a queue and start from the source node.
+Mark the source as visited.
+While the queue is not empty:
+Dequeue node.
+Visit all unvisited neighbors and enqueue them.
+Time Complexity:
+
+O(V + E)
+(V = vertices, E = edges)
+Space:
+
+O(V) for visited array + queue.
+Usage:
+
+Finding shortest path in unweighted graphs.
+Web crawlers, social networks (e.g., finding connections).
+2. DFS (Depth-First Search)
+Concept:
+Traverses as deep as possible along each branch before backtracking.
+
+Steps:
+
+Use a stack (or recursion).
+Start from the source node, mark as visited.
+For each unvisited neighbor, go deeper.
+Backtrack when no unvisited neighbor exists.
+Time Complexity:
+
+O(V + E)
+Space:
+
+O(V) for visited + call stack.
+Usage:
+
+Topological sorting.
+Detecting cycles in graphs.
+Maze solving.
+✅ Would you like me to also add:
+Pseudocode for each?
+Visual diagrams?
+Comparison charts between algorithms?
+Let me know! 🚀
+
+
+
+
+
+
+
+You said:
+yes
+ChatGPT said:
+Great! Here's the next-level deep dive with pseudocode, visual diagrams (conceptual explanation), and a comparison chart.
+
+🔄 Sorting Algorithms
+1. Bubble Sort
+Pseudocode:
+
+plaintext
+Copy
+Edit
+for i = 0 to n-1
+    for j = 0 to n-i-2
+        if arr[j] > arr[j+1]
+            swap arr[j] and arr[j+1]
+Visualization (Concept):
+
+less
+Copy
+Edit
+[5, 3, 8, 4, 2]
+Pass 1: [3, 5, 4, 2, 8]  (8 bubbles to the end)
+Pass 2: [3, 4, 2, 5, 8]
+Pass 3: [3, 2, 4, 5, 8]
+Pass 4: [2, 3, 4, 5, 8] (sorted)
+2. Selection Sort
+Pseudocode:
+
+plaintext
+Copy
+Edit
+for i = 0 to n-1
+    min_idx = i
+    for j = i+1 to n-1
+        if arr[j] < arr[min_idx]
+            min_idx = j
+    swap arr[i] and arr[min_idx]
+Visualization:
+
+less
+Copy
+Edit
+[5, 3, 8, 4, 2]
+Pass 1: [2, 3, 8, 4, 5]
+Pass 2: [2, 3, 8, 4, 5]
+Pass 3: [2, 3, 4, 8, 5]
+Pass 4: [2, 3, 4, 5, 8] (sorted)
+3. Insertion Sort
+Pseudocode:
+
+plaintext
+Copy
+Edit
+for i = 1 to n-1
+    key = arr[i]
+    j = i - 1
+    while j >= 0 and arr[j] > key
+        arr[j+1] = arr[j]
+        j = j - 1
+    arr[j+1] = key
+Visualization:
+
+less
+Copy
+Edit
+[5, 3, 8, 4, 2]
+Pass 1: [3, 5, 8, 4, 2]
+Pass 2: [3, 5, 8, 4, 2]
+Pass 3: [3, 4, 5, 8, 2]
+Pass 4: [2, 3, 4, 5, 8] (sorted)
+4. Merge Sort
+Pseudocode:
+
+plaintext
+Copy
+Edit
+mergeSort(arr):
+    if n > 1:
+        mid = n / 2
+        left = arr[0...mid-1]
+        right = arr[mid...n-1]
+        mergeSort(left)
+        mergeSort(right)
+        merge(left, right)
+Merge Step:
+
+plaintext
+Copy
+Edit
+merge(left, right):
+    while both left and right have elements:
+        pick smaller and add to sorted array
+Visualization:
+
+css
+Copy
+Edit
+[5, 3, 8, 4, 2]
+Split -> [5, 3, 8] and [4, 2]
+[5, 3, 8] -> [5], [3, 8] -> [3], [8]
+[4, 2] -> [4], [2]
+Merge -> [3, 5, 8] and [2, 4] -> [2, 3, 4, 5, 8]
+5. Quick Sort
+Pseudocode:
+
+plaintext
+Copy
+Edit
+quickSort(arr, low, high):
+    if low < high:
+        pivotIndex = partition(arr, low, high)
+        quickSort(arr, low, pivotIndex - 1)
+        quickSort(arr, pivotIndex + 1, high)
+Partition:
+
+plaintext
+Copy
+Edit
+partition(arr, low, high):
+    pivot = arr[high]
+    i = low - 1
+    for j = low to high - 1:
+        if arr[j] <= pivot:
+            i++
+            swap arr[i] and arr[j]
+    swap arr[i+1] and arr[high]
+    return i + 1
+Visualization:
+
+sql
+Copy
+Edit
+[5, 3, 8, 4, 2]
+Pivot = 2
+Partition -> [2, 3, 8, 4, 5]
+Recurse left and right partitions.
+Sorted: [2, 3, 4, 5, 8]
+🔍 Searching Algorithms
+1. Linear Search
+Pseudocode:
+
+plaintext
+Copy
+Edit
+for i = 0 to n-1
+    if arr[i] == target
+        return i
+return -1
+Visualization:
+
+pgsql
+Copy
+Edit
+Target = 4
+[5, 3, 8, 4, 2] -> Compare each element -> Found at index 3
+2. Binary Search
+Pseudocode:
+
+plaintext
+Copy
+Edit
+binarySearch(arr, low, high, target):
+    while low <= high:
+        mid = (low + high) / 2
+        if arr[mid] == target
+            return mid
+        else if arr[mid] < target
+            low = mid + 1
+        else
+            high = mid - 1
+    return -1
+Visualization:
+
+pgsql
+Copy
+Edit
+Sorted Array: [2, 3, 4, 5, 8]
+Target = 4
+mid = 2 -> Found at index 2
+🌐 Graph Traversal
+1. BFS
+Pseudocode:
+
+plaintext
+Copy
+Edit
+BFS(graph, start):
+    create queue Q
+    mark start as visited and enqueue it
+    while Q is not empty:
+        vertex = Q.dequeue()
+        for each unvisited neighbor of vertex:
+            mark neighbor as visited
+            Q.enqueue(neighbor)
+Visualization:
+
+mathematica
+Copy
+Edit
+Graph:  
+A - B - D  
+|   |  
+C   E
+
+Start = A  
+Queue: [A] -> [B, C] -> [C, D, E]  
+Traversal: A -> B -> C -> D -> E
+2. DFS
+Pseudocode:
+
+plaintext
+
+
+DFS(graph, vertex, visited):
+    mark vertex as visited
+    for each neighbor of vertex:
+        if not visited:
+            DFS(neighbor)
+Visualization:
+
+mathematica
+Copy
+Edit
+Graph:  
+A - B - D  
+|   |  
+C   E
+
+Start = A  
+A -> B -> D -> E -> C
+
+📊 Comparison Table
+
+Algorithm	Best Time	Avg Time	Worst Time	Space	Stable?	Use Case
+Bubble Sort	O(n)	O(n²)	O(n²)	O(1)	Yes	Teaching, simple scenarios
+Selection Sort	O(n²)	O(n²)	O(n²)	O(1)	No	Memory-limited environments
+Insertion Sort	O(n)	O(n²)	O(n²)	O(1)	Yes	Small or nearly sorted datasets
+Merge Sort	O(n log n)	O(n log n)	O(n log n)	O(n)	Yes	Large datasets, external sort
+Quick Sort	O(n log n)	O(n log n)	O(n²)	O(log n)	No	General-purpose in-memory sort
+Linear Search	O(1)	O(n)	O(n)	O(1)	N/A	Small/unsorted datasets
+Binary Search	O(1)	O(log n)	O(log n)	O(1)	N/A	Sorted datasets
+BFS	O(V + E)	O(V + E)	O(V + E)	O(V)	N/A	Shortest path, social networks
+DFS	O(V + E)	O(V + E)	O(V + E)	O(V)	N/A	Topological sort, cycle detect
