@@ -1,0 +1,38 @@
+
+
+
+String s = "sldj7423dur45woe4636ur342";
+//extract numbers from String it has to support dynamic
+Lit<Integer> numbers = extractNumbers(s);
+sop(numbers );
+
+}
+
+public static void List<Intger> extractNumbers(String s){
+List<Intger> numberList = new ArrayList<>();
+Pattern pattern = pattern.compile("\\d+");   //sldj
+Match match = patter.match(s);
+
+while(match.find()){
+   int number = numberList.add(Integer.parseInt(match.group()));
+ 
+if(number % 2==0){
+sop()}
+}
+return numberList;
+
+}
+
+========================================================================================
+
+
+
+
+
+
+
+
+
+
+
+

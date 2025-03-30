@@ -1,0 +1,192 @@
+import { useState, useEffect } from "react";
+import { Document, Page, pdfjs } from "react-pdf";
+import "react-pdf/dist/esm/Page/AnnotationLayer.css";
+import "react-pdf/dist/esm/Page/TextLayer.css";
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+
+export default function PdfReader() {
+  const [numPages, setNumPages] = useState(null);
+  const [pageNumber, setPageNumber] = useState(() => parseInt(localStorage.getItem("pdf-page")) || 1);
+  const [scale, setScale] = useState(() => parseFloat(localStorage.getItem("pdf-scale")) || 1.0);
+  const [fitWidth, setFitWidth] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [bookmarks, setBookmarks] = useState([]);
+  const [splitView, setSplitView] = useState(false);
+  const [sepiaMode, setSepiaMode] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [foundPages, setFoundPages] = useState([]);
+
+  const pdfFile = "/book.pdf";
+
+  const onDocumentLoadSuccess = async (pdf) => {
+    setNumPages(pdf.numPages);
+    const outline = await pdf.getOutline();
+    setBookmarks(outline || []);
+  };
+
+  useEffect(() => {
+    localStorage.setItem("pdf-page", pageNumber);
+  }, [pageNumber]);
+
+  useEffect(() => {
+    localStorage.setItem("pdf-scale", scale);
+  }, [scale]);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "ArrowRight") nextPage();
+      if (e.key === "ArrowLeft") prevPage();
+      if (e.key === "+") zoomIn();
+      if (e.key === "-") zoomOut();
+      if (e.key === "f") toggleFullscreen();
+      if (e.key === "s") toggleSplitView();
+    };
+
+    const handleWheel = (e) => {
+      if (e.deltaY > 0) nextPage();
+      if (e.deltaY < 0) prevPage();
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("wheel", handleWheel, { passive: true });
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("wheel", handleWheel);
+    };
+  });
+
+  const nextPage = () => setPageNumber((prev) => Math.min(prev + (splitView ? 2 : 1), numPages));
+  const prevPage = () => setPageNumber((prev) => Math.max(prev - (splitView ? 2 : 1), 1));
+  const zoomIn = () => setScale(scale + 0.2);
+  const zoomOut = () => setScale(scale > 0.6 ? scale - 0.2 : 0.6);
+  const toggleFitWidth = () => setFitWidth(!fitWidth);
+  const toggleDarkMode = () => setDarkMode(!darkMode);
+  const toggleSplitView = () => setSplitView(!splitView);
+  const toggleSepiaMode = () => setSepiaMode(!sepiaMode);
+
+  const toggleFullscreen = () => {
+    const elem = document.documentElement;
+    if (!isFullscreen) {
+      elem.requestFullscreen().then(() => toast.success("Fullscreen Enabled!"));
+    } else {
+      document.exitFullscreen().then(() => toast.info("Fullscreen Exited"));
+    }
+    setIsFullscreen(!isFullscreen);
+  };
+
+  const searchInPdf = () => {
+    let pages = [];
+    for (let i = 1; i <= numPages; i++) {
+      pdfjs.getDocument(pdfFile).promise.then((pdf) => {
+        pdf.getPage(i).then((page) => {
+          page.getTextContent().then((textContent) => {
+            const text = textContent.items.map((item) => item.str).join(" ");
+            if (text.toLowerCase().includes(searchQuery.toLowerCase())) {
+              pages.push(i);
+              setFoundPages([...pages]);
+            }
+          });
+        });
+      });
+    }
+  };
+
+  const readingProgress = Math.round((pageNumber / numPages) * 100);
+
+  return (
+    <div className={`${darkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-black"} ${sepiaMode ? "bg-yellow-50" : ""} min-h-screen p-5 transition-colors duration-500 flex custom-scrollbar`}>
+      <aside className="w-64 mr-6 border-r pr-4 hidden md:block">
+        <h3 className="text-lg font-semibold mb-3">📑 Bookmarks</h3>
+        <ul className="space-y-2">
+          {bookmarks.map((bm, idx) => (
+            <li key={idx}>
+              <button
+                onClick={() => bm.dest && setPageNumber((bm.dest[0] || 0) + 1)}
+                className="text-blue-500 hover:underline text-sm"
+              >
+                {bm.title}
+              </button>
+            </li>
+          ))}
+          {bookmarks.length === 0 && <p className="text-sm">No bookmarks available</p>}
+        </ul>
+        <div className="mt-5">
+          <input
+            type="text"
+            placeholder="Search text..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full px-2 py-1 text-black rounded"
+          />
+          <button onClick={searchInPdf} className="mt-2 px-2 py-1 bg-blue-500 text-white rounded w-full">Search</button>
+          {foundPages.length > 0 && (
+            <div className="mt-2 text-sm">
+              Found on pages: {foundPages.join(", ")}
+            </div>
+          )}
+        </div>
+      </aside>
+
+      <main className="flex-1">
+        <h2 className="text-2xl font-bold mb-4 text-center">📚 Pro PDF Reader</h2>
+
+        <div className="flex flex-wrap gap-3 justify-center mb-6">
+          <button onClick={prevPage} className="px-3 py-1 bg-blue-500 text-white rounded">Previous</button>
+          <button onClick={nextPage} className="px-3 py-1 bg-blue-500 text-white rounded">Next</button>
+          <button onClick={zoomOut} className="px-3 py-1 bg-red-500 text-white rounded">Zoom Out (-)</button>
+          <button onClick={zoomIn} className="px-3 py-1 bg-green-500 text-white rounded">Zoom In (+)</button>
+          <button onClick={toggleFitWidth} className="px-3 py-1 bg-purple-500 text-white rounded">{fitWidth ? "Disable Fit Width" : "Fit to Width"}</button>
+          <button onClick={toggleSplitView} className="px-3 py-1 bg-indigo-500 text-white rounded">{splitView ? "Single Page Mode" : "Split View Mode (s)"}</button>
+          <button onClick={toggleDarkMode} className="px-3 py-1 bg-gray-700 text-white rounded">{darkMode ? "Light Mode" : "Dark Mode"}</button>
+          <button onClick={toggleSepiaMode} className="px-3 py-1 bg-yellow-400 text-black rounded">{sepiaMode ? "Normal Colors" : "Sepia Mode"}</button>
+          <button onClick={toggleFullscreen} className="px-3 py-1 bg-yellow-500 text-white rounded">{isFullscreen ? "Exit Fullscreen (f)" : "Fullscreen (f)"}</button>
+        </div>
+
+        <div className="w-full bg-gray-300 rounded-full h-3 mb-4">
+          <div
+            className="bg-green-500 h-3 rounded-full transition-all duration-300 ease-in-out"
+            style={{ width: `${readingProgress}%` }}
+          ></div>
+        </div>
+        <p className="text-center mb-4 text-sm">Progress: {readingProgress}%</p>
+
+        <div className="flex justify-center">
+          <div className="shadow-lg border p-4 bg-white rounded-xl transition-all duration-300 ease-in-out flex gap-4 custom-scrollbar" style={{ width: fitWidth ? "80vw" : "auto" }}>
+            <Document file={pdfFile} onLoadSuccess={onDocumentLoadSuccess}>
+              <Page
+                pageNumber={pageNumber}
+                scale={scale}
+                renderTextLayer={false}
+                renderAnnotationLayer={false}
+                className="transition-transform duration-300 ease-in-out page-flip"
+              />
+              {splitView && pageNumber + 1 <= numPages && (
+                <Page
+                  pageNumber={pageNumber + 1}
+                  scale={scale}
+                  renderTextLayer={false}
+                  renderAnnotationLayer={false}
+                  className="transition-transform duration-300 ease-in-out page-flip"
+                />
+              )}
+            </Document>
+          </div>
+        </div>
+      </main>
+
+      <ToastContainer position="bottom-right" />
+    </div>
+  );
+}
+
+// Add this CSS globally or inside your Tailwind config:
+// .custom-scrollbar::-webkit-scrollbar { width: 8px; }
+// .custom-scrollbar::-webkit-scrollbar-thumb { background: #888; border-radius: 4px; }
+// .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #555; }
+// .page-flip { transform-origin: left center; }
+// .page-flip:hover { transform: rotateY(1deg) scale(1.01); transition: transform 0.3s ease; }

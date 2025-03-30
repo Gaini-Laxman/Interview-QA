@@ -1,0 +1,43 @@
+1) How do you remove duplicate elements from a list using Java 8 streams?
+List<String> listOfStrings = Arrays.asList("Java", "Python", "C#", "Java", "Kotlin", "Python");
+
+    List<String>distinct = listOfStrings .stream().distinct().collect(Collectors.toList);
+    sop(distinct);
+ 
+2) Reverse each string then find any string palindrome
+List<String> listOfStrings = Arrays.asList("Java", "madam", "C#", "Java", "Kotlin", "Python");
+List<String>palidrome  =  listOfStrings .stream().filter(s->s.equals(new StringBuilder(s).reverse().toString())).collect(Collectors.toList);
+sop(palidrome);
+ 
+3) Write a simple join query with two table
+
+SELECT e.id, e.name, e.dept  FROM employee e JOIN Departmaents d ON e.dept_id = d.dept_id;
+
+ 
+4) How do you find frequency of each character in a string using Java 8 streams?
+String inputString = "Java Concept Of The Day";
+
+Map<Character, Long > freqMap = s.chars().mapToObj(c->(char) c).filter(c->c != ' ').collect(Collectors.groupinBy(Function.identity(), Collectors.counting()));
+sop(freqMap);
+
+
+ 
+5) Separate the Odd and even numbers from the list using Java 8 streams
+List<Integer> listOfInteger = Arrays.asList(71, 18, 42, 21, 67, 32, 95, 14, 56, 87)
+
+List<Integer> listOfInteger = Arrays.asList();
+List<Boolean, List<Integer>> evenElements = listOfIntgers.stream().collect(Collectors.partitioningBy(n->n%2==0));
+sop(evenElements.get(true));
+sop(oddElements.get(true));
+
+
+
+ 
+6) String s = “Hari” , String s1 = new String(“Hari”);
+s == s1 ?
+s.equals(s1); ?
+
+true
+false
+
+

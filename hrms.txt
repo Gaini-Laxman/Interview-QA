@@ -1,0 +1,165 @@
+import React, { createContext, useState, useContext, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, Link, Navigate } from "react-router-dom";
+import "./styles.css";
+
+// Create Context for Global State
+const HRMSContext = createContext();
+const useHRMS = () => useContext(HRMSContext);
+
+const HRMSProvider = ({ children }) => {
+  const [employees, setEmployees] = useState(
+    JSON.parse(localStorage.getItem("employees")) || [
+      { id: 1, name: "John Doe", role: "Software Engineer", attendance: "Present", email: "john@company.com", password: "1234", isAdmin: false },
+      { id: 2, name: "Jane Smith", role: "Project Manager", attendance: "Absent", email: "jane@company.com", password: "1234", isAdmin: true }
+    ]
+  );
+
+  const [currentUser, setCurrentUser] = useState(null);
+
+  useEffect(() => {
+    localStorage.setItem("employees", JSON.stringify(employees));
+  }, [employees]);
+
+  const login = (email, password) => {
+    const user = employees.find(emp => emp.email === email && emp.password === password);
+    if (user) setCurrentUser(user);
+    return user;
+  };
+
+  const logout = () => setCurrentUser(null);
+
+  const addEmployee = (employee) => {
+    setEmployees([...employees, { id: employees.length + 1, ...employee }]);
+  };
+
+  const updateEmployee = (id, updatedEmployee) => {
+    setEmployees(employees.map(emp => (emp.id === id ? { ...emp, ...updatedEmployee } : emp)));
+  };
+
+  const deleteEmployee = (id) => {
+    setEmployees(employees.filter(emp => emp.id !== id));
+  };
+
+  return (
+    <HRMSContext.Provider value={{ employees, setEmployees, currentUser, login, logout, addEmployee, updateEmployee, deleteEmployee }}>
+      {children}
+    </HRMSContext.Provider>
+  );
+};
+
+// Authentication Component
+const LoginPage = ({ onLogin }) => {
+  const { login } = useHRMS();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleLogin = () => {
+    const user = login(email, password);
+    if (!user) setError("Invalid credentials");
+    else onLogin();
+  };
+
+  return (
+    <div>
+      <h2>Login</h2>
+      <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+      <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+      <button onClick={handleLogin}>Login</button>
+      {error && <p>{error}</p>}
+    </div>
+  );
+};
+
+// Employee Management Component
+const EmployeeList = () => {
+  const { employees, currentUser, addEmployee, updateEmployee, deleteEmployee } = useHRMS();
+  const [name, setName] = useState("");
+  const [role, setRole] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  const filteredEmployees = currentUser?.isAdmin ? employees : employees.filter(emp => emp.email === currentUser.email);
+
+  const handleAddEmployee = () => {
+    addEmployee({ name, role, email, password, isAdmin, attendance: "Present" });
+    setName(""); setRole(""); setEmail(""); setPassword(""); setIsAdmin(false);
+  };
+
+  return (
+    <div>
+      <h2>Employee List</h2>
+      <ul>
+        {filteredEmployees.map((emp) => (
+          <li key={emp.id}>
+            {emp.name} - {emp.role} - {emp.attendance}
+            {currentUser?.isAdmin && (
+              <>
+                <button onClick={() => deleteEmployee(emp.id)}>Delete</button>
+              </>
+            )}
+          </li>
+        ))}
+      </ul>
+      {currentUser?.isAdmin && (
+        <>
+          <h3>Add Employee</h3>
+          <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
+          <input type="text" placeholder="Role" value={role} onChange={(e) => setRole(e.target.value)} />
+          <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+          <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          <label>
+            <input type="checkbox" checked={isAdmin} onChange={(e) => setIsAdmin(e.target.checked)} /> Is Admin
+          </label>
+          <button onClick={handleAddEmployee}>Add Employee</button>
+        </>
+      )}
+    </div>
+  );
+};
+
+// Navigation Component
+const Navbar = () => {
+  const { currentUser, logout } = useHRMS();
+  return (
+    <nav>
+      <ul>
+        {currentUser ? (
+          <>
+            <li><Link to="/employees">Employees</Link></li>
+            <li><button onClick={logout}>Logout</button></li>
+          </>
+        ) : (
+          <li><Link to="/login">Login</Link></li>
+        )}
+      </ul>
+    </nav>
+  );
+};
+
+// Protected Route Component
+const ProtectedRoute = ({ element }) => {
+  const { currentUser } = useHRMS();
+  return currentUser ? element : <Navigate to="/login" />;
+};
+
+// Main Application Component
+const App = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  return (
+    <Router>
+      <HRMSProvider>
+        <Navbar />
+        <Routes>
+          <Route path="/login" element={<LoginPage onLogin={() => setIsAuthenticated(true)} />} />
+          <Route path="/employees" element={<ProtectedRoute element={<EmployeeList />} />} />
+          <Route path="*" element={<Navigate to="/login" />} />
+        </Routes>
+      </HRMSProvider>
+    </Router>
+  );
+};
+
+export default App;

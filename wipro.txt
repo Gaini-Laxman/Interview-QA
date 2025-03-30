@@ -1,0 +1,58 @@
+import java.util.*;
+import java.util.stream.*;
+
+class Main {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(11, 12, 13, 15, 16, 18);
+        System.out.println(IntStream.rangeClosed(11, 18).filter(n -> !numbers.contains(n)).boxed().toList());
+    }
+}
+
+==================================================
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+class Main {
+    public static void main(String[] args) {
+        
+         // need to count the zeros from the given integer
+ 
+//   for ex: 10
+//   count will be 2
+//   if it's 20
+//   count is 3
+  
+  int num1 = 10;
+  int num2 =20;
+ 
+        System.out.println("Try programiz.pro");
+    }
+    
+    public static int counterZero(){
+        
+        
+    }
+}
+
+========================================================================================
+we have a spring then why we go for  springboot ?
+how you handle the variase enveronment ? 
+what is statefull and stateless services ?
+what is the http code of 306, 402  ?
+suppose we have existing allication that is connected db onether we want to call that api same kind of data without effecting existing api what kind methodalogy you have achieve this ?
+can you tell about the static method signiture ?
+difference between the spring mvc and microservices(monolith vs microservice) ?
+suppose we have 5 microservices how we are internally connect them ?
+what is difference between rest template and feign client ?
+what is the difference between rest template and web client ?
+how do you handle the passwords ?
+what kind of encription algorithm in java  and explain?
+what is AES and the features ?
+what is default design pattern for springboot for connecting db ?
+
+
+
+
+
+
+

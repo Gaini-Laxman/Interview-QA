@@ -1,0 +1,120 @@
+
+
+Given an unsorted array containing
+ N distinct numbers taken from 1, 2, ..., N,
+ find the missing number.
+======================================================
+
+  int totalSum = N*(N+1)/2;
+  int arraySum = 0;
+  for(int num : arr){
+  arraySum += num;
+}
+return totalSum - arraySum;
+
+}
+int[] arr = {1,2,3,5,6};
+int N =6;
+int missingNumber = findMissingNumber(arr, N);
+sop(missingNumber );
+===================================================================
+
+input arr ={'W','e','l','c','o','m','e'}
+ 
+E -> (replace with)'X', 'Y', 'Z'
+
+int countE =0;
+
+for(char ch : arr){
+if(ch =='e'){
+count++;
+}
+}
+int newSize = arr.length +countE*2;
+char[] resultArr = new char[newSize];
+int index = 0;
+}
+for(char ch : arr){
+if(ch=='e'){
+resultArr[index++]='X';
+resultArr[index++]='Y';
+resultArr[index++]='Z';
+}else{
+resultArr[index++]=ch;
+}
+}
+return resultArr;
+
+char[] arr = {'W','e','l','c','o','m','e'};
+char[] modifiedArr = replaceWithXYZ(arr);
+sop(new String(modifiedArr ));
+
+========================================================================================
+
+
+class A{
+
+ protect void m1(){
+
+}
+class B extends A{
+public void m1(){
+
+}
+}
+}
+===================================================================================
+final class Employee{
+private final int id;
+private final String name;
+
+public Employee(int id, String name){
+this.id=id;
+this.name=name;
+}
+
+public int getId(){
+return id;
+}
+public String getName(){
+return name;
+}
+}
+
+=========================================================================================
+
+kafka.config.sh --boostrap-server localhost:9090  - alter - entity-type topic entity-name my-topic --add-confi cleanup.policy=compact;
+
+server.property
+
+log.retention.hours= 180;
+========================================================================================
+
+nabla
+======
+What is polymerphism ?
+what is the benefit of immutable object ?
+why immutable object not change in run time ? give me real time example ?
+in immutable object adding date of joing how can define the variable (this is my source code cant modify)?
+what are the types of exception ?
+sql exception is going to occure at run time or compile time ?
+checked exception is not achieving how can i ensure that ?
+when switch of my db will get sql exception or not ?
+how we can call multiple api in your program ?
+i have multiple rest end point how can i make multiple calls ?
+multiple api calling parallel in java how  ?
+in kafka if i want store information upto 7days what kind of configuration i should do (setting ms property and also logfile size)?
+in kafka outof 10 req and 6 req sucess and 4 req failed retry mechanism can do at run time or app make down ?
+consumers are failed at that time how can trouble shoot and fix issue ? without stoping them we can fix ? how ? where will do ?
+doplicate message is not delivered how should ensure kafka ?
+can you explain me how internally hashmap works ?
+
+
+
+
+
+
+
+
+
+

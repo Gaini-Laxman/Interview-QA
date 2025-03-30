@@ -1,0 +1,28 @@
+what is the use case of spring batch ?
+why we need spring data jpa is there for inserting data instead of springbatch ?
+your data is huse but data is not single rows and colums in this case by using spring batch how and gruping this chunk record together ?
+how you will known all data insert belongs to same record ?
+what is functional and why we go for functional interface ?
+what is exception propagation ?
+how to make a class immutable ? 
+if clone the immutable class what happen ?
+what is cuncurrent hashmap and why we go for cuncurrent hashmap ?
+how do helping the avoiding null pointer exception ?
+what annotation familier with springboot ?
+when ever we want to autowire in an classspringboot app will mark that class as @Component currect ?
+we are using @service and @repository why not using @component ?
+if same above can i use @service my repository class 
+if i use @repository in sevice class and @service in repository class java compiler compline if yes what is that ?
+can you write critical section of singleton class ?
+how we will make class as singleton ?
+what is @preAutherize and @postAutherize when to use them ?
+if you want protect our services where will write our check in gateway level or service level in microservice ?
+what is consumer group and why we go for consumer group ?
+did you get chance to work performnce analysis and improvements ?
+in heap dump analysis what are the observe as part of analysis ?
+we have application apart from we will restrict few pages for the users for ex: admin role allow all pages user alow only one there page user trieng to access admine related page how can ristrict it in reactjs ?
+What is the permit is component or wrapper ?
+what is auth guard ?
+
+
+

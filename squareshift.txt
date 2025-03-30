@@ -1,0 +1,25 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        
+// I/P - [5,1,4,2]
+// O/P - [8,40,10,20]
+        
+        int[] arr = {5,1,4,2};
+        int[] result = Arrays.stream(arr).map(n->transform(n)).toArray();
+         System.out.println(Arrays.toString(result));
+      
+        }
+        private static int transform(int n){
+            if(n==5) return 8;
+            if(n==1) return 40;
+            if(n==4) return 10;
+            if(n==2) return 20;
+            return n;
+        }
+        
+       
+    }

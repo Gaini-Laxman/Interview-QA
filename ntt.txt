@@ -1,0 +1,37 @@
+
+
+Optional<String> str = Optional.of("hi");
+ if(str.isPresent){
+sop(str.get());
+}  
+
+
+=================================================================
+Emp: emplId,name,departId
+DepartMent: deprtId,Name
+
+output  = Map<departname, List<Emloyee>>
+
+ Map<String, Integer> deptIdName
+
+===========================================
+What is Class Loder and howmany types of classloader ?
+how many memory management here in java  ?
+what is method area and stock area ?
+where stored variables in java ?
+difference between primitive and wrapper class   and which is better performance and why ?
+what is laod factor in java ?
+what is differnce between terminal operators and intermediate operator ?
+what is optional class ?
+take string and how we can overcome the null pointer exception can you define and write code ?
+
+
+
+
+
+
+
+
+
+
+

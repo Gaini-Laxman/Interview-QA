@@ -1,0 +1,51 @@
+@RestController
+@RequestMapping("/employee")
+class EmployeeRestController {
+
+    @Autowired
+    private EmployeeService employeeService;
+
+    @PostMapping
+    public ResponseEntity<Employee> createEmployee(@RequestBody Employee employee) {
+        Employee createdEmployee = employeeService.createEmployee(employee);
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdEmployee);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Employee> getEmployeeById(@PathVariable Integer id) {
+        try {
+            Employee employee = employeeService.getEmployeeById(id);
+            return ResponseEntity.ok(employee);
+        } catch (EmployeeNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+    }
+}
+====================================================
+
+@Injectable({
+  providedIn: 'root'
+})
+export class EmployeeService {
+
+  private apiUrl = "http://localhost:8080/employee";
+
+  constructor(private http: HttpClient) {}
+
+  getEmployee(): Observable<EmployeeData[]> {
+    return this.http.get<EmployeeData[]>(this.apiUrl);
+  }
+
+  createEmployee(employee: EmployeeData): Observable<EmployeeData> {
+    return this.http.post<EmployeeData>(this.apiUrl, employee);
+  }
+}
+
+=================================================================================
+
+
+
+
+
+
+

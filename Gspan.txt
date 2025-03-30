@@ -1,0 +1,89 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+import java.util.*;
+import java.util.Map;
+import java.util.function.*;
+import java.util.stream.*;
+
+
+class Main {
+    public static void main(String[] args) {
+        
+        String s = "testing";
+       // write a program 1st non repeatble chaharacter 
+        
+       Map<Character, Long > charCountMap = s.chars().mapToObj(c->(char) c).collect(Collectors.groupingBy(Function.identity(), LinkedHashMap:: new , Collectors.counting()));
+       char firstNonRepeating = charCountMap.entrySet().stream().filter(entry ->entry.getValue() == 1).map(Map.Entry::getKey).findFirst().orElse('\0');
+       
+       if(firstNonRepeating != '\0'){
+           System.out.println(firstNonRepeating);
+       }else{
+           System.out.println("No Repeating char");
+       }
+        
+    }
+}
+========================================================================================
+
+can you explain about current project archtecture ?
+any limitation using aws lamda ?
+what are the layers in lamda ?
+difference between sqs and sns in aws ?
+what deffernt types keys available in sqs ?
+what is the maximum size of the message in sqs ?
+what are the advantages using ecs in aws ?
+What is defference between runnable and callable ?
+did you use runnable and calable for mutithreading senario ?
+difference between hashmap and cuncurrent hashmap ?
+what is camparable and comparator ?
+what is immutability and how can achieve immutabulity ?
+do you know what are the all immutable class in java library ?
+what are the java 8 feature ?
+what is intermediator and terminal operator ?
+what is @bean and @component ?
+what is @condition annotation and what purpose use ?
+what is defference between put and patch method ?
+for example we are two API that is A api and B api how we can call A api from B api ?
+what is defference between syncronus and asyncronus ?
+what are the different design pattern to implement microservice ?
+what is horizantal and vertical scaling ?
+how your microservices scalling up when loading high ?
+can you mock private methods ?
+there are we have multiple microservices how you will do integration testing ?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

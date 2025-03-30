@@ -1,0 +1,155 @@
+import { useState, useEffect } from "react";
+
+const JobTracker = () => {
+  const [jobs, setJobs] = useState(() => {
+    return JSON.parse(localStorage.getItem("jobApplications")) || [];
+  });
+
+  const [form, setForm] = useState({
+    company: "",
+    position: "",
+    status: "Applied",
+    date: ""
+  });
+
+  const [editingIndex, setEditingIndex] = useState(null);
+  const [search, setSearch] = useState("");
+  const [filterStatus, setFilterStatus] = useState("All");
+  const [reminders, setReminders] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const jobsPerPage = 5;
+
+  useEffect(() => {
+    localStorage.setItem("jobApplications", JSON.stringify(jobs));
+  }, [jobs]);
+
+  useEffect(() => {
+    const today = new Date().toISOString().split("T")[0];
+    const upcomingReminders = jobs.filter(job => job.date === today);
+    setReminders(upcomingReminders);
+  }, [jobs]);
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (editingIndex !== null) {
+      const updatedJobs = [...jobs];
+      updatedJobs[editingIndex] = form;
+      setJobs(updatedJobs);
+      setEditingIndex(null);
+    } else {
+      setJobs([...jobs, form]);
+    }
+    setForm({ company: "", position: "", status: "Applied", date: "" });
+  };
+
+  const handleEdit = (index) => {
+    setForm(jobs[index]);
+    setEditingIndex(index);
+  };
+
+  const handleDelete = (index) => {
+    const updatedJobs = jobs.filter((_, i) => i !== index);
+    setJobs(updatedJobs);
+  };
+
+  const fetchJobDetails = async () => {
+    if (!form.position || !form.company) return;
+    try {
+      const response = await fetch(`https://api.example.com/jobs?company=${form.company}&position=${form.position}`);
+      const data = await response.json();
+      if (data) {
+        setForm(prev => ({ ...prev, ...data }));
+      }
+    } catch (error) {
+      console.error("Error fetching job details", error);
+    }
+  };
+
+  const exportToCSV = () => {
+    const csvContent = "data:text/csv;charset=utf-8," +
+      ["Company,Position,Status,Applied Date"].concat(
+        jobs.map(job => `${job.company},${job.position},${job.status},${job.date}`)
+      ).join("\n");
+
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "job_applications.csv");
+    document.body.appendChild(link);
+    link.click();
+  };
+
+  const filteredJobs = jobs.filter(job => 
+    (filterStatus === "All" || job.status === filterStatus) &&
+    (job.company.toLowerCase().includes(search.toLowerCase()) || 
+     job.position.toLowerCase().includes(search.toLowerCase()))
+  );
+
+  const totalPages = Math.ceil(filteredJobs.length / jobsPerPage);
+  const paginatedJobs = filteredJobs.slice((currentPage - 1) * jobsPerPage, currentPage * jobsPerPage);
+
+  return (
+    <div className="p-4 max-w-lg mx-auto">
+      <h2 className="text-2xl font-bold mb-4">Job Application Tracker</h2>
+      
+      <div className="mb-4 space-y-2">
+        <input
+          type="text"
+          placeholder="Search by company or position"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="w-full p-2 border rounded"
+        />
+        <select
+          value={filterStatus}
+          onChange={(e) => setFilterStatus(e.target.value)}
+          className="w-full p-2 border rounded"
+        >
+          <option value="All">All</option>
+          <option value="Applied">Applied</option>
+          <option value="Interview">Interview</option>
+          <option value="Offer Received">Offer Received</option>
+          <option value="Rejected">Rejected</option>
+        </select>
+      </div>
+      
+      <form onSubmit={handleSubmit} className="space-y-3">
+        <input type="text" name="company" placeholder="Company Name" value={form.company} onChange={handleChange} className="w-full p-2 border rounded" required />
+        <input type="text" name="position" placeholder="Position" value={form.position} onChange={handleChange} className="w-full p-2 border rounded" required />
+        <button type="button" onClick={fetchJobDetails} className="w-full bg-gray-500 text-white p-2 rounded">Fetch Job Details</button>
+        <select name="status" value={form.status} onChange={handleChange} className="w-full p-2 border rounded">
+          <option value="Applied">Applied</option>
+          <option value="Interview">Interview</option>
+          <option value="Offer Received">Offer Received</option>
+          <option value="Rejected">Rejected</option>
+        </select>
+        <input type="date" name="date" value={form.date} onChange={handleChange} className="w-full p-2 border rounded" required />
+        <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded">{editingIndex !== null ? "Update Job" : "Add Job"}</button>
+      </form>
+
+      <button onClick={exportToCSV} className="mt-4 w-full bg-green-500 text-white p-2 rounded">Export to CSV</button>
+      
+      <ul className="mt-6 space-y-3">
+        {paginatedJobs.map((job, index) => (
+          <li key={index} className="p-3 border rounded flex justify-between items-center">
+            <div>
+              <p className="font-semibold">{job.position} at {job.company}</p>
+              <p className="text-sm">Status: {job.status} | Applied on: {job.date}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+      <div className="mt-4 flex justify-between">
+        <button onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} disabled={currentPage === 1}>Prev</button>
+        <span>Page {currentPage} of {totalPages}</span>
+        <button onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} disabled={currentPage === totalPages}>Next</button>
+      </div>
+    </div>
+  );
+};
+
+export default JobTracker;

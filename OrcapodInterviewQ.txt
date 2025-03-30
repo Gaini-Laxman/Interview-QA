@@ -1,0 +1,124 @@
+
+import org.springframework.boot.actuate.health.Health;
+import org.springframework.boot.actuate.health.ReactiveHealthIndicator;
+import org.springframework.stereotype.Component;
+import reactor.core.publisher.Mono;
+
+@Component
+public class MyReactiveHealthIndicator implements ReactiveHealthIndicator {
+
+    @Override
+    public Mono<Health> health() {
+        return checkReactiveService()
+            .map(serviceHealthy -> {
+                if (serviceHealthy) {
+                    return Health.up()
+                            .withDetail("reactiveService", "All systems go")
+                            .build();
+                } else {
+                    return Health.down()
+                            .withDetail("reactiveService", "Reactive service is down")
+                            .build();
+                }
+            });
+    }
+
+    private Mono<Boolean> checkReactiveService() {
+        // Simulate async call (e.g., DB or external API ping)
+        return Mono.just(true); // simulate healthy service
+    }
+}
+
+
+
+management.endpoints.web.exposure.include=health,info
+management.endpoint.health.show-details=always
+
+=============================================================================
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.web.SecurityFilterChain;
+
+@Configuration
+public class ActuatorSecurityConfig {
+
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+            .authorizeHttpRequests((requests) -> requests
+                .requestMatchers("/actuator/health", "/actuator/info").permitAll() // public
+                .requestMatchers("/actuator/**").hasRole("ADMIN") // other actuator endpoints need ADMIN role
+                .anyRequest().authenticated()
+            )
+            .httpBasic(); // Use basic auth or any other auth mechanism
+
+        return http.build();
+    }
+}
+======================================================================
+
+
+
+How to upload file in springboot ?
+
+
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
+
+import java.io.File;
+import java.io.IOException;
+
+@RestController
+@RequestMapping("/api/files")
+public class FileUploadController {
+
+    private static final String UPLOAD_DIR = "uploads/";
+
+    @PostMapping("/upload")
+    public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
+        if (file.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Please select a file to upload.");
+        }
+
+        try {
+            // Make sure directory exists
+            File uploadDir = new File(UPLOAD_DIR);
+            if (!uploadDir.exists()) {
+                uploadDir.mkdirs();
+            }
+
+            // Save the file locally
+            file.transferTo(new File(UPLOAD_DIR + file.getOriginalFilename()));
+
+            return ResponseEntity.ok("File uploaded successfully: " + file.getOriginalFilename());
+        } catch (IOException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to upload file.");
+        }
+    }
+}
+
+
+spring.servlet.multipart.enabled=true
+spring.servlet.multipart.max-file-size=10MB
+spring.servlet.multipart.max-request-size=20MB
+
+
+=========================================
+
+import java.util.*;
+import java.util.stream.*;
+import java.util.function.*;
+
+
+class Main {
+    public static void main(String[] args) {
+        
+       String s = "laxman";
+       Map<Character, Long> map = s.chars().mapToObj(c->(char)c).collect(Collectors.groupingBy(c->c, Collectors.counting()));
+        System.out.println(map);
+    }
+}
+

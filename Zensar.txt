@@ -1,0 +1,70 @@
+find how many times each alpabet repeated  in java ?
+ex : l-1
+      r-2
+      a-2
+=========================================================================
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+class Main {
+    public static void main(String[] args) {
+       String input =  "a,b$c";
+      // String output = "c,b$a";
+       String output = reverseAlphabet(input);
+        System.out.println("Output:"+output);
+        
+    }
+    public static String reverseAlphabet(String str){
+        char[] arr = str.toCharArray();
+        int left =0;
+        int right = arr.length-1;
+        
+        while(left < right){
+        if(!Character.isLetter(arr[left])){
+            left++;
+        }
+         else if(!Character.isLetter(arr[right])){
+        right--;
+    }else{
+        char temp = arr[left];
+        arr[left] = arr[right];
+        arr[right] = temp;
+        left++;
+        right--;
+    }
+   
+    }
+    return new String(arr);
+    
+}}
+======================================================================================
+what is dead lock and how you avoid deadlock ?
+how do handle memory management interms of garbage collector ?
+what is transient and volatile key words in java ?
+what is optinal class ?
+we have large data set how do you handle using stream api to improve performanance ?
+how do spring security has done authentication and autherization ?
+how do you implement rolebased access in spring security ?
+what is the difference between put and patch ?
+how do you difference between primary key and foreign key ?
+suppose we need migrate sql data base to no sql data base what is your approach migrate ?
+what is difference between git merge and git rebase ?
+what is single ton design pattern ?
+what difference between @Controller and @RestController ?
+can you tell me what is role of spring data jpa ?
+what is EC2 in aws?
+what is lamda in aws ?
+
+what are the lifecycle hooks in  react ?
+what is react router ?
+what are directives in angular ?
+what is dependancy injection ?
+
+
+
+
+
+
+
+
+

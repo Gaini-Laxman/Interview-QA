@@ -1,0 +1,115 @@
+
+
+ class Singleton{
+private static vo singleton getIncetance;
+
+private Singleton(){}
+
+public static void getIncetance(){
+if(incetance == null){
+syncronized(){}
+}
+
+}
+
+
+}
+
+======================================================================================
+
+
+Input: nums = [1,2,3,4,5,6,7], k = 3
+Output: [5,6,7,1,2,3,4]
+Explanation:rotate 1 steps to the right: [7,1,2,3,4,5,6]
+rotate 2 steps to the right: [6,7,1,2,3,4,5]
+rotate 3 steps to the right: [5,6,7,1,2,3,4]
+
+Rotate Array by k steps;
+int n = nums.length;
+
+k = k%n;
+
+reverse(nums, 0, n-1);
+reverse(nums, 0, n-1);
+
+while(start < end){
+int temp = nums[start];
+nums[start] = nums[end];
+nums[end] = temp;
+start++;
+
+}
+
+
+
+=============================================================================
+
+class Solution {
+    public int[] dailyTemperatures(int[] temperatures) {
+
+        int[] n = temperatures.length;
+        int[] answer =new int[i];
+        Stack<Intger> stack = new Stack();
+
+        for(int i=0; i< n; i++){
+         while(!stack.isEmpty){
+          int prevIndex = stack.pop();
+        answer[prevIndex] = i - prevIndex;
+
+             }
+         stack.push(i);
+
+        }
+        return answer;
+
+        
+    }
+
+    
+}
+
+
+=====================================
+
+739. Daily Temperatures
+Medium
+Topics
+Companies
+Hint
+Given an array of integers temperatures represents the daily temperatures, return an array answer such that answer[i] is the number of days you have to wait after the ith day to get a warmer temperature. If there is no future day for which this is possible, keep answer[i] == 0 instead.
+
+ 
+
+Example 1:
+
+Input: temperatures = [73,74,75,71,69,72,76,73]
+Output: [1,1,4,2,1,1,0,0]
+Example 2:
+
+Input: temperatures = [30,40,50,60]
+Output: [1,1,1,0]
+Example 3:
+
+Input: temperatures = [30,60,90]
+Output: [1,1,0]
+ 
+
+Constraints:
+
+1 <= temperatures.length <= 105
+30 <= temperatures[i] <= 100
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

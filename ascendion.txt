@@ -1,0 +1,19 @@
+Familiarize your self with Codility Online Coding Test via Youtube 
+Familiarize on Codility UI and coding UI to be able Run and Compile.
+Exam Link is only Valid for 24hrs
+80 Minutes online exam
+Two Part:
+1st part Multiple choice exam
+2nd Coding exercise
+The codility platform it self does not provide code complete functionality, so be familiarized with the possible API's & Syntax that will be used.
+You may use your local IDE to get code complete on API or Syntax information, 
+Or google the  API that you intended to use or Syntax information, other than that you may not use google for anything else.
+Be prepared to write the necessary boilerplate code for the SpringBoot and endpoints as needed. 
+Possible coding exam Coverage:
+Java 17
+Apache Environment 3.3.9
+Google Guava 28.1-jre
+SpringBoot Data JPA Starter 2.7.5
+SpringBoot Data Web Starter 2.7.5
+You will make a REST API controller, and all endpoints, Handle POST, GET, PUT, DELETE. And retrieve the data
+ 
