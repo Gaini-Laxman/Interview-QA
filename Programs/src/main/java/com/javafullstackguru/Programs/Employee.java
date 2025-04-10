@@ -1,0 +1,75 @@
+package com.javafullstackguru.Programs;
+
+import lombok.Data;
+import lombok.Getter;
+
+import java.util.*;
+import java.util.stream.*;
+
+@Data
+public class Employee {
+    private int id;
+    @Getter
+    private String name;
+    private int age;
+    @Getter
+    private long salary;
+    private String gender;
+    @Getter
+    private String deptName;
+    private String city;
+    private int yearOfJoining;
+
+    public Employee(int id, String name, int age, long salary, String gender, String deptName, String city, int yearOfJoining) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+        this.gender = gender;
+        this.deptName = deptName;
+        this.city = city;
+        this.yearOfJoining = yearOfJoining;
+    }
+
+    @Override
+    public String toString() {
+        return name + " (" + salary + ")";
+    }
+
+    public static void main(String[] args) {
+        List<Employee> empList = new ArrayList<>();
+        empList.add(new Employee(1, "Yanksha", 28, 123, "F", "HR", "Blore", 2020));
+        empList.add(new Employee(2, "Francesca", 29, 120, "F", "HR", "Hyderabad", 2015));
+        empList.add(new Employee(3, "Ramesh", 30, 115, "M", "HR", "Chennai", 2014));
+        empList.add(new Employee(4, "Melanie", 32, 125, "F", "HR", "Chennai", 2013));
+
+        empList.add(new Employee(5, "Padma", 22, 150, "F", "IT", "Noida", 2013));
+        empList.add(new Employee(6, "Milad", 27, 140, "M", "IT", "Gurugram", 2017));
+        empList.add(new Employee(7, "Uzma", 26, 130, "F", "IT", "Pune", 2016));
+        empList.add(new Employee(8, "Ali", 23, 145, "M", "IT", "Trivandam", 2015));
+        empList.add(new Employee(9, "Ram", 25, 160, "M", "IT", "Blore", 2010));
+
+        // Group by department and sort by salary descending
+        Map<String, Optional<Employee>> secondHighestByDept = empList.stream()
+                .collect(Collectors.groupingBy(
+                        Employee::getDeptName,
+                        Collectors.collectingAndThen(
+                                Collectors.toList(),
+                                list -> list.stream()
+                                        .sorted(Comparator.comparingLong(Employee::getSalary).reversed())
+                                        .skip(1) // skip the highest
+                                        .findFirst()
+                        )
+                ));
+
+        // Display results
+        secondHighestByDept.forEach((dept, empOpt) -> {
+            if (empOpt.isPresent()) {
+                System.out.println("Second highest in " + dept + ": " + empOpt.get());
+            } else {
+                System.out.println("Second highest in " + dept + ": Not enough employees");
+            }
+        });
+    }
+}
+

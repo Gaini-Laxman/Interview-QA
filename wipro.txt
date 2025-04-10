@@ -1,36 +1,29 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
 import java.util.*;
+import java.util.function.*;
 import java.util.stream.*;
 
 class Main {
     public static void main(String[] args) {
-        List<Integer> numbers = Arrays.asList(11, 12, 13, 15, 16, 18);
-        System.out.println(IntStream.rangeClosed(11, 18).filter(n -> !numbers.contains(n)).boxed().toList());
+     List<Integer>numbers = Arrays.asList(11, 12,13,15,16,18,20);
+     System.out.println(IntStream.rangeClosed(numbers.stream().min(Integer::compare).get(), numbers.stream().max(Integer::compare).get()).filter(n->!numbers.contains(n)).boxed().toList());
     }
 }
 
 ==================================================
-// Online Java Compiler
-// Use this editor to write, compile and run your Java code online
-
 class Main {
     public static void main(String[] args) {
-        
-         // need to count the zeros from the given integer
- 
-//   for ex: 10
-//   count will be 2
-//   if it's 20
-//   count is 3
-  
-  int num1 = 10;
-  int num2 =20;
- 
-        System.out.println("Try programiz.pro");
+        System.out.println(countZeros(10)); // Output: 2
+        System.out.println(countZeros(20)); // Output: 3
     }
-    
-    public static int counterZero(){
-        
-        
+
+    public static int countZeros(int n) {
+        int count = 0;
+        for (int i = 1; i <= n; i++) {
+            count += String.valueOf(i).chars().filter(c -> c == '0').count();
+        }
+        return count;
     }
 }
 

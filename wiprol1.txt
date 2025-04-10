@@ -1,0 +1,211 @@
+write a program to sort a list of books in a library. 
+Each book has a title, author, and publication year. The program should be able to:
+ 
+1. Sort the books by title in alphabetical order.
+2. Sort the books by author in alphabetical order.
+3. Sort the books by publication year in ascending order.
+ 
+**Requirements:**
+ 
+- Implement a class `Book` with attributes for title, author, and publication year.
+- Create a method to sort a list of `Book` objects by the specified attribute.
+- Ensure the sorting is efficient and handles edge cases, such as books with the same title or author.
+ 
+**Example:**
+ 
+Given the following list of books:
+ 
+1. "The Great Gatsby" by F. Scott Fitzgeral	d, 1925
+2. "1984" by George Orwell, 1949
+3. "To Kill a Mockingbird" by Harper Lee, 1960
+ 
+The program should be able to output:
+ 
+- Sorted by title: "1984", "The Great Gatsby", "To Kill a Mockingbird"
+- Sorted by author: "The Great Gatsby", "To Kill a Mockingbird", "1984"
+- Sorted by year: "The Great Gatsby", "1984", "To Kill a Mockingbird"
+================================================================================
+
+
+import java.util.ArrayList;
+import java.util.List;
+ 
+class Book {
+    private String title;
+    private String author;
+    private int publicationYear;
+ 
+    public Book(String title, String author, int publicationYear) {
+        this.title = title;
+        this.author = author;
+        this.publicationYear = publicationYear;
+    }
+ 
+    public String getTitle() {
+        return title;
+    }
+ 
+    public String getAuthor() {
+        return author;
+    }
+ 
+    public int getPublicationYear() {
+        return publicationYear;
+    }
+ 
+    @Override
+    public String toString() {
+        return "\"" + title + "\" by " + author + ", " + publicationYear;
+    }
+}
+ 
+public class LibraryBookSorting {
+ 
+    public static void main(String[] args) {
+        List<Book> books = new ArrayList<>();
+        books.add(new Book("The Great Gatsby", "F. Scott Fitzgerald", 1925));
+        books.add(new Book("1984", "George Orwell", 1949));
+        books.add(new Book("To Kill a Mockingbird", "Harper Lee", 1960));
+ 
+        System.out.println("Original List:");
+        printBooks(books);
+ 
+        // Sort by title
+ 
+         case: "tittle":
+        books.sort(Comparator.comparing(Books::getTitle);
+
+        // Sort by author
+
+       case:"auther";
+     books.sort(Comparator.comparing(Books::getAuther).thenComparing(Books::getTitle)); 
+        // Sort by publication year
+ case:"year";
+books.sort(Comparator.comparing(Books::getPublicationYear).thenComparing(Books::getTitle)); 
+ 
+    }
+ 
+    private static void printBooks(List<Book> books) {
+        for (Book book : books) {
+            System.out.println(book);
+        }
+    }
+}
+==================================================================================
+answer above 
+===========
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
+class Book {
+    private String title;
+    private String author;
+    private int publicationYear;
+
+    public Book(String title, String author, int publicationYear) {
+        this.title = title;
+        this.author = author;
+        this.publicationYear = publicationYear;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public int getPublicationYear() {
+        return publicationYear;
+    }
+
+    @Override
+    public String toString() {
+        return "\"" + title + "\" by " + author + ", " + publicationYear;
+    }
+}
+
+public class LibraryBookSorting {
+
+    public static void main(String[] args) {
+        List<Book> books = new ArrayList<>();
+        books.add(new Book("The Great Gatsby", "F. Scott Fitzgerald", 1925));
+        books.add(new Book("1984", "George Orwell", 1949));
+        books.add(new Book("To Kill a Mockingbird", "Harper Lee", 1960));
+
+        System.out.println("Original List:");
+        printBooks(books);
+
+        System.out.println("\nSorted by Title:");
+        sortBooks(books, "title");
+        printBooks(books);
+
+        System.out.println("\nSorted by Author:");
+        sortBooks(books, "author");
+        printBooks(books);
+
+        System.out.println("\nSorted by Year:");
+        sortBooks(books, "year");
+        printBooks(books);
+    }
+
+    private static void sortBooks(List<Book> books, String sortBy) {
+        switch (sortBy.toLowerCase()) {
+            case "title":
+                books.sort(Comparator.comparing(Book::getTitle)
+                        .thenComparing(Book::getAuthor));
+                break;
+            case "author":
+                books.sort(Comparator.comparing(Book::getAuthor)
+                        .thenComparing(Book::getTitle));
+                break;
+            case "year":
+                books.sort(Comparator.comparingInt(Book::getPublicationYear)
+                        .thenComparing(Book::getTitle));
+                break;
+            default:
+                System.out.println("Invalid sorting option.");
+        }
+    }
+
+    private static void printBooks(List<Book> books) {
+        for (Book book : books) {
+            System.out.println(book);
+        }
+    }
+}
+===========================================
+but requirement are not matching above we can getting title name only not other 
+
+
+So, technically, only the specified field (title, author, or year) needs to be considered. My addition of .thenComparing(...) was just a defensive way to ensure stable sorting when two books have the same title or author — but if we want to strictly follow the requirement, we can simplify the comparators.
+
+private static void sortBooks(List<Book> books, String sortBy) {
+    switch (sortBy.toLowerCase()) {
+        case "title":
+            books.sort(Comparator.comparing(Book::getTitle));
+            break;
+        case "author":
+            books.sort(Comparator.comparing(Book::getAuthor));
+            break;
+        case "year":
+            books.sort(Comparator.comparingInt(Book::getPublicationYear));
+            break;
+        default:
+            System.out.println("Invalid sorting option.");
+    }
+}
+
+
+
+
+
+
+
+
+
+
+

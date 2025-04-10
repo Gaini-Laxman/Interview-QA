@@ -1,0 +1,65 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+class Main {
+    public static void main(String[] args) {
+ 
+ String input1 = "java developer";
+ String input2 = "aabbcc";
+ System.out.println(firstNonRepeative(input1));
+ System.out.println(firstNonRepeative(input2));
+    }
+    public static char firstNonRepeative(String str){
+    Map<Character, Integer> charCount = new LinkedHashMap<>();
+ for(char c : str.toCharArray()){
+     charCount.put(c, charCount.getOrDefault(c, 0)+1);
+ }
+ for(Map.Entry<Character, Integer>entry : charCount.entrySet()){
+     if(entry.getValue() ==1){
+         return entry.getKey();
+         
+     }
+ }
+ return '\0';
+}
+}
+
+===================================================================================
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the first string: ");
+        String input1 = scanner.nextLine(); // Dynamic user input
+
+        System.out.println("First non-repeating character in first string: " + firstNonRepeating(input1));
+
+        scanner.close();
+    }
+
+    public static char firstNonRepeating(String str) {
+        Map<Character, Integer> charCount = new LinkedHashMap<>();
+
+        // Populate character count dynamically
+        for (char c : str.toCharArray()) {
+            charCount.put(c, charCount.getOrDefault(c, 0) + 1);
+        }
+
+        // Find first non-repeating character
+        for (Map.Entry<Character, Integer> entry : charCount.entrySet()) {
+            if (entry.getValue() == 1) {
+                return entry.getKey();
+            }
+        }
+
+        return '\0'; // Return null character if no unique character is found
+    }
+}
+

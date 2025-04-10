@@ -1,0 +1,51 @@
+Sort a list of strings by length using Lambda expressions?
+
+
+//String str[]=["java", "scala", "javascript", "SQL","C"}
+
+List<String> string = Arrays.asList("java", "scala", "javascript", "SQL","C");
+ 
+List<String>  sortedList = string.stream().sorted((s1,s2) -> Integer.compare(s1.length(), s2.length())).collect(Collectors.toList());
+Sop(sortedList);
+
+
+=====================================================================
+
+Design a method to a given string using a character count followed by
+ the character itself. Repetition is used to represent the number.
+  
+ String st="AAACCFFFFDD";
+  Output:3A2C4F2D
+
+public static String compressString(String str){
+if(str == null || str.isEmpty()){
+return "";
+
+}
+StringBuilder compressed = new StringBuilder();
+int count = 1;
+
+for(int i=1; i<str.length(); i++){
+if(str.charAt(i) == str.charAt(i-1)){
+count++;
+}else{
+compressed.append(count).append(str.charAt(i-1));
+count = 1;
+}
+
+}
+
+compressed.append(count).append(str.charAt(str.length() -1));
+ return compressed.toString();
+
+} 
+
+
+
+
+
+
+
+
+
+

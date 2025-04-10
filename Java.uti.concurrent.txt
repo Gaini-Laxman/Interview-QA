@@ -25,3 +25,181 @@ A4B3C3DE3F2L2PR2S2T3
 ======================================================================
 
 
+
+DeadLock avoid technic
+==================
+Lock ordering
+try lock with time out
+avoid nested lock
+use single lock obj
+dead lock detection tools like visualVm
+LTAUV
+=================
+
+=====================================================================================
+
+What Are Atomic Variables?
+
+
+Atomic Variables are part of java.util.concurrent.atomic package.
+They allow thread-safe, lock-free, atomic operations on single variables.
+
+✅ Meaning: operations like increment, set, compare-and-set (CAS) happen atomically — no race conditions, no explicit synchronized.
+
+
+=======================================================================
+
+What is PriorityBlockingQueue?
+
+
+PriorityBlockingQueue is:
+A thread-safe, unbounded blocking queue.
+It orders elements based on priority (natural order or a custom Comparator).
+Comes from java.util.concurrent package.
+It implements BlockingQueue, meaning it supports producer-consumer patterns.
+
+=====================================================================================
+
+What is CyclicBarrier?
+CyclicBarrier is a synchronization aid that allows a group of threads to wait for each other at a common point (a barrier).
+
+👉 All threads call await(). Once the number of waiting threads reaches the barrier limit, all of them are released at once.
+
+============================================================================
+What is CountDownLatch?
+CountDownLatch is a synchronization aid that allows one or more threads to wait until a set of operations being performed in other threads completes.
+
+👇 Use Case in Simple Terms:
+Imagine a main thread waiting for 5 worker threads to finish their tasks before it proceeds.
+
+Each worker thread calls countDown(), and the main thread calls await() and blocks until the count reaches 0.
+
+======================================================================================
+What is CompletableFuture?
+CompletableFuture is part of java.util.concurrent that lets you run tasks asynchronously, combine tasks, and handle results or exceptions once they're available — all without blocking the main thread.
+
+runAsync() – No return value (like Runnable)
+supplyAsync() – With return value (like Supplier)
+thenApply() – Transform result
+thenAccept() – Consume result
+thenCombine() – Combine two futures
+exceptionally() – Handle exceptions
+
+
+Why Use CompletableFuture?
+
+Non-blocking
+More readable and functional style
+Easy to chain, combine, and handle errors
+Scales better for async tasks (especially I/O bound)
+
+============================================
+
+ Is @Async the same as CompletableFuture?
+They can work together, but they are not the same.
+
+@Async (Spring Framework)
+Comes from Spring (org.springframework.scheduling.annotation.Async)
+
+Used to make methods run asynchronously (in the background).
+
+Returns void, Future<T>, or CompletableFuture<T>
+
+Requires @EnableAsync in your config
+
+==================================================
+
+What is an Executor?
+Executor is a Java interface for decoupling task submission from how the task is run (e.g., new thread, thread pool, etc.).
+
+ExecutorService
+This is a more advanced interface that adds:
+
+Task submission
+Shutdown
+Future support for result tracking
+Pool management
+
+ScheduledExecutorService
+This interface extends ExecutorService and adds support for delayed and periodic task execution — like a cron job.
+
+
+Thread Pool Types via Executors Factory
+
+Method	                                            Description
+newFixedThreadPool(int)	Fixed number of threads
+newCachedThreadPool()	Unbounded thread pool, reuses idle threads
+newSingleThreadExecutor()	Single-threaded executor
+newScheduledThreadPool(int)	For periodic tasks
+==================================================================
+
+What is Future?
+A Future in Java represents the result of an asynchronous computation. It acts like a placeholder that will eventually hold the result, once the task finishes.
+
+Limitations of Future
+While Future is helpful, it has some drawbacks:
+
+ No support for callback when the result is ready
+ No chaining of multiple async tasks
+ get() blocks the thread
+ Difficult to handle exceptions elegantly
+
+That's why Java 8 introduced CompletableFuture to overcome these limitations.
+
+Future                                vs                             CompletableFuture
+
+Feature	                            Future	                        CompletableFuture
+
+Blocking	                            Yes (get())	                  Optional (can be async)
+Callback support		                                    (thenApply, thenAccept)
+Exception handling	          Limited	                     Elegant (exceptionally())
+Chaining multiple tasks         No	                                         Yes
+Java version	        Java 5	                                      Java 8+
+
+============================================================
+ in java.util.cuncurrent which is best ?
+
+
+The java.util.concurrent package is full of powerful tools — but "which is best" really depends on your specific use case.
+
+Here’s a breakdown to help you choose the best tool based on what you're building:
+
+✅ Best Tools by Use Case
+Use Case	Best Tool(s)
+
+🚀 Run tasks asynchronously (thread pool)	      ThreadPoolExecutor, Executors, CompletableFuture
+🧵 Customize thread creation	                         ThreadFactory
+🧍 Store per-thread data (no sync needed)	       ThreadLocal
+🔄 Producer-consumer pattern	                          BlockingQueue (LinkedBlockingQueue, ArrayBlockingQueue)
+⏱ Schedule tasks with delay	                          ScheduledExecutorService
+🔄 Parallel task coordination	                          CountDownLatch, CyclicBarrier, Phaser
+🔐 Locking with advanced control	         ReentrantLock, ReadWriteLock
+⚛️ Thread-safe counters/flags	                           AtomicInteger, AtomicBoolean, AtomicReference, etc.
+⚙️ Fully async task chaining (non-blocking)	        CompletableFuture
+🧠 Manage future results of async tasks	        Future, CompletableFuture
+
+Which Is Best Overall?
+If you want modern, scalable, async programming, the top 3 tools are:
+
+✅ CompletableFuture – async + non-blocking pipelines
+
+✅ ThreadPoolExecutor – fine-grained thread pool control
+
+✅ AtomicInteger / ThreadLocal – for performance-safe shared or isolated state
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

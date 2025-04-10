@@ -1,7 +1,30 @@
 find how many times each alpabet repeated  in java ?
+String s = "laxman";
 ex : l-1
       r-2
       a-2
+===========================
+
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+public class CharacterFrequency {
+    public static void main(String[] args) {
+        String s = "laxman";
+
+        // Count frequency of each character
+        Map<Character, Long> frequencyMap = s.chars()
+            .mapToObj(c -> (char) c) // Convert int to Character
+            .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+        // Print the results
+        frequencyMap.forEach((k, v) -> System.out.println(k + "-" + v));
+    }
+}
+
+
+
 =========================================================================
 // Online Java Compiler
 // Use this editor to write, compile and run your Java code online

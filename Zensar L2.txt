@@ -1,0 +1,27 @@
+String s1 = "Java";
+String s2 = "Java";
+String s3 = new String("Java");
+String s4 = s3.intern();
+ 
+System.out.println(s1 == s2);   
+System.out.println(s1 == s3);     
+System.out.println(s1.equals(s3));  
+System.out.println(s3 == s4);
+
+
+========================================================================================
+
+Final List: 12 Key Java Design Principles
+#	Principle Name	Category
+1	Encapsulation	OOP
+2	Abstraction	OOP
+3	Inheritance	OOP
+4	Polymorphism	OOP
+5	Single Responsibility Principle	SOLID
+6	Open/Closed Principle	SOLID
+7	Liskov Substitution Principle	SOLID
+8	Interface Segregation Principle	SOLID
+9	Dependency Inversion Principle	SOLID
+10	DRY (Don't Repeat Yourself)	Best Practice
+11	KISS (Keep It Simple, Stupid)	Best Practice
+12	YAGNI (You Aren’t Gonna Need It)	Best Practice
